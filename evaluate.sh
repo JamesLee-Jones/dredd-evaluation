@@ -6,13 +6,24 @@ time=$1
 program_root=$2
 executable=$3
 
+
 # Fuzz base
-/home/jlj/dev/afl-cov/afl-cov -d "$2/results/base" --live --coverage-cmd "cat AFL_FILE | $2/$(basename $2)-gcov/$3" --code-dir "$2/$(basename $2)-gcov" &
-timeout $1 /home/jlj/dev/AFLplusplus/afl-fuzz -i "$2/testcase" -o "$2/results/base" "$2/$(basename $2)/$3" &
+afl-cov --clang --cover-corpus -d "$2/results/base/$(basename $3)" --live --coverage-cmd "$2/$(basename $2)-gcov/$3 $4 $5" --code-dir "$2/$(basename $2)-gcov" > /dev/null 2>&1 &
+
+AFL_FINAL_SYNC=1 timeout $1 afl-fuzz -i "$2/testcase" -o "$2/results/base/$(basename $3)" -M Fuzzer1 -- "$2/$(basename $2)/$3" $4 $5 &
+
+for ((i=2;i<=$6;i++)); do
+	timeout $1 afl-fuzz -i "$2/testcase" -o "$2/results/base/$(basename $3)" -S "Fuzzer$i" -- "$2/$(basename $2)/$3" $4 $5 > /dev/null 2>&1 &
+done
 wait
 
 # Fuzz instrumented
-/home/jlj/dev/afl-cov/afl-cov -d "$2/results/instrumented" --live --coverage-cmd "cat AFL_FILE | $2/$(basename $2)-gcov/$3" --code-dir "$2/$(basename $2)-gcov" &
-timeout $1 /home/jlj/dev/AFLplusplus/afl-fuzz -i "$2/testcase" -o "$2/results/instrumented" "$2/$(basename $2)-instrumented/$3" &
+afl-cov --clang --cover-corpus -d "$2/results/instrumented/$(basename $3)" --live --coverage-cmd "$2/$(basename $2)-gcov/$3 $4 $5" --code-dir "$2/$(basename $2)-gcov" > /dev/null 2>&1 &
+
+AFL_FINAL_SYNC=1 timeout $1 afl-fuzz -i "$2/testcase" -o "$2/results/instrumented/$(basename $3)" -M Fuzzer1 -- "$2/$(basename $2)-instrumented/$3" $4 $5 &
+
+for ((i=2;i<=$6;i++)); do
+	timeout $1 afl-fuzz -i "$2/testcase" -o "$2/results/instrumented/$(basename $3)" -S "Fuzzer$i" -- "$2/$(basename $2)-instrumented/$3" $4 $5 > /dev/null 2>&1 &
+done
 wait
 

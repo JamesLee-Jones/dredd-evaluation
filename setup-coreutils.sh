@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 set -u
 set -x
@@ -34,13 +36,16 @@ pushd coreutils
                 cp -r ../coreutils ../coreutils-instrumented
 
                 CC=afl-clang-lto CXX=afl-clang-lto++ AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto ./configure --quiet
-                AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto bear -- make -j $(nproc)
+		if [ -e "compile_commands.json" ]; then
+               		AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto make -j $(nproc)
+		else
+                	AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto bear -- make -j $(nproc)
+		fi
         popd
 
         # Compile with coverage
         pushd coreutils-gcov
-                /home/jlj/dev/afl-cov/afl-cov-build.sh -c ./configure --quiet
-                make -j $(nproc)
+		afl-cov-build.sh -c ./configure --quiet; make -j $(nproc)
         popd
 
         # Compile with instrumentation
