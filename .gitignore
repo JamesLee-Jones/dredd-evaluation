@@ -1,1 +1,12 @@
 Evaluation
+results-backup
+
+Experiments/basic-blocks-and-control-flow/.[^.]*.dot
+Experiments/basic-blocks-and-control-flow/*.png
+Experiments/basic-blocks-and-control-flow/*.txt
+Experiments/basic-blocks-and-control-flow/*.ll
+Experiments/execution-speed/binutils-gdb*
+Experiments/execution-speed/*.txt
+Experiments/unoptimized-compile-size/binutils*
+Experiments/unoptimized-compile-size/CountIf/build
+
