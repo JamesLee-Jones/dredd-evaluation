@@ -1,0 +1,59 @@
+optimized-instrumented.cc:107:78: remark: '_ZL24__dredd_replace_expr_intii' inlined into 'main' with (cost=always): always inline attribute at callsite main:3:78; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                                                             ^
+optimized-instrumented.cc:107:8: remark: '_ZL24__dredd_replace_expr_intii' inlined into 'main' with (cost=always): always inline attribute at callsite main:3:8; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+       ^
+optimized-instrumented.cc:101:10: remark: '_ZL24__dredd_replace_expr_intii' inlined into '_Z4testii' with (cost=always): always inline attribute at callsite test:1:10; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+         ^
+optimized-instrumented.cc:101:158: remark: '_ZL24__dredd_replace_expr_intii' inlined into '_Z4testii' with (cost=always): always inline attribute at callsite test:1:158; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                                                                                                                                             ^
+optimized-instrumented.cc:101:89: remark: '_ZL24__dredd_replace_expr_intii' inlined into '_Z4testii' with (cost=always): always inline attribute at callsite test:1:89; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                                                                        ^
+optimized-instrumented.cc:101:35: remark: '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intiii' inlined into '_Z4testii' with (cost=always): always inline attribute at callsite test:1:35; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                  ^
+optimized-instrumented.cc:107:103: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into 'main' with (cost=always): always inline attribute at callsite main:3:103; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                                                                                      ^
+optimized-instrumented.cc:107:33: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into 'main' with (cost=always): always inline attribute at callsite main:3:33; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                ^
+optimized-instrumented.cc:101:183: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into '_Z4testii' with (cost=always): always inline attribute at callsite test:1:183; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                                                                                                                                                                      ^
+optimized-instrumented.cc:101:114: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into '_Z4testii' with (cost=always): always inline attribute at callsite test:1:114; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                                                                                                 ^
+optimized-instrumented.cc:106:11: remark: '_ZL29__dredd_replace_expr_int_zeroii' inlined into 'main' with (cost=always): always inline attribute at callsite main:2:11; [-Rpass=inline]
+  int y = __dredd_replace_expr_int_zero(0, 31);
+          ^
+optimized-instrumented.cc:105:11: remark: '_ZL29__dredd_replace_expr_int_zeroii' inlined into 'main' with (cost=always): always inline attribute at callsite main:1:11; [-Rpass=inline]
+  int x = __dredd_replace_expr_int_zero(0, 29);
+          ^
+optimized-instrumented.cc contains 50 if statements.
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+ 53 instcount - Number of Add insts
+ 41 instcount - Number of Alloca insts
+ 98 instcount - Number of Br insts
+  1 instcount - Number of Call insts
+ 55 instcount - Number of ICmp insts
+168 instcount - Number of Load insts
+  1 instcount - Number of Mul insts
+  2 instcount - Number of Ret insts
+  1 instcount - Number of SDiv insts
+  1 instcount - Number of SRem insts
+ 89 instcount - Number of Store insts
+ 10 instcount - Number of Sub insts
+ 10 instcount - Number of Xor insts
+  5 instcount - Number of ZExt insts
+100 instcount - Number of basic blocks
+  2 instcount - Number of non-external functions
+535 instcount - Number of instructions (of all types)
+

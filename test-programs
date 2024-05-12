@@ -1,0 +1,8 @@
+binutils objdir/binutils/nm-new -C @@
+binutils objdir/binutils/readelf -a @@
+binutils objdir/binutils/objdump -d @@
+binutils objdir/binutils/cxxfilt 
+binutils objdir/binutils/strings @@
+binutils objdir/binutils/size @@
+coreutils src/ls
+

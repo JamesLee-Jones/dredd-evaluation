@@ -1,0 +1,888 @@
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E9_M_createIS1_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:35)>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIZ4testiiE3$_0EOT_RNSt16remove_referenceIS1_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E9_M_createIS1_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:35)>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIZ4testiiE3$_0EOT_RNSt16remove_referenceIS1_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E15_M_init_functorIS1_EEvRSt9_Any_dataOT_' with (cost=-35, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:35)>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E9_M_createIS1_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E15_M_init_functorIS1_EEvRSt9_Any_dataOT_' with (cost=-15035, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:35)>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' with (cost=-35, threshold=337) at callsite _M_access<const std::type_info *>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:96:41: remark: '_ZNKSt9_Any_data9_M_accessEv' inlined into '_ZNKSt9_Any_data9_M_accessIZ4testiiE3$_0EERKT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:35)>:1:41; [-Rpass=inline]
+      { return *static_cast<const _Tp*>(_M_access()); }
+                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:138:39: remark: '_ZNKSt9_Any_data9_M_accessIZ4testiiE3$_0EERKT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_get_pointer:4:39; [-Rpass=inline]
+              const _Functor& __f = __source._M_access<_Functor>();
+                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:139:37: remark: '_ZSt11__addressofIKZ4testiiE3$_0EPT_RS2_' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=487) at callsite _M_get_pointer:5:37; [-Rpass=inline]
+              return const_cast<_Functor*>(std::__addressof(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIPZ4testiiE3$_0EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:35) *>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E9_M_createIRKS1_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:35) &>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIRKZ4testiiE3$_0EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E9_M_createIRKS1_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:35) &>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIRKZ4testiiE3$_0EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_' with (cost=-15035, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:35) &>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E9_M_createIRKS1_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_' with (cost=-15035, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:35) &>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIZ4testiiE3$_0EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:35)>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:168:13: remark: '_ZNSt9_Any_data9_M_accessIZ4testiiE3$_0EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' with (cost=-15035, threshold=337) at callsite _M_destroy:2:13; [-Rpass=inline]
+          __victim._M_access<_Functor>().~_Functor();
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:187:15: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:15; [-Rpass=inline]
+              __dest._M_access<const type_info*>() = &typeid(_Functor);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:40: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:40; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                                              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:15: remark: '_ZNSt9_Any_data9_M_accessIPZ4testiiE3$_0EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:15; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:199:34: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:19:34; [-Rpass=inline]
+                  *const_cast<const _Functor*>(_M_get_pointer(__source)));
+                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:198:8: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:18:8; [-Rpass=inline]
+              _M_init_functor(__dest,
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:203:8: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:23:8; [-Rpass=inline]
+              _M_destroy(__dest, _Local_storage());
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:274:13: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt17_Function_handlerIFivEZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:13; [-Rpass=inline]
+            __dest._M_access<const type_info*>() = &typeid(_Functor);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:38: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:11:38; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                                            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:13: remark: '_ZNSt9_Any_data9_M_accessIPZ4testiiE3$_0EERT_v' inlined into '_ZNSt17_Function_handlerIFivEZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:11:13; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:282:6: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' inlined into '_ZNSt17_Function_handlerIFivEZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' with (cost=-14995, threshold=225) at callsite _M_manager:15:6; [-Rpass=inline]
+            _Base::_M_manager(__dest, __source, __op);
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E9_M_createIS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:128)>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIZZ4testiiENK3$_0clEvEUlvE_EOT_RNSt16remove_referenceIS2_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E9_M_createIS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:128)>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIZZ4testiiENK3$_0clEvEUlvE_EOT_RNSt16remove_referenceIS2_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E15_M_init_functorIS2_EEvRSt9_Any_dataOT_' with (cost=-35, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:128)>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E9_M_createIS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E15_M_init_functorIS2_EEvRSt9_Any_dataOT_' with (cost=-15030, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:128)>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:96:41: remark: '_ZNKSt9_Any_data9_M_accessEv' inlined into '_ZNKSt9_Any_data9_M_accessIZZ4testiiENK3$_0clEvEUlvE_EERKT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:128)>:1:41; [-Rpass=inline]
+      { return *static_cast<const _Tp*>(_M_access()); }
+                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:138:39: remark: '_ZNKSt9_Any_data9_M_accessIZZ4testiiENK3$_0clEvEUlvE_EERKT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_get_pointer:4:39; [-Rpass=inline]
+              const _Functor& __f = __source._M_access<_Functor>();
+                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:139:37: remark: '_ZSt11__addressofIKZZ4testiiENK3$_0clEvEUlvE_EPT_RS3_' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=487) at callsite _M_get_pointer:5:37; [-Rpass=inline]
+              return const_cast<_Functor*>(std::__addressof(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIPZZ4testiiENK3$_0clEvEUlvE_EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:128) *>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E9_M_createIRKS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:128) &>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIRKZZ4testiiENK3$_0clEvEUlvE_EOT_RNSt16remove_referenceIS4_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E9_M_createIRKS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:128) &>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIRKZZ4testiiENK3$_0clEvEUlvE_EOT_RNSt16remove_referenceIS4_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_' with (cost=-15035, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:128) &>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E9_M_createIRKS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_' with (cost=-15030, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:128) &>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIZZ4testiiENK3$_0clEvEUlvE_EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:128)>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:168:13: remark: '_ZNSt9_Any_data9_M_accessIZZ4testiiENK3$_0clEvEUlvE_EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' with (cost=-15035, threshold=337) at callsite _M_destroy:2:13; [-Rpass=inline]
+          __victim._M_access<_Functor>().~_Functor();
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:187:15: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:15; [-Rpass=inline]
+              __dest._M_access<const type_info*>() = &typeid(_Functor);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:40: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:40; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                                              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:15: remark: '_ZNSt9_Any_data9_M_accessIPZZ4testiiENK3$_0clEvEUlvE_EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:15; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:199:34: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:19:34; [-Rpass=inline]
+                  *const_cast<const _Functor*>(_M_get_pointer(__source)));
+                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:198:8: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-15030, threshold=337) at callsite _M_manager:18:8; [-Rpass=inline]
+              _M_init_functor(__dest,
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:203:8: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:23:8; [-Rpass=inline]
+              _M_destroy(__dest, _Local_storage());
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:274:13: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:13; [-Rpass=inline]
+            __dest._M_access<const type_info*>() = &typeid(_Functor);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:38: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:11:38; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                                            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:13: remark: '_ZNSt9_Any_data9_M_accessIPZZ4testiiENK3$_0clEvEUlvE_EERT_v' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:11:13; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:282:6: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-14990, threshold=225) at callsite _M_manager:15:6; [-Rpass=inline]
+            _Base::_M_manager(__dest, __source, __op);
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:192)>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:192)>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E15_M_init_functorIS3_EEvRSt9_Any_dataOT_' with (cost=-35, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:192)>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E15_M_init_functorIS3_EEvRSt9_Any_dataOT_' with (cost=-15030, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:192)>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:96:41: remark: '_ZNKSt9_Any_data9_M_accessEv' inlined into '_ZNKSt9_Any_data9_M_accessIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EERKT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:192)>:1:41; [-Rpass=inline]
+      { return *static_cast<const _Tp*>(_M_access()); }
+                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:138:39: remark: '_ZNKSt9_Any_data9_M_accessIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EERKT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_get_pointer:4:39; [-Rpass=inline]
+              const _Functor& __f = __source._M_access<_Functor>();
+                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:139:37: remark: '_ZSt11__addressofIKZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EPT_RS4_' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=487) at callsite _M_get_pointer:5:37; [-Rpass=inline]
+              return const_cast<_Functor*>(std::__addressof(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIPZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:192) *>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:192) &>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIRKZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EOT_RNSt16remove_referenceIS5_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:192) &>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIRKZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EOT_RNSt16remove_referenceIS5_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_' with (cost=-15035, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:192) &>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_' with (cost=-15030, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:192) &>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:192)>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:168:13: remark: '_ZNSt9_Any_data9_M_accessIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' with (cost=-15035, threshold=337) at callsite _M_destroy:2:13; [-Rpass=inline]
+          __victim._M_access<_Functor>().~_Functor();
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:187:15: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:15; [-Rpass=inline]
+              __dest._M_access<const type_info*>() = &typeid(_Functor);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:40: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:40; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                                              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:15: remark: '_ZNSt9_Any_data9_M_accessIPZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:15; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:199:34: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:19:34; [-Rpass=inline]
+                  *const_cast<const _Functor*>(_M_get_pointer(__source)));
+                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:198:8: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-15030, threshold=337) at callsite _M_manager:18:8; [-Rpass=inline]
+              _M_init_functor(__dest,
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:203:8: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:23:8; [-Rpass=inline]
+              _M_destroy(__dest, _Local_storage());
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:274:13: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:13; [-Rpass=inline]
+            __dest._M_access<const type_info*>() = &typeid(_Functor);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:38: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:11:38; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                                            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:13: remark: '_ZNSt9_Any_data9_M_accessIPZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EERT_v' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:11:13; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:282:6: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-14990, threshold=225) at callsite _M_manager:15:6; [-Rpass=inline]
+            _Base::_M_manager(__dest, __source, __op);
+            ^
+unoptimized-instrumented.cc:122:231: remark: '_ZL40__dredd_replace_expr_volatile_int_lvalueRVii' inlined into '_ZZZZ4testiiENK3$_0clEvENKUlvE_clEvENKUlvE_clEv': always inline attribute at callsite operator():0:231; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                      ^
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:54:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/tuple:41:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZSt7forwardIRZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EOT_RNSt16remove_referenceIS4_E4typeE' inlined into '_ZSt13__invoke_implIiRZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-35, threshold=337) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:192) &>:1:14; [-Rpass=inline]
+    { return std::forward<_Fn>(__f)(std::forward<_Args>(__args)...); }
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZZZZ4testiiENK3$_0clEvENKUlvE_clEvENKUlvE_clEv' inlined into '_ZSt13__invoke_implIiRZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-14955, threshold=325) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:192) &>:1:14; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:50: remark: '_ZSt7forwardIRZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EOT_RNSt16remove_referenceIS4_E4typeE' inlined into '_ZSt10__invoke_rIiRZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_' with (cost=-15035, threshold=337) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:192) &>:5:50; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+                                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:14: remark: '_ZSt13__invoke_implIiRZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' inlined into '_ZSt10__invoke_rIiRZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_' with (cost=-14955, threshold=225) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:192) &>:5:14; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+             ^
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:32: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_invokeERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_invoke:2:32; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+                                      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:9: remark: '_ZSt10__invoke_rIiRZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_invokeERKSt9_Any_data' with (cost=-14955, threshold=225) at callsite _M_invoke:2:9; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:437:4: remark: '_ZNSt14_Function_baseC2Ev' inlined into '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_vEEOT_' with (cost=-25, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:192), void>:2:4; [-Rpass=inline]
+        : _Function_base()
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:447:8: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E21_M_not_empty_functionIS3_EEbRKT_' inlined into '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:192), void>:12:8; [-Rpass=inline]
+          if (_My_handler::_M_not_empty_function(__f))
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:450:9: remark: '_ZSt7forwardIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_vEEOT_' with (cost=-15035, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:192), void>:15:9; [-Rpass=inline]
+                                           std::forward<_Functor>(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:449:8: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E15_M_init_functorIS3_EEvRSt9_Any_dataOT_' inlined into '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:192), void>:14:8; [-Rpass=inline]
+              _My_handler::_M_init_functor(_M_functor,
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:588:6: remark: '_ZNKSt14_Function_base8_M_emptyEv' inlined into '_ZNKSt8functionIFivEEclEv' with (cost=-25, threshold=337) at callsite operator():2:6; [-Rpass=inline]
+        if (_M_empty())
+            ^
+unoptimized-instrumented.cc:89:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' with (cost=25, threshold=225) at callsite __dredd_replace_expr_int:1:3; [-Rpass=inline]
+  MUTATION_PRELUDE(arg(),int);
+  ^
+unoptimized-instrumented.cc:90:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' with (cost=25, threshold=225) at callsite __dredd_replace_expr_int:2:3; [-Rpass=inline]
+  REPLACE_EXPR_LNOT_EVALUATED(0);
+  ^
+unoptimized-instrumented.cc:91:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' with (cost=25, threshold=225) at callsite __dredd_replace_expr_int:3:3; [-Rpass=inline]
+  REPLACE_EXPR_NOT_EVALUATED(1);
+  ^
+unoptimized-instrumented.cc:92:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' with (cost=25, threshold=225) at callsite __dredd_replace_expr_int:4:3; [-Rpass=inline]
+  REPLACE_EXPR_MINUS_EVALUATED(2);
+  ^
+unoptimized-instrumented.cc:94:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_EXPR_INT_ONE(4);
+  ^
+unoptimized-instrumented.cc:95:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_EXPR_INT_MINUS_ONE(5);
+  ^
+unoptimized-instrumented.cc:122:167: remark: '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv': always inline attribute at callsite operator():0:167; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                      ^
+unoptimized-instrumented.cc:122:192: remark: '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_vEEOT_' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=-15035, threshold=337) at callsite operator():0:192; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                               ^
+unoptimized-instrumented.cc:122:143: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=40, threshold=225) at callsite operator():0:143; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                              ^
+unoptimized-instrumented.cc:122:143: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=40, threshold=45) at callsite operator():0:143; [-Rpass=inline]
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+unoptimized-instrumented.cc:122:128: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                               ^
+unoptimized-instrumented.cc:122:128: remark: load eliminated by PRE [-Rpass=gvn]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                               ^
+unoptimized-instrumented.cc:122:128: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:243:11: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+      if (_M_manager)
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:243:11: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_invokeERKSt9_Any_data' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=40, threshold=225) at callsite operator():4:9 @ __dredd_replace_expr_int:1:3 @ operator():0:167; [-Rpass=inline]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_invokeERKSt9_Any_data' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=40, threshold=225) at callsite operator():4:9 @ __dredd_replace_expr_int:2:3 @ operator():0:167; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_invokeERKSt9_Any_data' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=40, threshold=225) at callsite operator():4:9 @ __dredd_replace_expr_int:3:3 @ operator():0:167; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E9_M_invokeERKSt9_Any_data' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=40, threshold=225) at callsite operator():4:9 @ __dredd_replace_expr_int:4:3 @ operator():0:167; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:244:2: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=-45, threshold=337) at callsite ~_Function_base:3:2 @ operator():0:143; [-Rpass=inline]
+        _M_manager(_M_functor, _M_functor, __destroy_functor);
+        ^
+unoptimized-instrumented.cc:122:128: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                               ^
+unoptimized-instrumented.cc:122:128: remark: load eliminated by PRE [-Rpass=gvn]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                               ^
+unoptimized-instrumented.cc:122:128: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:54:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/tuple:41:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZSt7forwardIRZZ4testiiENK3$_0clEvEUlvE_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZSt13__invoke_implIiRZZ4testiiENK3$_0clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-35, threshold=337) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:128) &>:1:14; [-Rpass=inline]
+    { return std::forward<_Fn>(__f)(std::forward<_Args>(__args)...); }
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' inlined into '_ZSt13__invoke_implIiRZZ4testiiENK3$_0clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-14610, threshold=325) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:128) &>:1:14; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:60:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+    __invoke_impl(__invoke_other, _Fn&& __f, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:60:5: remark: load eliminated by PRE [-Rpass=gvn]
+    __invoke_impl(__invoke_other, _Fn&& __f, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:60:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:50: remark: '_ZSt7forwardIRZZ4testiiENK3$_0clEvEUlvE_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZSt10__invoke_rIiRZZ4testiiENK3$_0clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES6_EEE5valueES6_E4typeEOSB_DpOSC_' with (cost=-15035, threshold=337) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:128) &>:5:50; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+                                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:14: remark: '_ZSt13__invoke_implIiRZZ4testiiENK3$_0clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' inlined into '_ZSt10__invoke_rIiRZZ4testiiENK3$_0clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES6_EEE5valueES6_E4typeEOSB_DpOSC_' with (cost=-14620, threshold=225) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:128) &>:5:14; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:137:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+    __invoke_r(_Callable&& __fn, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:137:5: remark: load eliminated by PRE [-Rpass=gvn]
+    __invoke_r(_Callable&& __fn, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:137:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:32: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE_E9_M_invokeERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_invoke:2:32; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+                                      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:9: remark: '_ZSt10__invoke_rIiRZZ4testiiENK3$_0clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES6_EEE5valueES6_E4typeEOSB_DpOSC_' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE_E9_M_invokeERKSt9_Any_data' with (cost=-14630, threshold=225) at callsite _M_invoke:2:9; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:288:7: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+      _M_invoke(const _Any_data& __functor, _ArgTypes&&... __args)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:288:7: remark: load eliminated by PRE [-Rpass=gvn]
+      _M_invoke(const _Any_data& __functor, _ArgTypes&&... __args)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:288:7: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:437:4: remark: '_ZNSt14_Function_baseC2Ev' inlined into '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE_vEEOT_' with (cost=-25, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:128), void>:2:4; [-Rpass=inline]
+        : _Function_base()
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:447:8: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E21_M_not_empty_functionIS2_EEbRKT_' inlined into '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE_vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:128), void>:12:8; [-Rpass=inline]
+          if (_My_handler::_M_not_empty_function(__f))
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:450:9: remark: '_ZSt7forwardIZZ4testiiENK3$_0clEvEUlvE_EOT_RNSt16remove_referenceIS2_E4typeE' inlined into '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE_vEEOT_' with (cost=-15035, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:128), void>:15:9; [-Rpass=inline]
+                                           std::forward<_Functor>(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:449:8: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE_E15_M_init_functorIS2_EEvRSt9_Any_dataOT_' inlined into '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE_vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:128), void>:14:8; [-Rpass=inline]
+              _My_handler::_M_init_functor(_M_functor,
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E9_M_createIS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:292)>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIZZ4testiiENK3$_0clEvEUlvE0_EOT_RNSt16remove_referenceIS2_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E9_M_createIS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:292)>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIZZ4testiiENK3$_0clEvEUlvE0_EOT_RNSt16remove_referenceIS2_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E15_M_init_functorIS2_EEvRSt9_Any_dataOT_' with (cost=-35, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:292)>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E9_M_createIS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E15_M_init_functorIS2_EEvRSt9_Any_dataOT_' with (cost=-15030, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:292)>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:96:41: remark: '_ZNKSt9_Any_data9_M_accessEv' inlined into '_ZNKSt9_Any_data9_M_accessIZZ4testiiENK3$_0clEvEUlvE0_EERKT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:292)>:1:41; [-Rpass=inline]
+      { return *static_cast<const _Tp*>(_M_access()); }
+                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:138:39: remark: '_ZNKSt9_Any_data9_M_accessIZZ4testiiENK3$_0clEvEUlvE0_EERKT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_get_pointer:4:39; [-Rpass=inline]
+              const _Functor& __f = __source._M_access<_Functor>();
+                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:139:37: remark: '_ZSt11__addressofIKZZ4testiiENK3$_0clEvEUlvE0_EPT_RS3_' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=487) at callsite _M_get_pointer:5:37; [-Rpass=inline]
+              return const_cast<_Functor*>(std::__addressof(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIPZZ4testiiENK3$_0clEvEUlvE0_EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:292) *>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E9_M_createIRKS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:292) &>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIRKZZ4testiiENK3$_0clEvEUlvE0_EOT_RNSt16remove_referenceIS4_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E9_M_createIRKS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:292) &>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIRKZZ4testiiENK3$_0clEvEUlvE0_EOT_RNSt16remove_referenceIS4_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_' with (cost=-15035, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:292) &>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E9_M_createIRKS2_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_' with (cost=-15030, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:292) &>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIZZ4testiiENK3$_0clEvEUlvE0_EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:292)>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:168:13: remark: '_ZNSt9_Any_data9_M_accessIZZ4testiiENK3$_0clEvEUlvE0_EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' with (cost=-15035, threshold=337) at callsite _M_destroy:2:13; [-Rpass=inline]
+          __victim._M_access<_Functor>().~_Functor();
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:187:15: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:15; [-Rpass=inline]
+              __dest._M_access<const type_info*>() = &typeid(_Functor);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:40: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:40; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                                              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:15: remark: '_ZNSt9_Any_data9_M_accessIPZZ4testiiENK3$_0clEvEUlvE0_EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:15; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:199:34: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:19:34; [-Rpass=inline]
+                  *const_cast<const _Functor*>(_M_get_pointer(__source)));
+                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:198:8: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E15_M_init_functorIRKS2_EEvRSt9_Any_dataOT_' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-15030, threshold=337) at callsite _M_manager:18:8; [-Rpass=inline]
+              _M_init_functor(__dest,
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:203:8: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:23:8; [-Rpass=inline]
+              _M_destroy(__dest, _Local_storage());
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:274:13: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:13; [-Rpass=inline]
+            __dest._M_access<const type_info*>() = &typeid(_Functor);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:38: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:11:38; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                                            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:13: remark: '_ZNSt9_Any_data9_M_accessIPZZ4testiiENK3$_0clEvEUlvE0_EERT_v' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:11:13; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:282:6: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE0_E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation' with (cost=-14990, threshold=225) at callsite _M_manager:15:6; [-Rpass=inline]
+            _Base::_M_manager(__dest, __source, __op);
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:356)>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<(lambda at unoptimized-instrumented.cc:122:356)>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E15_M_init_functorIS3_EEvRSt9_Any_dataOT_' with (cost=-35, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:356)>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_createIS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E15_M_init_functorIS3_EEvRSt9_Any_dataOT_' with (cost=-15030, threshold=337) at callsite _M_init_functor<(lambda at unoptimized-instrumented.cc:122:356)>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:96:41: remark: '_ZNKSt9_Any_data9_M_accessEv' inlined into '_ZNKSt9_Any_data9_M_accessIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EERKT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:356)>:1:41; [-Rpass=inline]
+      { return *static_cast<const _Tp*>(_M_access()); }
+                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:138:39: remark: '_ZNKSt9_Any_data9_M_accessIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EERKT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_get_pointer:4:39; [-Rpass=inline]
+              const _Functor& __f = __source._M_access<_Functor>();
+                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:139:37: remark: '_ZSt11__addressofIKZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EPT_RS4_' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' with (cost=-15035, threshold=487) at callsite _M_get_pointer:5:37; [-Rpass=inline]
+              return const_cast<_Functor*>(std::__addressof(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIPZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:356) *>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:20: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:356) &>:2:20; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:152:42: remark: '_ZSt7forwardIRKZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EOT_RNSt16remove_referenceIS5_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' with (cost=-35, threshold=337) at callsite _M_create<const (lambda at unoptimized-instrumented.cc:122:356) &>:2:42; [-Rpass=inline]
+            ::new (__dest._M_access()) _Functor(std::forward<_Fn>(__f));
+                                                ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:27: remark: '_ZSt7forwardIRKZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EOT_RNSt16remove_referenceIS5_E4typeE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_' with (cost=-15035, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:356) &>:4:27; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:215:6: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_createIRKS3_EEvRSt9_Any_dataOT_St17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_' with (cost=-15030, threshold=337) at callsite _M_init_functor<const (lambda at unoptimized-instrumented.cc:122:356) &>:4:6; [-Rpass=inline]
+            _M_create(__functor, std::forward<_Fn>(__f), _Local_storage());
+            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:91:35: remark: '_ZNSt9_Any_data9_M_accessEv' inlined into '_ZNSt9_Any_data9_M_accessIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EERT_v' with (cost=-35, threshold=337) at callsite _M_access<(lambda at unoptimized-instrumented.cc:122:356)>:1:35; [-Rpass=inline]
+      { return *static_cast<_Tp*>(_M_access()); }
+                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:168:13: remark: '_ZNSt9_Any_data9_M_accessIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' with (cost=-15035, threshold=337) at callsite _M_destroy:2:13; [-Rpass=inline]
+          __victim._M_access<_Functor>().~_Functor();
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:187:15: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:15; [-Rpass=inline]
+              __dest._M_access<const type_info*>() = &typeid(_Functor);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:40: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:40; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                                              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:194:15: remark: '_ZNSt9_Any_data9_M_accessIPZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EERT_v' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:14:15; [-Rpass=inline]
+              __dest._M_access<_Functor*>() = _M_get_pointer(__source);
+                     ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:199:34: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:19:34; [-Rpass=inline]
+                  *const_cast<const _Functor*>(_M_get_pointer(__source)));
+                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:198:8: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-15030, threshold=337) at callsite _M_manager:18:8; [-Rpass=inline]
+              _M_init_functor(__dest,
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:203:8: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb1EE' inlined into '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:23:8; [-Rpass=inline]
+              _M_destroy(__dest, _Local_storage());
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:274:13: remark: '_ZNSt9_Any_data9_M_accessIPKSt9type_infoEERT_v' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:7:13; [-Rpass=inline]
+            __dest._M_access<const type_info*>() = &typeid(_Functor);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:38: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-35, threshold=337) at callsite _M_manager:11:38; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                                            ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:278:13: remark: '_ZNSt9_Any_data9_M_accessIPZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EERT_v' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-15035, threshold=337) at callsite _M_manager:11:13; [-Rpass=inline]
+            __dest._M_access<_Functor*>() = _Base::_M_get_pointer(__source);
+                   ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:282:6: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' with (cost=-14990, threshold=225) at callsite _M_manager:15:6; [-Rpass=inline]
+            _Base::_M_manager(__dest, __source, __op);
+            ^
+unoptimized-instrumented.cc:122:395: remark: '_ZL40__dredd_replace_expr_volatile_int_lvalueRVii' inlined into '_ZZZZ4testiiENK3$_0clEvENKUlvE0_clEvENKUlvE_clEv': always inline attribute at callsite operator():0:395; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                                                                                                                          ^
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:54:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/tuple:41:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZSt7forwardIRZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EOT_RNSt16remove_referenceIS4_E4typeE' inlined into '_ZSt13__invoke_implIiRZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-35, threshold=337) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:356) &>:1:14; [-Rpass=inline]
+    { return std::forward<_Fn>(__f)(std::forward<_Args>(__args)...); }
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZZZZ4testiiENK3$_0clEvENKUlvE0_clEvENKUlvE_clEv' inlined into '_ZSt13__invoke_implIiRZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-14955, threshold=325) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:356) &>:1:14; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:50: remark: '_ZSt7forwardIRZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EOT_RNSt16remove_referenceIS4_E4typeE' inlined into '_ZSt10__invoke_rIiRZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_' with (cost=-15035, threshold=337) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:356) &>:5:50; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+                                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:14: remark: '_ZSt13__invoke_implIiRZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_' inlined into '_ZSt10__invoke_rIiRZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_' with (cost=-14955, threshold=225) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:356) &>:5:14; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+             ^
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:32: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_invokeERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_invoke:2:32; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+                                      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:9: remark: '_ZSt10__invoke_rIiRZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_' inlined into '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_invokeERKSt9_Any_data' with (cost=-14955, threshold=225) at callsite _M_invoke:2:9; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:437:4: remark: '_ZNSt14_Function_baseC2Ev' inlined into '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_vEEOT_' with (cost=-25, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:356), void>:2:4; [-Rpass=inline]
+        : _Function_base()
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:447:8: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E21_M_not_empty_functionIS3_EEbRKT_' inlined into '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:356), void>:12:8; [-Rpass=inline]
+          if (_My_handler::_M_not_empty_function(__f))
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:450:9: remark: '_ZSt7forwardIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_vEEOT_' with (cost=-15035, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:356), void>:15:9; [-Rpass=inline]
+                                           std::forward<_Functor>(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:449:8: remark: '_ZNSt14_Function_base13_Base_managerIZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E15_M_init_functorIS3_EEvRSt9_Any_dataOT_' inlined into '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:356), void>:14:8; [-Rpass=inline]
+              _My_handler::_M_init_functor(_M_functor,
+              ^
+unoptimized-instrumented.cc:122:331: remark: '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv': always inline attribute at callsite operator():0:331; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                                                          ^
+unoptimized-instrumented.cc:122:356: remark: '_ZNSt8functionIFivEEC2IZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_vEEOT_' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=-15035, threshold=337) at callsite operator():0:356; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                                                                                   ^
+unoptimized-instrumented.cc:122:307: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=40, threshold=225) at callsite operator():0:307; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                                  ^
+unoptimized-instrumented.cc:122:307: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=40, threshold=45) at callsite operator():0:307; [-Rpass=inline]
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+unoptimized-instrumented.cc:122:292: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                   ^
+unoptimized-instrumented.cc:122:292: remark: load eliminated by PRE [-Rpass=gvn]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                   ^
+unoptimized-instrumented.cc:122:292: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:243:11: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+      if (_M_manager)
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:243:11: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_invokeERKSt9_Any_data' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=40, threshold=225) at callsite operator():4:9 @ __dredd_replace_expr_int:1:3 @ operator():0:331; [-Rpass=inline]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_invokeERKSt9_Any_data' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=40, threshold=225) at callsite operator():4:9 @ __dredd_replace_expr_int:2:3 @ operator():0:331; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_invokeERKSt9_Any_data' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=40, threshold=225) at callsite operator():4:9 @ __dredd_replace_expr_int:3:3 @ operator():0:331; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E9_M_invokeERKSt9_Any_data' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=40, threshold=225) at callsite operator():4:9 @ __dredd_replace_expr_int:4:3 @ operator():0:331; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:244:2: remark: '_ZNSt17_Function_handlerIFivEZZZ4testiiENK3$_0clEvENKUlvE0_clEvEUlvE_E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=-45, threshold=337) at callsite ~_Function_base:3:2 @ operator():0:307; [-Rpass=inline]
+        _M_manager(_M_functor, _M_functor, __destroy_functor);
+        ^
+unoptimized-instrumented.cc:122:292: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                   ^
+unoptimized-instrumented.cc:122:292: remark: load eliminated by PRE [-Rpass=gvn]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                   ^
+unoptimized-instrumented.cc:122:292: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:54:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/tuple:41:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZSt7forwardIRZZ4testiiENK3$_0clEvEUlvE0_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZSt13__invoke_implIiRZZ4testiiENK3$_0clEvEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-35, threshold=337) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:292) &>:1:14; [-Rpass=inline]
+    { return std::forward<_Fn>(__f)(std::forward<_Args>(__args)...); }
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' inlined into '_ZSt13__invoke_implIiRZZ4testiiENK3$_0clEvEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-14610, threshold=325) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:292) &>:1:14; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:60:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+    __invoke_impl(__invoke_other, _Fn&& __f, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:60:5: remark: load eliminated by PRE [-Rpass=gvn]
+    __invoke_impl(__invoke_other, _Fn&& __f, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:60:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:50: remark: '_ZSt7forwardIRZZ4testiiENK3$_0clEvEUlvE0_EOT_RNSt16remove_referenceIS3_E4typeE' inlined into '_ZSt10__invoke_rIiRZZ4testiiENK3$_0clEvEUlvE0_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES6_EEE5valueES6_E4typeEOSB_DpOSC_' with (cost=-15035, threshold=337) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:292) &>:5:50; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+                                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:14: remark: '_ZSt13__invoke_implIiRZZ4testiiENK3$_0clEvEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_' inlined into '_ZSt10__invoke_rIiRZZ4testiiENK3$_0clEvEUlvE0_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES6_EEE5valueES6_E4typeEOSB_DpOSC_' with (cost=-14620, threshold=225) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:292) &>:5:14; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:137:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+    __invoke_r(_Callable&& __fn, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:137:5: remark: load eliminated by PRE [-Rpass=gvn]
+    __invoke_r(_Callable&& __fn, _Args&&... __args)
+    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:137:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:32: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE0_E9_M_invokeERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_invoke:2:32; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+                                      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:9: remark: '_ZSt10__invoke_rIiRZZ4testiiENK3$_0clEvEUlvE0_JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES6_EEE5valueES6_E4typeEOSB_DpOSC_' inlined into '_ZNSt17_Function_handlerIFivEZZ4testiiENK3$_0clEvEUlvE0_E9_M_invokeERKSt9_Any_data' with (cost=-14630, threshold=225) at callsite _M_invoke:2:9; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:288:7: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+      _M_invoke(const _Any_data& __functor, _ArgTypes&&... __args)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:288:7: remark: load eliminated by PRE [-Rpass=gvn]
+      _M_invoke(const _Any_data& __functor, _ArgTypes&&... __args)
+      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:288:7: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:437:4: remark: '_ZNSt14_Function_baseC2Ev' inlined into '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE0_vEEOT_' with (cost=-25, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:292), void>:2:4; [-Rpass=inline]
+        : _Function_base()
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:447:8: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E21_M_not_empty_functionIS2_EEbRKT_' inlined into '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE0_vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:292), void>:12:8; [-Rpass=inline]
+          if (_My_handler::_M_not_empty_function(__f))
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:450:9: remark: '_ZSt7forwardIZZ4testiiENK3$_0clEvEUlvE0_EOT_RNSt16remove_referenceIS2_E4typeE' inlined into '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE0_vEEOT_' with (cost=-15035, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:292), void>:15:9; [-Rpass=inline]
+                                           std::forward<_Functor>(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:449:8: remark: '_ZNSt14_Function_base13_Base_managerIZZ4testiiENK3$_0clEvEUlvE0_E15_M_init_functorIS2_EEvRSt9_Any_dataOT_' inlined into '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE0_vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:292), void>:14:8; [-Rpass=inline]
+              _My_handler::_M_init_functor(_M_functor,
+              ^
+unoptimized-instrumented.cc:111:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:1:3; [-Rpass=inline]
+  MUTATION_PRELUDE(arg1() + arg2(),int);
+  ^
+unoptimized-instrumented.cc:111:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:1:3; [-Rpass=inline]
+unoptimized-instrumented.cc:112:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:2:3; [-Rpass=inline]
+  REPLACE_BINARY_Div_LHS_EVALUATED_RHS_EVALUATED(int);
+  ^
+unoptimized-instrumented.cc:112:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:2:3; [-Rpass=inline]
+unoptimized-instrumented.cc:112:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:2:3; [-Rpass=inline]
+unoptimized-instrumented.cc:113:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:3:3; [-Rpass=inline]
+  REPLACE_BINARY_Mul_LHS_EVALUATED_RHS_EVALUATED(int);
+  ^
+unoptimized-instrumented.cc:113:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:3:3; [-Rpass=inline]
+unoptimized-instrumented.cc:114:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:4:3; [-Rpass=inline]
+  REPLACE_BINARY_Rem_LHS_EVALUATED_RHS_EVALUATED(int);
+  ^
+unoptimized-instrumented.cc:114:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:4:3; [-Rpass=inline]
+unoptimized-instrumented.cc:114:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:4:3; [-Rpass=inline]
+unoptimized-instrumented.cc:115:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:5:3; [-Rpass=inline]
+  REPLACE_BINARY_Sub_LHS_EVALUATED_RHS_EVALUATED(int);
+  ^
+unoptimized-instrumented.cc:115:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:5:3; [-Rpass=inline]
+unoptimized-instrumented.cc:116:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:6:3; [-Rpass=inline]
+  REPLACE_BINARY_ARG1_EVALUATED(4);
+  ^
+unoptimized-instrumented.cc:117:3: remark: '_ZNKSt8functionIFivEEclEv' inlined into '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' with (cost=25, threshold=225) at callsite __dredd_replace_binary_operator_Add_arg1_int_arg2_int:7:3; [-Rpass=inline]
+  REPLACE_BINARY_ARG2_EVALUATED(5);
+  ^
+unoptimized-instrumented.cc:122:74: remark: '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' inlined into '_ZZ4testiiENK3$_0clEv': always inline attribute at callsite operator():0:74; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                         ^
+unoptimized-instrumented.cc:122:128: remark: '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE_vEEOT_' inlined into '_ZZ4testiiENK3$_0clEv' with (cost=-15035, threshold=337) at callsite operator():0:128; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                               ^
+unoptimized-instrumented.cc:122:292: remark: '_ZNSt8functionIFivEEC2IZZ4testiiENK3$_0clEvEUlvE0_vEEOT_' inlined into '_ZZ4testiiENK3$_0clEv' with (cost=-15035, threshold=337) at callsite operator():0:292; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                   ^
+unoptimized-instrumented.cc:122:50: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_ZZ4testiiENK3$_0clEv' with (cost=40, threshold=225) at callsite operator():0:50; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                 ^
+unoptimized-instrumented.cc:122:50: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_ZZ4testiiENK3$_0clEv' with (cost=40, threshold=225) at callsite operator():0:50; [-Rpass=inline]
+unoptimized-instrumented.cc:122:50: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_ZZ4testiiENK3$_0clEv' with (cost=40, threshold=45) at callsite operator():0:50; [-Rpass=inline]
+unoptimized-instrumented.cc:122:50: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_ZZ4testiiENK3$_0clEv' with (cost=40, threshold=45) at callsite operator():0:50; [-Rpass=inline]
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:54:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/tuple:41:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZSt7forwardIRZ4testiiE3$_0EOT_RNSt16remove_referenceIS2_E4typeE' inlined into '_ZSt13__invoke_implIiRZ4testiiE3$_0JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-35, threshold=337) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:35) &>:1:14; [-Rpass=inline]
+    { return std::forward<_Fn>(__f)(std::forward<_Args>(__args)...); }
+             ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:61:14: remark: '_ZZ4testiiENK3$_0clEv' inlined into '_ZSt13__invoke_implIiRZ4testiiE3$_0JEET_St14__invoke_otherOT0_DpOT1_' with (cost=-13730, threshold=325) at callsite __invoke_impl<int, (lambda at unoptimized-instrumented.cc:122:35) &>:1:14; [-Rpass=inline]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:50: remark: '_ZSt7forwardIRZ4testiiE3$_0EOT_RNSt16remove_referenceIS2_E4typeE' inlined into '_ZSt10__invoke_rIiRZ4testiiE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES5_EEE5valueES5_E4typeEOSA_DpOSB_' with (cost=-15035, threshold=337) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:35) &>:5:50; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+                                                 ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/invoke.h:142:14: remark: '_ZSt13__invoke_implIiRZ4testiiE3$_0JEET_St14__invoke_otherOT0_DpOT1_' inlined into '_ZSt10__invoke_rIiRZ4testiiE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES5_EEE5valueES5_E4typeEOSA_DpOSB_' with (cost=-13730, threshold=225) at callsite __invoke_r<int, (lambda at unoptimized-instrumented.cc:122:35) &>:5:14; [-Rpass=inline]
+      return std::__invoke_impl<__type>(__tag{}, std::forward<_Callable>(__fn),
+             ^
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:32: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E14_M_get_pointerERKSt9_Any_data' inlined into '_ZNSt17_Function_handlerIFivEZ4testiiE3$_0E9_M_invokeERKSt9_Any_data' with (cost=-15035, threshold=337) at callsite _M_invoke:2:32; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+                                      ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:290:9: remark: '_ZSt10__invoke_rIiRZ4testiiE3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES5_EEE5valueES5_E4typeEOSA_DpOSB_' inlined into '_ZNSt17_Function_handlerIFivEZ4testiiE3$_0E9_M_invokeERKSt9_Any_data' with (cost=-13730, threshold=225) at callsite _M_invoke:2:9; [-Rpass=inline]
+        return std::__invoke_r<_Res>(*_Base::_M_get_pointer(__functor),
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:437:4: remark: '_ZNSt14_Function_baseC2Ev' inlined into '_ZNSt8functionIFivEEC2IZ4testiiE3$_0vEEOT_' with (cost=-25, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:35), void>:2:4; [-Rpass=inline]
+        : _Function_base()
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:447:8: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E21_M_not_empty_functionIS1_EEbRKT_' inlined into '_ZNSt8functionIFivEEC2IZ4testiiE3$_0vEEOT_' with (cost=-15030, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:35), void>:12:8; [-Rpass=inline]
+          if (_My_handler::_M_not_empty_function(__f))
+              ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:450:9: remark: '_ZSt7forwardIZ4testiiE3$_0EOT_RNSt16remove_referenceIS1_E4typeE' inlined into '_ZNSt8functionIFivEEC2IZ4testiiE3$_0vEEOT_' with (cost=-15035, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:35), void>:15:9; [-Rpass=inline]
+                                           std::forward<_Functor>(__f));
+                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:449:8: remark: '_ZNSt14_Function_base13_Base_managerIZ4testiiE3$_0E15_M_init_functorIS1_EEvRSt9_Any_dataOT_' inlined into '_ZNSt8functionIFivEEC2IZ4testiiE3$_0vEEOT_' with (cost=-15035, threshold=337) at callsite function<(lambda at unoptimized-instrumented.cc:122:35), void>:14:8; [-Rpass=inline]
+              _My_handler::_M_init_functor(_M_functor,
+              ^
+unoptimized-instrumented.cc:122:10: remark: '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' inlined into '_Z4testii': always inline attribute at callsite test:1:10; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+         ^
+unoptimized-instrumented.cc:122:35: remark: '_ZNSt8functionIFivEEC2IZ4testiiE3$_0vEEOT_' inlined into '_Z4testii' with (cost=-15030, threshold=337) at callsite test:1:35; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                  ^
+unoptimized-instrumented.cc:122:3: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_Z4testii' with (cost=40, threshold=225) at callsite test:1:3; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+  ^
+unoptimized-instrumented.cc:122:3: remark: '_ZNSt14_Function_baseD2Ev' inlined into '_Z4testii' with (cost=40, threshold=45) at callsite test:1:3; [-Rpass=inline]
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+    bool _M_empty() const { return !_M_manager; }
+                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:590:9: remark: load of type i32 (%"union.std::_Any_data"*)* eliminated [-Rpass=gvn]
+        return _M_invoker(_M_functor, std::forward<_ArgTypes>(__args)...);
+               ^
+unoptimized-instrumented.cc:121:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+int test(volatile int x, volatile int y) {
+    ^
+unoptimized-instrumented.cc:121:5: remark: load eliminated by PRE [-Rpass=gvn]
+int test(volatile int x, volatile int y) {
+    ^
+unoptimized-instrumented.cc:121:5: note: could not determine the original source location for unoptimized-instrumented.cc:0:0
+In file included from unoptimized-instrumented.cc:5:
+In file included from /usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/functional:59:
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:243:11: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+      if (_M_manager)
+          ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:243:11: remark: load of type i1 (%"union.std::_Any_data"*, %"union.std::_Any_data"*, i32)* eliminated [-Rpass=gvn]
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:244:2: remark: '_ZNSt17_Function_handlerIFivEZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' inlined into '_Z4testii' with (cost=-45, threshold=337) at callsite ~_Function_base:3:2 @ test:1:3; [-Rpass=inline]
+        _M_manager(_M_functor, _M_functor, __destroy_functor);
+        ^
+/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:244:2: remark: '_ZNSt17_Function_handlerIFivEZ4testiiE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation' inlined into '_Z4testii' with (cost=-45, threshold=45) at callsite ~_Function_base:3:2 @ test:1:3; [-Rpass=inline]
+unoptimized-instrumented.cc:102:3: remark: load eliminated by PRE [-Rpass=gvn]
+  REPLACE_EXPR_NOT(1);
+  ^
+unoptimized-instrumented.cc:105:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_EXPR_INT_ONE(4);
+  ^
+unoptimized-instrumented.cc:105:3: remark: load of type i64 eliminated [-Rpass=gvn]
+unoptimized-instrumented.cc:106:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_EXPR_INT_MINUS_ONE(5);
+  ^
+unoptimized-instrumented.cc:126:10: remark: '_ZL29__dredd_replace_expr_int_zeroii' inlined into 'main': always inline attribute at callsite main:1:10; [-Rpass=inline]
+        int x = __dredd_replace_expr_int_zero(0, 29);
+                ^
+unoptimized-instrumented.cc:127:10: remark: '_ZL29__dredd_replace_expr_int_zeroii' inlined into 'main': always inline attribute at callsite main:2:10; [-Rpass=inline]
+        int y = __dredd_replace_expr_int_zero(0, 31);
+                ^
+unoptimized-instrumented.cc:128:33: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into 'main': always inline attribute at callsite main:3:33; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                ^
+unoptimized-instrumented.cc:128:8: remark: '_ZL24__dredd_replace_expr_intii' inlined into 'main': always inline attribute at callsite main:3:8; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+       ^
+unoptimized-instrumented.cc:128:103: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into 'main': always inline attribute at callsite main:3:103; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                                                                                      ^
+unoptimized-instrumented.cc:128:78: remark: '_ZL24__dredd_replace_expr_intii' inlined into 'main': always inline attribute at callsite main:3:78; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                                                             ^
+unoptimized-instrumented.cc contains 42 if statements.
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+ 58 instcount - Number of Add insts
+  5 instcount - Number of Alloca insts
+ 16 instcount - Number of BitCast insts
+ 74 instcount - Number of Br insts
+ 20 instcount - Number of Call insts
+  4 instcount - Number of ExtractValue insts
+ 19 instcount - Number of GetElementPtr insts
+ 56 instcount - Number of ICmp insts
+ 24 instcount - Number of Invoke insts
+  5 instcount - Number of LandingPad insts
+ 78 instcount - Number of Load insts
+  1 instcount - Number of Mul insts
+  6 instcount - Number of PHI insts
+  2 instcount - Number of PtrToInt insts
+  1 instcount - Number of Resume insts
+  8 instcount - Number of Ret insts
+  1 instcount - Number of SDiv insts
+  1 instcount - Number of SRem insts
+ 46 instcount - Number of Store insts
+  4 instcount - Number of Sub insts
+  3 instcount - Number of Switch insts
+ 15 instcount - Number of Unreachable insts
+  3 instcount - Number of Xor insts
+ 14 instcount - Number of ZExt insts
+125 instcount - Number of basic blocks
+  9 instcount - Number of non-external functions
+464 instcount - Number of instructions (of all types)
+

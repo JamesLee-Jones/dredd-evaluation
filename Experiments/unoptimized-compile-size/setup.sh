@@ -4,14 +4,14 @@ set -e
 set -u
 set -x
 
-pushd CountIf
-  mkdir -p build
-  pushd build
-    export LLVM_DIR=/home/jlj/dev/llvm-project/build/bin
-    CXX=clang++ cmake -DLT_LLVM_INSTALL_DIR=$LLVM_DIR ..
-    make
-  popd
-popd
+#pushd CountIf
+#  mkdir -p build
+#  pushd build
+#    export LLVM_DIR=/home/jlj/dev/llvm-project/build/bin
+#    CXX=clang++ cmake -DLT_LLVM_INSTALL_DIR=$LLVM_DIR ..
+#    make
+#  popd
+#popd
 
  
 
@@ -29,7 +29,7 @@ if [ ! -d "binutils-O3" ]; then
   cp -r binutils-O0 binutils-O3
 fi
 
-export libCount="/home/jlj/dev/dredd-evalutation/Experiments/unoptimized-compile-size/CountIf/build/libCountIf.so"
+export libCount="/home/jlj/dev/dredd-evalutation/utils/CountIf/build/libCountIf.so"
 
 pushd binutils-O0
   mkdir -p objdir

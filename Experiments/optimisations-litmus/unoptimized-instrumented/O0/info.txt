@@ -1,0 +1,68 @@
+unoptimized-instrumented.cc:122:331: remark: '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE0_clEv' with (cost=always): always inline attribute at callsite operator():0:331; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                                                          ^
+unoptimized-instrumented.cc:122:167: remark: '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' inlined into '_ZZZ4testiiENK3$_0clEvENKUlvE_clEv' with (cost=always): always inline attribute at callsite operator():0:167; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                      ^
+unoptimized-instrumented.cc:122:10: remark: '_ZL24__dredd_replace_expr_intSt8functionIFivEEi' inlined into '_Z4testii' with (cost=always): always inline attribute at callsite test:1:10; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+         ^
+unoptimized-instrumented.cc:127:10: remark: '_ZL29__dredd_replace_expr_int_zeroii' inlined into 'main' with (cost=always): always inline attribute at callsite main:2:10; [-Rpass=inline]
+        int y = __dredd_replace_expr_int_zero(0, 31);
+                ^
+unoptimized-instrumented.cc:126:10: remark: '_ZL29__dredd_replace_expr_int_zeroii' inlined into 'main' with (cost=always): always inline attribute at callsite main:1:10; [-Rpass=inline]
+        int x = __dredd_replace_expr_int_zero(0, 29);
+                ^
+unoptimized-instrumented.cc:128:78: remark: '_ZL24__dredd_replace_expr_intii' inlined into 'main' with (cost=always): always inline attribute at callsite main:3:78; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                                                             ^
+unoptimized-instrumented.cc:128:8: remark: '_ZL24__dredd_replace_expr_intii' inlined into 'main' with (cost=always): always inline attribute at callsite main:3:8; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+       ^
+unoptimized-instrumented.cc:128:103: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into 'main' with (cost=always): always inline attribute at callsite main:3:103; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                                                                                      ^
+unoptimized-instrumented.cc:128:33: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into 'main' with (cost=always): always inline attribute at callsite main:3:33; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                ^
+unoptimized-instrumented.cc:122:74: remark: '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intSt8functionIFivEES1_i' inlined into '_ZZ4testiiENK3$_0clEv' with (cost=always): always inline attribute at callsite operator():0:74; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                         ^
+unoptimized-instrumented.cc:122:395: remark: '_ZL40__dredd_replace_expr_volatile_int_lvalueRVii' inlined into '_ZZZZ4testiiENK3$_0clEvENKUlvE0_clEvENKUlvE_clEv' with (cost=always): always inline attribute at callsite operator():0:395; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                                                                                                                                                                                          ^
+unoptimized-instrumented.cc:122:231: remark: '_ZL40__dredd_replace_expr_volatile_int_lvalueRVii' inlined into '_ZZZZ4testiiENK3$_0clEvENKUlvE_clEvENKUlvE_clEv' with (cost=always): always inline attribute at callsite operator():0:231; [-Rpass=inline]
+  return __dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_binary_operator_Add_arg1_int_arg2_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(x, 0)); }, 2)); } , [&]() -> int { return static_cast<int>(__dredd_replace_expr_int([&]() -> int { return static_cast<int>(__dredd_replace_expr_volatile_int_lvalue(y, 8)); }, 10)); }, 16)); }, 22);
+                                                                                                                                                                                                                                      ^
+unoptimized-instrumented.cc contains 57 if statements.
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  53 instcount - Number of Add insts
+ 267 instcount - Number of Alloca insts
+  83 instcount - Number of BitCast insts
+ 159 instcount - Number of Br insts
+ 214 instcount - Number of Call insts
+  29 instcount - Number of ExtractValue insts
+  48 instcount - Number of GetElementPtr insts
+  57 instcount - Number of ICmp insts
+   8 instcount - Number of InsertValue insts
+  42 instcount - Number of Invoke insts
+  20 instcount - Number of LandingPad insts
+ 368 instcount - Number of Load insts
+   1 instcount - Number of Mul insts
+   4 instcount - Number of Resume insts
+ 115 instcount - Number of Ret insts
+   1 instcount - Number of SDiv insts
+   1 instcount - Number of SRem insts
+ 308 instcount - Number of Store insts
+  10 instcount - Number of Sub insts
+  10 instcount - Number of Switch insts
+  18 instcount - Number of Unreachable insts
+  11 instcount - Number of Xor insts
+   5 instcount - Number of ZExt insts
+ 348 instcount - Number of basic blocks
+ 116 instcount - Number of non-external functions
+1832 instcount - Number of instructions (of all types)
+

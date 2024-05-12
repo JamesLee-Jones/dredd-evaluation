@@ -1,0 +1,14 @@
+optimized.cc:8:3: remark: '_Z4testii' inlined into 'main' with (cost=-40, threshold=337) at callsite main:3:3; [-Rpass=inline]
+  test(x, y);
+  ^
+optimized.cc contains 0 if statements.
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+1 instcount - Number of Add insts
+2 instcount - Number of Ret insts
+2 instcount - Number of basic blocks
+2 instcount - Number of non-external functions
+3 instcount - Number of instructions (of all types)
+

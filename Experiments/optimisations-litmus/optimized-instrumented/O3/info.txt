@@ -1,0 +1,91 @@
+optimized-instrumented.cc:81:3: remark: load eliminated by PRE [-Rpass=gvn]
+  REPLACE_EXPR_NOT(1);
+  ^
+optimized-instrumented.cc:84:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_EXPR_INT_ONE(4);
+  ^
+optimized-instrumented.cc:84:3: remark: load of type i64 eliminated [-Rpass=gvn]
+optimized-instrumented.cc:85:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_EXPR_INT_MINUS_ONE(5);
+  ^
+optimized-instrumented.cc:101:114: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into '_Z4testii': always inline attribute at callsite test:1:114; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                                                                                                 ^
+optimized-instrumented.cc:101:89: remark: '_ZL24__dredd_replace_expr_intii' inlined into '_Z4testii': always inline attribute at callsite test:1:89; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                                                                        ^
+optimized-instrumented.cc:101:183: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into '_Z4testii': always inline attribute at callsite test:1:183; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                                                                                                                                                                      ^
+optimized-instrumented.cc:101:158: remark: '_ZL24__dredd_replace_expr_intii' inlined into '_Z4testii': always inline attribute at callsite test:1:158; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                                                                                                                                             ^
+optimized-instrumented.cc:101:35: remark: '_ZL53__dredd_replace_binary_operator_Add_arg1_int_arg2_intiii' inlined into '_Z4testii': always inline attribute at callsite test:1:35; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+                                  ^
+optimized-instrumented.cc:101:10: remark: '_ZL24__dredd_replace_expr_intii' inlined into '_Z4testii': always inline attribute at callsite test:1:10; [-Rpass=inline]
+  return __dredd_replace_expr_int(__dredd_replace_binary_operator_Add_arg1_int_arg2_int(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 0), 2) , __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 8), 10), 16), 22);
+         ^
+optimized-instrumented.cc:92:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_BINARY_Mul(int);
+  ^
+optimized-instrumented.cc:93:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_BINARY_Rem(int);
+  ^
+optimized-instrumented.cc:94:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_BINARY_Sub(int);
+  ^
+optimized-instrumented.cc:95:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_BINARY_ARG1(4);
+  ^
+optimized-instrumented.cc:96:3: remark: load of type i64 eliminated [-Rpass=gvn]
+  REPLACE_BINARY_ARG2(5);
+  ^
+optimized-instrumented.cc:100:5: note: could not determine the original source location for optimized-instrumented.cc:0:0
+int test(int x, int y) {
+    ^
+optimized-instrumented.cc:100:5: remark: load of type i64 eliminated [-Rpass=gvn]
+int test(int x, int y) {
+    ^
+optimized-instrumented.cc:100:5: note: could not determine the original source location for optimized-instrumented.cc:0:0
+optimized-instrumented.cc:105:11: remark: '_ZL29__dredd_replace_expr_int_zeroii' inlined into 'main': always inline attribute at callsite main:1:11; [-Rpass=inline]
+  int x = __dredd_replace_expr_int_zero(0, 29);
+          ^
+optimized-instrumented.cc:106:11: remark: '_ZL29__dredd_replace_expr_int_zeroii' inlined into 'main': always inline attribute at callsite main:2:11; [-Rpass=inline]
+  int y = __dredd_replace_expr_int_zero(0, 31);
+          ^
+optimized-instrumented.cc:107:33: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into 'main': always inline attribute at callsite main:3:33; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                ^
+optimized-instrumented.cc:107:8: remark: '_ZL24__dredd_replace_expr_intii' inlined into 'main': always inline attribute at callsite main:3:8; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+       ^
+optimized-instrumented.cc:107:103: remark: '_ZL31__dredd_replace_expr_int_lvalueRii' inlined into 'main': always inline attribute at callsite main:3:103; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                                                                                      ^
+optimized-instrumented.cc:107:78: remark: '_ZL24__dredd_replace_expr_intii' inlined into 'main': always inline attribute at callsite main:3:78; [-Rpass=inline]
+  test(__dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(x, 33), 35), __dredd_replace_expr_int(__dredd_replace_expr_int_lvalue(y, 41), 43));
+                                                                             ^
+optimized-instrumented.cc contains 10 if statements.
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+24 instcount - Number of Add insts
+17 instcount - Number of Br insts
+ 1 instcount - Number of Call insts
+16 instcount - Number of ICmp insts
+ 2 instcount - Number of Load insts
+ 1 instcount - Number of Mul insts
+ 9 instcount - Number of PHI insts
+ 2 instcount - Number of Ret insts
+ 1 instcount - Number of SDiv insts
+ 1 instcount - Number of SRem insts
+ 2 instcount - Number of Store insts
+ 1 instcount - Number of Sub insts
+ 2 instcount - Number of Xor insts
+12 instcount - Number of ZExt insts
+19 instcount - Number of basic blocks
+ 2 instcount - Number of non-external functions
+91 instcount - Number of instructions (of all types)
+

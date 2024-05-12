@@ -1,20 +1,24 @@
+#!/bin/bash
+
 set -e
 set -u
 set -x
 
 cd Evaluation
+CPUS=10
+DURATION="2h"
 
-# Evaluate binutils
-../evaluate.sh "2h" binutils objdir/binutils/objdump "-d" "@@" 10
-../evaluate.sh "2h" binutils objdir/binutils/readelf "-a" "@@" 10
-../evaluate.sh "2h" binutils objdir/binutils/nm-new "-C" "@@" 10
-../evaluate.sh "2h" binutils objdir/binutils/cxxfilt "" "" 10
-# These commands read from files
-for f in objdir/binutils/size objdir/binutils/strings 
-do
-	../evaluate.sh "2h" binutils "$f" "" "@@" 10
-done
+while ISF=' ' read -r project executable options; do
+  flag=""
+  input=""
 
-# Evaluate coreutils - ls 
-../evaluate.sh "2h" coreutils src/ls "" 10
+  if [[ "$options" == *"@@"* ]]; then
+    input="@@"
+  fi
+
+  flag=$(getopt "aCd" $options)
+  flag="${flag%%--*}"
+
+  ../evaluate.sh $DURATION $project $executable $flag $input $CPUS
+done < "../$1"
 
