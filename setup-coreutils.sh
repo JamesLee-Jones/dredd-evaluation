@@ -23,9 +23,9 @@ pushd coreutils
   # Compile the base version for fuzzing
   pushd coreutils
     ./bootstrap
-
-	  # Don't build man files as they can cause issues
-		sed -i '/^include $(top_srcdir)\/man\/local\.mk/d' ./Makefile.am
+    
+    # Don't build man files as they can cause issues
+    sed -i '/^include $(top_srcdir)\/man\/local\.mk/d' ./Makefile.am
 
     if [ ! -d "../coreutils-gcov" ]; then
       mkdir -p ../coreutils-gcov
@@ -35,24 +35,24 @@ pushd coreutils
     rm -rf ../coreutils-instrumented
     cp -r ../coreutils ../coreutils-instrumented
 
-    CC=afl-clang-lto CXX=afl-clang-lto++ AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto ./configure --quiet
-		if [ -e "compile_commands.json" ]; then
-      AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto make -j $(nproc)
-		else
-      AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto bear -- make -j $(nproc)
-		fi
+    CC=afl-clang-lto CXX=afl-clang-lto++ AR=llvm-ar-16 RANLIB=llvm-ranlib-16 AS=llvm-as-16 LD=afl-ld-lto ./configure --quiet
+    if [ -e "compile_commands.json" ]; then
+      AR=llvm-ar-16 RANLIB=llvm-ranlib-16 AS=llvm-as-16 LD=afl-ld-lto make -j $(nproc)
+    else
+      AR=llvm-ar-16 RANLIB=llvm-ranlib-16 AS=llvm-as-16 LD=afl-ld-lto bear -- make -j $(nproc)
+    fi
   popd
 
   # Compile with coverage
   pushd coreutils-gcov
-		afl-cov-build.sh -c ./configure --quiet; make -j $(nproc)
+		$AFL_COV/afl-cov-build.sh -c ./configure --quiet; make -j $(nproc)
   popd
 
   # Compile with instrumentation
   pushd coreutils-instrumented
-    /home/jlj/dev/dredd/third_party/clang+llvm/bin/dredd --semantics-preserving-coverage-instrumentation -p ../coreutils/compile_commands.json $(../../../utils/list-test-programs.sh ../../../test-programs coreutils | sed -E 's|([^ ]+) |./src/\1.c |g')
-    CC=afl-clang-lto CXX=afl-clang-lto++ AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto ./configure --quiet
-    AR=llvm-ar-14 RANLIB=llvm-ranlib-14 AS=llvm-as-14 LD=afl-ld-lto make -j $(nproc)
+    $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ../coreutils/compile_commands.json $(../../../utils/list-test-programs.sh ../../../test-programs coreutils | sed -E 's|([^ ]+) |./src/\1.c |g')
+    CC=afl-clang-lto CXX=afl-clang-lto++ AR=llvm-ar-16 RANLIB=llvm-ranlib-16 AS=llvm-as-16 LD=afl-ld-lto ./configure --quiet
+    AR=llvm-ar-16 RANLIB=llvm-ranlib-16 AS=llvm-as-16 LD=afl-ld-lto make -j $(nproc)
   popd
 popd
 

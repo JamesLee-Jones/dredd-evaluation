@@ -5,10 +5,10 @@ set -u
 set -x
 
 cd Evaluation
-CPUS=10
-DURATION="2h"
+CPUS=7
+DURATION="8h"
 
-while ISF=' ' read -r project executable options; do
+while ISF=' ' read -r project source executable options; do
   flag=""
   input=""
 
