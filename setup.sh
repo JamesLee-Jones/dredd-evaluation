@@ -8,11 +8,14 @@ set -x
 export PATH=$PATH:/home/jlj/dev/afl-cov
 
 mkdir -p Evaluation
-cd Evaluation
+cd $DREDD_EVAL/Evaluation
 
 # Setup binutils for evaluation
-../setup-binutils.sh
+$DREDD_EVAL/setup-binutils.sh
 
 # Setup coreutils for evaluation
-../setup-coreutils.sh
+$DREDD_EVAL/setup-coreutils.sh
+
+# Setup tint for evaluation
+$DREDD_EVAL/setup-tint.sh
 

@@ -1,5 +1,7 @@
+.idea
 Evaluation
 results-backup
+third_party
 
 Experiments/basic-blocks-and-control-flow/.[^.]*.dot
 Experiments/basic-blocks-and-control-flow/*.png

@@ -15,6 +15,10 @@ sudo apt install -y python3-pip python3-full unzip zip cmake clang-16 ninja-buil
 sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-16 100 --slave /usr/bin/clang++ clang++ /usr/bin/clang++-16
 sudo update-alternatives --install /usr/bin/llvm-cov llvm-cov /usr/bin/llvm-cov-16 100
 
+# Create third_party folder
+mkdir -p third_party
+pushd third_party
+
 # Setup Dredd
 if [ ! -d "dredd" ]; then
   git clone --recursive https://github.com/mc-imperial/dredd.git
@@ -63,6 +67,8 @@ if [ ! -d "afl-cov" ]; then
   git clone https://github.com/vanhauser-thc/afl-cov.git
 fi 
 
+popd
+
 # Setup test systems
 ./setup.sh
 
@@ -72,13 +78,13 @@ if [ -n "$DREDD_EVAL" ]; then
 fi
 
 if [ -n "$AFL_COV" ]; then 
-  echo "export AFL_COV=$DREDD_EVAL/afl-cov" >> ~/.bashrc
+  echo "export AFL_COV=$DREDD_EVAL/third_party/afl-cov" >> ~/.bashrc
   echo "export PATH=\$PATH:$AFL_COV" >> ~/.bashrc
   source ~/.bashrc
 fi
 
 if [ -n "$DREDD" ]; then 
-  echo "export DREDD_ROOT=$DREDD_EVAL/dredd/third_party/clang+llvm/bin" >> ~/.bashrc
+  echo "export DREDD_ROOT=$DREDD_EVAL/third_party/dredd/third_party/clang+llvm/bin" >> ~/.bashrc
   source ~/.bashrc
 fi
 

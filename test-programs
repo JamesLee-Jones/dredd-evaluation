@@ -1,4 +1,5 @@
-binutils binutils/readelf.c objdir/binutils/readelf -a @@
+tint tint/tint.cc out/Debug/tint @@ .wgsl
+binutils binutils/readelf.c objdir/binutils/readelf -a @@ .elf
 binutils binutils/objdump.c objdir/binutils/objdump -d @@
 binutils binutils/strings.c objdir/binutils/strings @@
 binutils binutils/nm.c objdir/binutils/nm-new -C @@

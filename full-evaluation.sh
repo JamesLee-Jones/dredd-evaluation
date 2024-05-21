@@ -4,7 +4,6 @@ set -e
 set -u
 set -x
 
-cd Evaluation
 CPUS=7
 DURATION="8h"
 
@@ -16,9 +15,12 @@ while ISF=' ' read -r project source executable options; do
     input="@@"
   fi
 
+  extension=$(echo "$options" | grep -o '\.[^.]\+')
   flag=$(getopt "aCd" $options)
   flag="${flag%%--*}"
+  echo $flag
 
-  ../evaluate.sh $DURATION $project $executable $flag $input $CPUS
-done < "../$1"
+  cd $DREDD_EVAL/Evaluation
+  ../evaluate.sh "$DURATION" "$project" "$executable" "$flag" "$input" "$extension" "$CPUS"
+done < "$1"
 
