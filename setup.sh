@@ -5,7 +5,7 @@ set -u
 set -x
 
 # Add afl-cov to path
-export PATH=$PATH:/home/jlj/dev/afl-cov
+export PATH=$PATH:$AFL_COV
 
 mkdir -p Evaluation
 cd $DREDD_EVAL/Evaluation

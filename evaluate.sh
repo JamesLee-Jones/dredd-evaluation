@@ -2,38 +2,29 @@ set -e
 set -u
 set -x
 
-# $1 = Test duration
-# $2 = Program name
-# $3 = Executable location
-# $4 = Executable flags
-# $5 = Input type
-# $6 = File extension
-# $7 = CPUS
-
-# If there is a file exention that should be used set the flag
+project_name=$1
+duration=$2
+executable_location="$1/$3"
+executable_flags=$4
+input_type=$5
 extension=$6
 if [ ! -z "$6" ]; then
   extension="-e $extension"
 fi
+CPUS=$7
+
+input_dir="testcase"
+output_dir="results/$project_name/$(basename $executable_location)"
+
+mkdir -p "$output_dir"
 
 # Fuzz base
-AFL_FINAL_SYNC=1 timeout $1 afl-fuzz -i "$2/testcase" -o "$2/results/base/$(basename $3)" $extension -M Fuzzer1 -- "$2/$(basename $2)/$3" $4 $5 &
+AFL_FINAL_SYNC=1 afl-fuzz -V $duration -i $input_dir -o $output_dir $extension -M Fuzzer1 -- $executable_location $executable_flags $input_type &
 
-for ((i=2;i<=$7;i++)); do
-	timeout $1 afl-fuzz -i "$2/testcase" -o "$2/results/base/$(basename $3)" -S "Fuzzer$i" $extension -- "$2/$(basename $2)/$3" $4 $5 > /dev/null 2>&1 &
+for ((i=2;i<=$CPUS;i++)); do
+	afl-fuzz -V $duration -i $input_dir -o $output_dir $extension -S "Fuzzer$i" -- $executable_location $executable_flags $input_type > /dev/null 2>&1 &
 done
 wait
 
-afl-cov --clang --cover-corpus -d "$2/results/base/$(basename $3)" --coverage-cmd "$2/$(basename $2)-gcov/$3 $4 $5" --code-dir "$2/$(basename $2)-gcov" > /dev/null 2>&1
-
-# Fuzz instrumented
-
-AFL_FINAL_SYNC=1 timeout $1 afl-fuzz -i "$2/testcase" -o "$2/results/instrumented/$(basename $3)" $extension -M Fuzzer1 -- "$2/$(basename $2)-instrumented/$3" $4 $5 &
-
-for ((i=2;i<=$7;i++)); do
-	timeout $1 afl-fuzz -i "$2/testcase" -o "$2/results/instrumented/$(basename $3)" -S "Fuzzer$i" $extension -- "$2/$(basename $2)-instrumented/$3" $4 $5 > /dev/null 2>&1 &
-done
-wait
-
-afl-cov --clang --cover-corpus -d "$2/results/instrumented/$(basename $3)" --coverage-cmd "$2/$(basename $2)-gcov/$3 $4 $5" --code-dir "$2/$(basename $2)-gcov" > /dev/null 2>&1
+afl-cov --clang --cover-corpus -d $output_dir --coverage-cmd "$project_name-gcov/$executable_location $executable_flags $input_type" --code-dir "$project_name-gcov" > /dev/null 2>&1
 
