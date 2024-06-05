@@ -21,7 +21,7 @@ while ISF=' ' read -r project_name source executable_location options; do
   executable_flags=$(getopt "aCd" $options)
   executable_flags="${executable_flags%%--*}"
 
-  evaluation_args="$DURATION_SECONDS $executable_location $executable_flags $input_type $extension $CPUS"
+  # evaluation_args="$DURATION_SECONDS $executable_location $executable_flags $input_type $extension $CPUS"
 
   pushd "$DREDD_EVAL/Evaluation/$project_name"
     $DREDD_EVAL/evaluate.sh "$project_name" "$DURATION_SECONDS" "$executable_location" "$executable_flags" "$input_type" "$extension" "$CPUS"

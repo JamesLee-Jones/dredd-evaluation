@@ -11,11 +11,15 @@ then
 fi
 
 # Check if at least one extension is provided
-if [ "$#" -lt 2 ]; then
-    echo "Usage: $0 path/to/compilation_database.json extension1 [extension2 ...]"
+if [ "$#" -lt 3 ]; then
+    echo "Usage: $0 path/to/compilation_database.json directory extension1 [extension2 ...]"
     exit 1
 fi
 
+compilation_database=$1
+directory=$2
+shift
+shift
 EXTENSIONS=("$@")
 
 jq_filter=''
@@ -25,7 +29,7 @@ for ext in "${EXTENSIONS[@]}"; do
   fi
   jq_filter+="endswith(\"$ext\")"
 done
-jq_filter=".[].file | select($jq_filter)"
+jq_filter=".[].file | select(startswith(\"$(readlink -f $directory)\")) | select($jq_filter)"
 
-jq -r "$jq_filter" "$1"
+jq -r "$jq_filter" "$compilation_database"
 

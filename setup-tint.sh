@@ -36,16 +36,14 @@ pushd $DREDD_EVAL/Evaluation
       $AFL_COV/afl-cov-build.sh cmake -GNinja ../..; ninja tint
     popd  # tint-gcov/out/Debug
 
-    "$DREDD_EVAL/utils/set-afl-build-vars.sh"
+    source "$DREDD_EVAL/utils/set-afl-build-vars.sh"
 
     pushd tint
-
-
       # Compile using CMake + Ninja
       mkdir -p out/Debug
       pushd out/Debug
         cmake -GNinja ../..
-        ninja tint
+        ninja tint # glslangtests tintunittest
       popd  # out/Debug
     popd  # tint
 
@@ -61,14 +59,13 @@ pushd $DREDD_EVAL/Evaluation
         ninja tint
       popd  # out/Debug
 
-
       # TODO: Update this to use a flag in Dredd.
-      $DREDD/dredd -p ./out/Debug/compile_commands.json $($DREDD_EVAL/utils/get-compile-commands-files.sh ./out/Debug/compile_commands.json .c .cc)
+      $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json $($DREDD_EVAL/utils/get-compile-commands-files.sh ./out/Debug/compile_commands.json ./src .c .cc)
 
       pushd out/Debug
         rm -rf ./*
-        cmake -GNinja ../..
-        ninja tint
+        cmake -GNinja -DCMAKE_CXX_FLAGS="-Wno-c++20-extensions -fbracket-depth=1024" ../../
+        ninja tint # glslangtests tint_unittests
       popd  # out/Debug
     popd  # tint-instrumented
 
