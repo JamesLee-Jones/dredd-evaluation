@@ -5,11 +5,8 @@ set -u
 set -x
 
 CPUS=7
-# DURATION_HOURS=8  # In hours
-# DURATION_SECONDS=`expr 3600 \* $DURATION_HOURS`
-DURATION_SECONDS=60
 
-while ISF=' ' read -r project_name source executable_location options; do
+while ISF=' ' read -r project_name source duration executable_location options; do
   executable_flags=""
   input_type=""
 
@@ -21,12 +18,21 @@ while ISF=' ' read -r project_name source executable_location options; do
   executable_flags=$(getopt "aCd" $options)
   executable_flags="${executable_flags%%--*}"
 
-  # evaluation_args="$DURATION_SECONDS $executable_location $executable_flags $input_type $extension $CPUS"
+  input_dir="testcase"
+  output_dir="results/$project_name/$(basename $executable_location)"
+
+  fuzz_args=("$duration" "$executable_location" "$executable_flags" "$input_type" "$extension" "$input_dir" "$output_dir" "$CPUS")
+  eval_args=("$executable_location" "$executable_flags" "$input_dir" "$output_dir")
 
   pushd "$DREDD_EVAL/Evaluation/$project_name"
-    $DREDD_EVAL/evaluate.sh "$project_name" "$DURATION_SECONDS" "$executable_location" "$executable_flags" "$input_type" "$extension" "$CPUS"
-    $DREDD_EVAL/evaluate.sh "$project_name-instrumented" "$DURATION_SECONDS" "$executable_location" "$executable_flags" "$input_type" "$extension" "$CPUS"
+    $DREDD_EVAL/fuzz.sh "$project_name" "${fuzz_args[@]}"
+    $DREDD_EVAL/fuzz.sh "$project_name-instrumented" "${fuzz_args[@]}"    
+ 
+    $DREDD_EVAL/calculate_coverage.sh "$project_name" "${eval_args[@]}"
+    $DREDD_EVAL/calculate_coverage.sh "$project_name-instrumented" "${eval_args[@]}"  
   popd
 
 done < "$1"
+
+./backup-results.sh
 

@@ -10,12 +10,13 @@ export PATH=$PATH:$AFL_COV
 mkdir -p Evaluation
 cd $DREDD_EVAL/Evaluation
 
+# Setup tint for evaluation
+$DREDD_EVAL/setup-tint.sh
+
 # Setup binutils for evaluation
 $DREDD_EVAL/setup-binutils.sh
 
 # Setup coreutils for evaluation
 $DREDD_EVAL/setup-coreutils.sh
 
-# Setup tint for evaluation
-$DREDD_EVAL/setup-tint.sh
 

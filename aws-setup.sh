@@ -1,6 +1,5 @@
 set -e
 set -x
-set -u
 
 # Install prerequisites.
 ./prereq.sh
@@ -20,7 +19,8 @@ pushd third_party
 
   pushd dredd
     pushd third_party
-    if [ ! -d "clang+llvm" ]; then
+    if [ "$(ls -A clang+llvm)" ]; then
+      rm -rf clang+llvm
       curl -Lo clang+llvm.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.4/clang+llvm-16.0.4-x86_64-linux-gnu-ubuntu-22.04.tar.xz
       tar xf clang+llvm.tar.xz
       mv clang+llvm-16.0.4-x86_64-linux-gnu-ubuntu-22.04 clang+llvm
@@ -46,7 +46,7 @@ pushd third_party
   export LLVM_CONFIG=llvm-config-16
 
   pushd AFLplusplus
-    make distrib
+    make
     sudo make install
   popd  # AFLplusplus
 
@@ -58,22 +58,29 @@ pushd third_party
 
 popd  # third_party
 
+source ~/.bashrc
+
+if [ -z "${DREDD_EVAL}" ]; then 
+  echo "export DREDD_EVAL=$(pwd)" >> ~/.bashrc
+fi
+
+if [ -z "${AFL_COV}" ]; then 
+  echo "export AFL_COV=\$DREDD_EVAL/third_party/afl-cov" >> ~/.bashrc
+  echo "export PATH=\$PATH:\$AFL_COV" >> ~/.bashrc
+fi
+
+if [ -z "${DREDD}" ]; then 
+  echo "export DREDD=\$DREDD_EVAL/third_party/dredd/third_party/clang+llvm/bin" >> ~/.bashrc
+fi
+
+if [[ -z "${DREDD_EVAL}" || -z "${AFL_COV}" || -z "${DREDD}" ]]; then
+  source ~/.bashrc
+fi
+
+echo "DREDD_EVAL: $DREDD_EVAL"
+echo "AFL_COV: $AFL_COV"
+echo "DREDD: $DREDD"
+
 # Setup test systems
 ./setup.sh
-
-if [ -n "$DREDD_EVAL" ]; then 
-  echo "export DREDD_EVAL=$(pwd)" >> ~/.bashrc
-  source ~/.bashrc
-fi
-
-if [ -n "$AFL_COV" ]; then 
-  echo "export AFL_COV=$DREDD_EVAL/third_party/afl-cov" >> ~/.bashrc
-  echo "export PATH=\$PATH:$AFL_COV" >> ~/.bashrc
-  source ~/.bashrc
-fi
-
-if [ -n "$DREDD" ]; then 
-  echo "export DREDD=$DREDD_EVAL/third_party/dredd/third_party/clang+llvm/bin" >> ~/.bashrc
-  source ~/.bashrc
-fi
 

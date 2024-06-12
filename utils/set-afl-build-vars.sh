@@ -1,1 +1,9 @@
-export CC=afl-clang-lto CXX=afl-clang-lto++ AR=llvm-ar-16 RANLIB=llvm-ranlib-16 AS=llvm-as-16 LD=afl-ld-lto
+#!/bin/bash
+
+export CC=afl-clang-lto 
+export CXX=afl-clang-lto++ 
+export AR=llvm-ar-16 
+export RANLIB=llvm-ranlib-16 
+export AS=llvm-as-16 
+export LD=afl-ld-lto
+
