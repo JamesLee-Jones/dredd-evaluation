@@ -3,13 +3,13 @@ import subprocess
 from typing import Dict
 
 
-def calculate_coverage(project: Dict, project_version: str = "", hide_output: bool = False):
-    calculate_statement_coverage(project, project_version, hide_output)
-    calculate_mutant_coverage(project, project_version, hide_output)
+def calculate_coverage(project: Dict, hide_output: bool = False):
+    calculate_statement_coverage(project, hide_output)
+    calculate_mutant_coverage(project, hide_output)
 
 
-def calculate_statement_coverage(project: Dict, project_version: str = "", hide_output: bool = False):
-    command = f"afl-cov --cover-corpus -d {project['output_dir']}/{project_version} --coverage-cmd \"{project['project_name']}/{project['project_name']}-gcov/{project['executable_location']} "
+def calculate_statement_coverage(project: Dict, hide_output: bool = False):
+    command = f"afl-cov --clang --cover-corpus -d {project['output_dir']} --coverage-cmd \"{project['project_name']}/{project['project_name']}-gcov/{project['executable_location']} "
 
     if "executable_flags" in project:
         command += f"{project['executable_flags']} "
@@ -21,14 +21,11 @@ def calculate_statement_coverage(project: Dict, project_version: str = "", hide_
     if hide_output:
         command += "> /dev/null 2>&1 "
 
-    # command += "&"
-
-    # TODO(JLJ): Figure out why this isn't working for tint.
     process = subprocess.Popen(command, shell=True)
     process.wait()
 
 
-def calculate_mutant_coverage(project: Dict, project_version: str = "", hide_output: bool = False):
+def calculate_mutant_coverage(project: Dict, hide_output: bool = False):
     # TODO(JLJ): Implement
     raise NotImplementedError
 
@@ -66,6 +63,7 @@ def main():
     # TODO(JLJ): Validate arguments.
     project = {
         "project_name": args.project_name,
+        "project_version": args.project_name,
         "duration": args.duration,
         "input_dir": args.input_dir,
         "output_dir": args.output_dir,

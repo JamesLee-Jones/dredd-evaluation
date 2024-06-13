@@ -1,27 +1,28 @@
 import argparse
+import os.path
 import subprocess
 
 from typing import Dict
 
 
-def fuzz(project: Dict, project_version: str = "", num_processes: int = 1):
+def fuzz(project: Dict, num_processes: int = 1):
     processes = []
-    print(project)
 
     for i in range(num_processes):
-        fuzz_command = get_fuzz_command(project, project_version, f"Fuzzer{i}", i>0)
+        fuzz_command = get_fuzz_command(project, f"Fuzzer{i}", i>0)
         process = subprocess.Popen(fuzz_command, shell=True)
         processes.append(process)
 
     [p.wait() for p in processes]
 
 
-def get_fuzz_command(project: Dict, project_version: str, fuzzer_name: str, hide_output: bool = False):
-    command = f"timeout {project['duration']} afl-fuzz -i {project['input_dir']} -o {project['output_dir']}/{project_version} "
+def get_fuzz_command(project: Dict, fuzzer_name: str, hide_output: bool = False):
+
+    command = f"timeout {project['duration']} afl-fuzz -i {project['input_dir']} -o {project['output_dir']} "
     if "extension" in project:
         command += f"-e {project['extension']} "
 
-    command += f"-M {fuzzer_name} -- {project['project_name']}/{project_version}/{project['executable_location']} "
+    command += f"-M {fuzzer_name} -- {project['project_name']}/{project['project_version']}/{project['executable_location']} "
     if "executable_flags" in project:
         command += f"{project['executable_flags']} "
     if "input_type" in project:
@@ -30,7 +31,6 @@ def get_fuzz_command(project: Dict, project_version: str, fuzzer_name: str, hide
     if hide_output:
         command += "> /dev/null 2>&1 "
 
-    # command += "&"
     return command
 
 

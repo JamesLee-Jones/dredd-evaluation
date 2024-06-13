@@ -4,11 +4,13 @@ import re
 import glob
 from pathlib import Path
 from fuzz import fuzz
+from typing import List, Tuple, Dict
 from calculate_coverage import calculate_coverage
 
 
-def parse_evaluation_programs_file(path: Path):
+def parse_evaluation_programs_file(path: Path) -> List[Tuple[Dict, Dict]]:
     # TODO(JLJ): Add doc string.
+    # TODO(JLJ): Move this function
     result = []
 
     with open(path) as evaluation_programs:
@@ -33,14 +35,16 @@ def parse_evaluation_programs_file(path: Path):
                 raise Exception(f"The duration '{duration}' is not correctly formatted. It must be digits followed by "
                                 f"an h (hour), m (minute) or s (second) specifier.")
 
-            project = {
+            project_base = {
                 "project_name": project_name,
+                "project_version": project_name,
                 "source": source,
                 "duration": duration,
                 "input_dir": input_dir,
-                "output_dir": output_dir,
+                "output_dir": f"{output_dir}/{os.path.basename(executable_location)}",
                 "executable_location": executable_location,
             }
+
 
             flags = ""
             for option in options:
@@ -48,15 +52,18 @@ def parse_evaluation_programs_file(path: Path):
                     flags += option + " "
 
                 if option == "@@":
-                    project['input_type'] = option
+                    project_base['input_type'] = option
 
                 if option[0] == '.':
-                    project['extension'] = option
+                    project_base['extension'] = option
             if flags != "":
-                project['executable_flags'] = flags
+                project_base['executable_flags'] = flags
 
-            check_project_setup(project)
-            result.append(project)
+            project_instrumented = project_base.copy()
+            project_instrumented['project_version'] += "-instrumented"
+            project_instrumented['output_dir'] += "-instrumented"
+
+            result.append((project_base, project_instrumented))
 
     return result
 
@@ -96,10 +103,8 @@ def check_project_setup(project):
     # If the output directory doesn't exist, create it.
     if not os.path.isdir(project['output_dir']):
         os.makedirs(os.path.join(os.getcwd(), project['output_dir']))
-        if not os.path.isdir(f"{project['output_dir']}/{project['project_name']}"):
-            os.makedirs(os.path.join(os.getcwd(), f"{project['output_dir']}/{project['project_name']}"))
-        if not os.path.isdir(f"{project['output_dir']}/{project['project_name']}-instrumented"):
-            os.makedirs(os.path.join(os.getcwd(), f"{project['output_dir']}/{project['project_name']}-instrumented"))
+    if not os.path.isdir(f"{project['output_dir']}-instrumented"):
+        os.makedirs(os.path.join(os.getcwd(), f"{project['output_dir']}-instrumented"))
 
 
 def main():
@@ -121,17 +126,22 @@ def main():
 
     programs = parse_evaluation_programs_file(evaluation_programs_file)
 
-    # TODO(JLJ): Check environment is correct.
+    for program_base, program_instrumented in programs:
+        # TODO(JLJ): Change this so it makes more sense given the two versions
+        # maybe change this to check the one project then add a separate call
+        # for coverage setup checking?th):
+        check_project_setup(program_base)
+
     if os.environ.get("AFL_COV") is None:
         raise EnvironmentError("Environment variable AFL_COV is not set.")
 
-    for program in programs:
+    for program_base, program_instrumented in programs:
         # TODO(JLJ): Consider creating copies of program rather than passing a modifier.
-        fuzz(program, f"{program['project_name']}", args.threads)
-        fuzz(program, f"{program['project_name']}-instrumented", args.threads)
+        fuzz(program_base, num_processes=args.threads)
+        fuzz(program_instrumented, num_processes=args.threads)
 
-        calculate_coverage(program, f"{program['project_name']}")
-        calculate_coverage(program, f"{program['project_name']}-instrumented")
+        calculate_coverage(program_base)
+        calculate_coverage(program_instrumented)
 
 
 if __name__ == "__main__":
