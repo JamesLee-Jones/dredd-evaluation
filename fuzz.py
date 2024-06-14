@@ -2,7 +2,11 @@ import argparse
 import os.path
 import subprocess
 
-from typing import Dict
+from pathlib import Path
+from typing import Dict, List, Tuple
+
+from utils.check_setup import check_fuzz_setup
+from utils.evaluation_program_parser import parse_evaluation_programs_file
 
 
 def fuzz(project: Dict, num_processes: int = 1):
@@ -36,45 +40,28 @@ def get_fuzz_command(project: Dict, fuzzer_name: str, hide_output: bool = False)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("project_name",
+    parser.add_argument("evaluation_programs",
                         help="",  # TODO(JLJ): Add help.
-                        type=str)
-    parser.add_argument("duration",
-                        help="",
-                        type=str)
-    parser.add_argument("input_dir",
-                        help="",
-                        type=str)
-    parser.add_argument("output_dir",
-                        help="",
-                        type=str)
-    parser.add_argument("executable_location",
-                        help="",
-                        type=str)
-    parser.add_argument("--input_type",
-                        help="",
-                        choices=['@@'],
-                        type=str)
-    parser.add_argument("--extension",
-                        help="",
-                        type=str)
-    parser.add_argument("--executable_flags",
-                        help="",
-                        nargs='*',
-                        type=str)
+                        type=Path)
+    parser.add_argument("evaluation_dir",
+                        help="The directory to use as the root for all evaluation. This directory should contain all "
+                             "of the executables and source files listed in in the `evaluation_program` file.",
+                        type=Path)
+    parser.add_argument("--threads",
+                        default=1,
+                        type=int)
     args = parser.parse_args()
 
-    # TODO(JLJ): Validate arguments.
-    project = {
-        "project_name": args.project_name,
-        "duration": args.duration,
-        "input_dir": args.input_dir,
-        "output_dir": args.output_dir,
-        "executable_location": args.executable_location,
-        "options": args.options
-    }
+    evaluation_programs_file = os.path.abspath(args.evaluation_programs)
+    os.chdir(args.evaluation_dir)
 
-    fuzz(project)
+    programs = parse_evaluation_programs_file(evaluation_programs_file)
+
+    check_fuzz_setup(programs)
+
+    for program_base, program_instrumented in programs:
+        fuzz(program_base, num_processes=args.threads)
+        fuzz(program_instrumented, num_processes=args.threads)
 
 
 if __name__ == "__main__":

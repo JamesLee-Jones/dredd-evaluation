@@ -28,7 +28,7 @@ def main():
     if not os.path.isdir(backup_dir):
         os.mkdir(backup_dir)
 
-    for program in programs:
+    for program, _ in programs:
         result_dir = os.path.join(evaluation_dir, program['output_dir'])
 
         # Copy the base results

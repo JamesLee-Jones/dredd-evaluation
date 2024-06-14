@@ -25,14 +25,25 @@ pushd binutils
   if [ ! -d "./binutils-instrumented" ]; then
     cp -r ./binutils ./binutils-instrumented
   fi
+  if [ ! -d "./binutils-mutant-tracking" ]; then
+    cp -r ./binutils ./binutils-mutant-tracking
+  fi
 
   # Compile with coverage
   pushd binutils-gcov/objdir
 		  $AFL_COV/afl-cov-build.sh -c ../configure $CONFIG_FLAGS; make -j $(nproc)
   popd  # binutils-gcov/objdir
 
+    # Compile with coverage
+  pushd binutils-mutant-tracking
+      $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file mutant_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
+      pushd objdir
+		    ../configure $CONFIG_FLAGS
+		    make -j $(nproc)
+		  popd  # objdir
+  popd  # binutils-mutant-tracking
 
-  . $DREDD_EVAL/utils/set-afl-build-vars.sh
+  source $DREDD_EVAL/utils/set-afl-build-vars.sh
 
   # Compile the base version for fuzzing
   pushd binutils/objdir
@@ -48,7 +59,7 @@ pushd binutils
   popd
 
   pushd binutils-instrumented
-    $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
+    $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file mutant_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
 
     pushd objdir
       ../configure $CONFIG_FLAGS CFLAGS=$CFLAGS

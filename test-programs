@@ -1,7 +1,7 @@
-tint src/tint/* 10s tint/testcase results out/Debug/tint @@ .wgsl
-binutils binutils/readelf.c 8h binutils/testcase results/binutils objdir/binutils/readelf -a @@ .elf
-binutils binutils/objdump.c 8h binutils/testcase results/binutils objdir/binutils/objdump -d @@
-binutils binutils/strings.c 8h binutils/testcase results/binutils objdir/binutils/strings @@
-binutils binutils/nm.c 8h binutils/testcase results/binutils objdir/binutils/nm-new -C @@
-binutils binutils/cxxfilt.c 8h binutils/testcase results/binutils objdir/binutils/cxxfilt
-binutils binutils/size.c 8h binutils/testcase results/binutils objdir/binutils/size @@
+tint src/tint/* 5m tint/testcase results out/Debug/tint @@ .wgsl
+# binutils binutils/readelf.c 9h binutils/testcase results/binutils objdir/binutils/readelf -a @@ .elf
+# binutils binutils/objdump.c 9h binutils/testcase results/binutils objdir/binutils/objdump -d @@
+# binutils binutils/strings.c 9h binutils/testcase results/binutils objdir/binutils/strings @@
+# binutils binutils/nm.c 9h binutils/testcase results/binutils objdir/binutils/nm-new -C @@
+# binutils binutils/cxxfilt.c 9h binutils/testcase results/binutils objdir/binutils/cxxfilt
+# binutils binutils/size.c 9h binutils/testcase results/binutils objdir/binutils/size @@
