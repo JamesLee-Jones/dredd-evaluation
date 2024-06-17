@@ -44,21 +44,21 @@ pushd $DREDD_EVAL/Evaluation
       rm -rf tint-mutant-tracking/out/Debug/*
     fi
 
-#    # Build tint to track mutation coverage with Dredd
-#    pushd tint-mutant-tracking
-#      # Build to get compile_commands.json
-#      pushd out/Debug
-#        cmake -GNinja -DCMAKE_CXX_FLAGS="-Wno-c++20-extensions -fbracket-depth=1024" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ../..
-#        ninja tint
-#      popd  # out/Debug
-#
-#      "$DREDD"/dredd --only-track-mutant-coverage -p ./out/Debug/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json $(python "$DREDD_EVAL"/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c)
-#
-#      pushd out/Debug
-#        cmake -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ../..
-#        ninja tint
-#      popd  # out/Debug
-#    popd  # tint-mutant-tracking
+    # Build tint to track mutation coverage with Dredd
+    pushd tint-mutant-tracking
+      # Build to get compile_commands.json
+      pushd out/Debug
+        cmake -GNinja -DCMAKE_CXX_FLAGS="-Wno-c++20-extensions -fbracket-depth=1024" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ../..
+        ninja tint
+      popd  # out/Debug
+
+      "$DREDD"/dredd --only-track-mutant-coverage -p ./out/Debug/compile_commands.json --mutation-info-file ../mutant_tracking_info_file $(python "$DREDD_EVAL"/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c)
+
+      pushd out/Debug
+        cmake -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ../..
+        ninja tint
+      popd  # out/Debug
+    popd  # tint-mutant-tracking
 
 
     source "$DREDD_EVAL/utils/set-afl-build-vars.sh"
@@ -87,7 +87,7 @@ pushd $DREDD_EVAL/Evaluation
       popd  # out/Debug
 
       # TODO: Update this to use a flag in Dredd.
-      $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json --mutation-info-file ../mutant_info_file.json $(python $DREDD_EVAL/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c)
+      $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json --mutation-info-file ../mutant_info_file $(python $DREDD_EVAL/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c)
 
       pushd out/Debug
         rm -rf ./*
