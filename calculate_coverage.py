@@ -5,7 +5,7 @@ import subprocess
 from typing import Dict, Set
 from pathlib import Path
 
-from utils.check_setup import check_coverage_setup, check_environment
+from utils.check_setup import check_coverage_setup
 from utils.evaluation_program_parser import parse_evaluation_programs_file
 from utils.mutation_tree import MutationTree
 
@@ -34,10 +34,10 @@ def calculate_statement_coverage(project: Dict, hide_output: bool = False):
 
 def calculate_mutant_coverage(project: Dict, hide_output: bool = False):
     # TODO(JLJ): Move the knowledge of the location of the mutation files to a config file.
-    with open(os.path.join(project['project_name'], "mutant_info_file.json"), "r") as json_input:
-        mutation_tree = MutationTree(json.load(json_input))
-    with open(os.path.join(project['project_name'], "mutant_tracking_info_file.json"), "r") as json_input:
-        mutation_tree_for_coverage_tracking = MutationTree(json.load(json_input))
+    with open(os.path.join(project['project_name'], "mutant_info_file"), "r") as binary_input:
+        mutation_tree = MutationTree(binary_input)
+    with open(os.path.join(project['project_name'], "mutant_tracking_info_file"), "r") as binary_input:
+        mutation_tree_for_coverage_tracking = MutationTree(binary_input)
 
     assert mutation_tree.mutation_id_to_node_id == mutation_tree_for_coverage_tracking.mutation_id_to_node_id
     assert mutation_tree.parent_map == mutation_tree_for_coverage_tracking.parent_map

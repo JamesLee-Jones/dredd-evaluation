@@ -4,28 +4,44 @@ A set of scripts for evaluating the use mutation coverage to guide greybox fuzzi
 
 ## Prerequisites
 
-- AFL++
-- afl-cov (found [here](https://github.com/vanhauser-thc/afl-cov))
 - Clang
 - make
 
-##  Setup
+##  Local Setup
 
 First run `prereq.sh` to obtain the requirements for building the projects that are used to evaluate Dredd.
 
-Then run `setup.sh` to clone and install coreutils and binutils and set them up for evaluation. This will create three copies of each project: a base version compiled with the AFL++ compiler, a version instrumented with Dredd compiled with the AFL++ compiler and a version built with coverage instrumentation.
+To recreate the evaluation setup, run `setup.sh`. This will clone and setup the necessary third party repositories 
+(Dredd, AFL++ and afl-cov) as well as setting up the projects used for evaluation (tint, binutils and coreutils).
+This will create four copies of each project: a base version compiled with the AFL++ compiler;
+a version instrumented with Dredd compiled with the AFL++ compiler; a version built with gcov coverage instrumentation
+and a version instrumented with Dredd's mutant tracking instrumentation to track mutation score.
+
+It is necessary to export three environment variables to run the evaluation. The following can be run from the root
+of the repository to set them:
+```shell
+export DREDD_EVAL=$(pwd)
+export AFL_COV=$DREDD_EVAL/third_party/afl-cov
+export PATH=$PATH:$AFL_COV
+export DREDD=$DREDD_EVAL/third_party/dredd/third_party/clang+llvm/bin
+```
+
+# AWS Setup
+
+The evaluation for this project was carried out on an AWS `t3.2xlarge` instance. To recreate the evaluation setup on
+AWS, run `setup-aws.sh`. This is the same setup as described in [Local Setup](#local-setup) but deals with setting
+environment variables programmatically. 
+
 
 ## Evaluating Dredd
 
-There are two main script for evaluating Dredd: `evaluate.sh` and `full-evaluation.sh`. 
+TODO(JLJ): Write this section.
 
-`evaluate.sh <time> <program-root> <executable> <options> <afl-file-specifier> <number-of-threads>` enables evaluation of an executable. The executable will be fuzzed with AFL++ for the specified amount of time on the specified number of threads. The corpus is saved and executed on the original system compiled with gcov to obtain the coverage achieved during the fuzzing run. This process is repeated for both the original program and the program instrumented with Dredd.
+## Experiments
 
-`full-evaluation.sh` runs the evaluation described above on several of the executables in binutils (readelf, objdump, nm, c++filt, size, strings) and coreutils (ls) for 2 hours.
+The `Experiments` directory contains small experiments for evaluating specific qualities about Dredd's instrumentation.
 
-## Tests
-
-The `Tests` directory contains small test for ensuring that Dredd's instrumentation is working as expected and for comparing the performace penaulty induced.
+TODO(JLJ): Update the following sections.
 
 ### basic-blocks-and-control-flow
 
