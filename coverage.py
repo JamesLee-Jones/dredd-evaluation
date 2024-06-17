@@ -3,6 +3,7 @@ import os.path
 
 from pathlib import Path
 from evaluation_lib.evaluation_program_parser import parse_evaluation_programs_file
+from evaluation_lib.project_gcov_instance import ProjectGcovInstance
 
 
 def main():
@@ -24,8 +25,12 @@ def main():
 
     projects = parse_evaluation_programs_file(evaluation_programs_file)
 
+    # Do this first to trigger setup checks.
     for project in projects:
-        project.fuzz(args.threads)
+        project.add_coverage_instance(ProjectGcovInstance)
+
+    for project in projects:
+        project.calculate_coverage()
 
 
 if __name__ == "__main__":

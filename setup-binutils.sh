@@ -36,7 +36,7 @@ pushd binutils
 
     # Compile with coverage
   pushd binutils-mutant-tracking
-      $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file mutant_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
+      $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file ../mutant_tracking_info_file  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
       pushd objdir
 		    ../configure $CONFIG_FLAGS
 		    make -j $(nproc)
@@ -59,7 +59,7 @@ pushd binutils
   popd
 
   pushd binutils-instrumented
-    $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file mutant_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
+    $DREDD/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file ../mutant_info_file  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
 
     pushd objdir
       ../configure $CONFIG_FLAGS CFLAGS=$CFLAGS

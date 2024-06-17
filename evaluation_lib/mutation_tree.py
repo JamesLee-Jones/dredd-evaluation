@@ -2,6 +2,8 @@
 import functools
 
 from typing import List
+from google.protobuf.json_format import MessageToJson
+
 
 
 def get_mutation_ids_for_mutation_group(mutation_group):
@@ -27,7 +29,7 @@ class MutationTreeNode:
 
 
 class MutationTree:
-    def __init__(self, json_data):
+    def __init__(self, binary_data):
 
         def populate(json_node, node_id):
             children = []

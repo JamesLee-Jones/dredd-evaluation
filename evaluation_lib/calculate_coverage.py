@@ -1,42 +1,23 @@
-import json
 import os
 import argparse
-import subprocess
-from typing import Dict, Set
+import sys
+from typing import Set
 from pathlib import Path
 
-from utils.check_setup import check_coverage_setup
-from utils.evaluation_program_parser import parse_evaluation_programs_file
-from utils.mutation_tree import MutationTree
+sys.path.insert(0, f'third_party/dredd/build/src/libdredd/protobufs/')
+
+from evaluation_lib.evaluation_program_parser import parse_evaluation_programs_file, Project
+from evaluation_lib.mutation_tree import MutationTree
 
 
-def calculate_coverage(project: Dict, hide_output: bool = False):
-    calculate_statement_coverage(project, hide_output)
+def calculate_coverage(project: Project, hide_output: bool = False):
     calculate_mutant_coverage(project, hide_output)
 
 
-def calculate_statement_coverage(project: Dict, hide_output: bool = False):
-    command = f"afl-cov --clang --cover-corpus -d {project['output_dir']} --coverage-cmd \"{project['project_name']}/{project['project_name']}-gcov/{project['executable_location']} "
-
-    if "executable_flags" in project:
-        command += f"{project['executable_flags']} "
-    if "input_type" in project:
-        command += f"{project['input_type']} "
-
-    command += f"\" --code-dir \"{project['project_name']}/{project['project_name']}-gcov\" "
-
-    if hide_output:
-        command += "> /dev/null 2>&1 "
-
-    process = subprocess.Popen(command, shell=True)
-    process.wait()
-
-
-def calculate_mutant_coverage(project: Dict, hide_output: bool = False):
-    # TODO(JLJ): Move the knowledge of the location of the mutation files to a config file.
-    with open(os.path.join(project['project_name'], "mutant_info_file"), "r") as binary_input:
+def calculate_mutant_coverage(project: Project, hide_output: bool = False):
+    with open(os.path.join(project.project_name, "mutant_info_file"), "r") as binary_input:
         mutation_tree = MutationTree(binary_input)
-    with open(os.path.join(project['project_name'], "mutant_tracking_info_file"), "r") as binary_input:
+    with open(os.path.join(project.project_name, "mutant_tracking_info_file"), "r") as binary_input:
         mutation_tree_for_coverage_tracking = MutationTree(binary_input)
 
     assert mutation_tree.mutation_id_to_node_id == mutation_tree_for_coverage_tracking.mutation_id_to_node_id
@@ -77,7 +58,6 @@ def main():
 
     programs = parse_evaluation_programs_file(evaluation_programs_file)
 
-    check_environment()
     check_coverage_setup(programs)
 
     for program_base, program_instrumented in programs:

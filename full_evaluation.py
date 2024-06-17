@@ -1,10 +1,8 @@
 import argparse
 import os
 from pathlib import Path
-from fuzz import fuzz
-from calculate_coverage import calculate_coverage
-from utils.evaluation_program_parser import parse_evaluation_programs_file
-from utils.check_setup import check_evaluation_setup
+from evaluation_lib.evaluation_program_parser import parse_evaluation_programs_file
+from evaluation_lib.project_gcov_instance import ProjectGcovInstance
 
 
 def main():
@@ -24,16 +22,15 @@ def main():
     evaluation_programs_file = os.path.abspath(args.evaluation_programs)
     os.chdir(args.evaluation_dir)
 
-    programs = parse_evaluation_programs_file(evaluation_programs_file)
+    projects = parse_evaluation_programs_file(evaluation_programs_file)
 
-    check_evaluation_setup(programs)
+    # Do this first to trigger setup checks.
+    for project in projects:
+        project.add_coverage_instance(ProjectGcovInstance)
 
-    for program_base, program_instrumented in programs:
-        fuzz(program_base, num_processes=args.threads)
-        fuzz(program_instrumented, num_processes=args.threads)
-
-        calculate_coverage(program_base)
-        calculate_coverage(program_instrumented)
+    for project in projects:
+        project.fuzz(args.threads)
+        project.calculate_coverage()
 
         # TODO(JLJ): Add data summarization step
 

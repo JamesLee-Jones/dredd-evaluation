@@ -42,7 +42,7 @@ pushd third_party
 
   # Setup afl-cov
   if [ ! -d "afl-cov" ]; then
-    git clone https://github.com/vanhauser-thc/afl-cov.git
+    git clone https://github.com/JamesLee-Jones/afl-cov.git
   fi
 
 popd  # third_party

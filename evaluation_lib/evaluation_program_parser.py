@@ -1,12 +1,12 @@
-import os
 import re
 from pathlib import Path
-from typing import List, Tuple, Dict
+from typing import List
+
+from evaluation_lib.project import Project
 
 
-def parse_evaluation_programs_file(path: Path) -> List[Tuple[Dict, Dict]]:
+def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool = False) -> List[Project]:
     # TODO(JLJ): Add doc string.
-    # TODO(JLJ): Move this function
     result = []
 
     with open(path) as evaluation_programs:
@@ -31,33 +31,23 @@ def parse_evaluation_programs_file(path: Path) -> List[Tuple[Dict, Dict]]:
                 raise Exception(f"The duration '{duration}' is not correctly formatted. It must be digits followed by "
                                 f"an h (hour), m (minute) or s (second) specifier.")
 
-            project_base = {
-                "project_name": project_name,
-                "project_version": project_name,
-                "source": source,
-                "duration": duration,
-                "input_dir": input_dir,
-                "output_dir": f"{output_dir}/{os.path.basename(executable_location)}",
-                "executable_location": executable_location,
-            }
+            project = Project(project_name, source, duration, Path(input_dir), Path(output_dir), Path(executable_location))
 
-            flags = ""
             for option in options:
                 if option[0] == '-':
-                    flags += option + " "
+                    if project.executable_flags is None:
+                        project.executable_flags = ""
+                    project.executable_flags += option + " "
 
                 if option == "@@":
-                    project_base['input_type'] = option
+                    project.input_type = option
 
                 if option[0] == '.':
-                    project_base['extension'] = option
-            if flags != "":
-                project_base['executable_flags'] = flags
+                    project.extension = option
 
-            project_instrumented = project_base.copy()
-            project_instrumented['project_version'] += "-instrumented"
-            project_instrumented['output_dir'] += "-instrumented"
+            project.add_fuzz_instance(project.project_name, skip_initialization_check)
+            project.add_fuzz_instance(f"{project.project_name}-instrumented", skip_initialization_check)
 
-            result.append((project_base, project_instrumented))
+            result.append(project)
 
     return result
