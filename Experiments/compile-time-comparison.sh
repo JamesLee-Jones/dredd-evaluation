@@ -22,7 +22,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
 
   cp -r "spirv-tools" "spirv-tools-$opt_level"
   pushd "spirv-tools-$opt_level"/build
-    "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-$opt_level-compile-time.txt"
+    "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-$opt_level.txt"
   popd
 
   cp -r "spirv-tools" "spirv-tools-instrumented-$opt_level"
@@ -31,12 +31,12 @@ for opt_level in "O0" "O1" "O2" "O3"; do
       "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh"
     popd
 
-    "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./build/compile_commands.json $(python "$DREDD_EVAL"/utils/get_compile_command_files.py ./build/compile_commands.json ./source/opt .cpp .h --ignore ./source/opt/optimizer.cpp)
+    "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./build/compile_commands.json $(python3 "$DREDD_EVAL"/utils/get_compile_command_files.py ./build/compile_commands.json ./source/opt .cpp .h --ignore ./source/opt/optimizer.cpp)
     # TODO(JLJ): Check it is fine to do this and no files are left over elsewhere
     rm -rf build/*
 
     pushd build
-      "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-instrumented-$opt_level-compile-time.txt"
+      "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-instrumented-$opt_level.txt"
     popd
   popd
 
@@ -50,7 +50,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
 
   cp -r "tint" "tint-$opt_level"
   pushd "tint-$opt_level"/out/Debug
-    "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-$opt_level-compile-time.txt"
+    "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-$opt_level.txt"
   popd
 
 
@@ -60,12 +60,12 @@ for opt_level in "O0" "O1" "O2" "O3"; do
       "$DREDD_EVAL/setup_scripts/compile-tint.sh"
     popd
 
-    "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python $DREDD_EVAL/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c .h)
+    "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c .h)
     # TODO(JLJ): Check it is fine to do this and no files are left over elsewhere
     rm -rf out/Debug/*
 
     pushd out/Debug
-      "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-instrumented-$opt_level-compile-time.txt"
+      "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-instrumented-$opt_level.txt"
     popd
 
   popd
@@ -87,7 +87,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
   cp -r "binutils" "binutils-instrumented-$opt_level"
   pushd "binutils-instrumented-$opt_level"
     pushd objdir
-      "$DREDD_EVAL/setup_scripts/compile-binutils.sh" "$results_dir/binutils-instrumented-$opt_level-compile-time.txt"
+      "$DREDD_EVAL/setup_scripts/compile-binutils.sh" "$results_dir/binutils-instrumented-$opt_level.txt"
     popd
 
     "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file ../mutation_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
@@ -95,7 +95,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
     rm -rf objdir/*
 
     pushd objdir
-      "$DREDD_EVAL/setup_scripts/compile-binutils.sh" "$results_dir/binutils-instrumented-$opt_level-compile-time.txt"
+      "$DREDD_EVAL/setup_scripts/compile-binutils.sh" "$results_dir/binutils-instrumented-$opt_level.txt"
     popd
   popd
 
