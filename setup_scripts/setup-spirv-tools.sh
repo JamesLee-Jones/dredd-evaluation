@@ -40,7 +40,7 @@ pushd "$DREDD_EVAL"/Evaluation
         "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
       popd  # build
 
-      "$DREDD"/dredd --only-track-mutant-coverage -p ./build/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json $(python "$DREDD_EVAL"/utils/get_compile_command_files.py ./build/compile_commands.json ./source/opt .cpp .h --ignore ./source/opt/optimizer.cpp)
+      "$DREDD"/dredd --only-track-mutant-coverage -p ./build/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json $(python3 "$DREDD_EVAL"/utils/get_compile_command_files.py ./build/compile_commands.json ./source/opt .cpp .h --ignore ./source/opt/optimizer.cpp)
 
       pushd build
         "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
@@ -61,7 +61,7 @@ pushd "$DREDD_EVAL"/Evaluation
         "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
       popd  # build
 
-      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./build/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python "$DREDD_EVAL"/utils/get_compile_command_files.py ./build/compile_commands.json ./source/opt .cpp .h --ignore ./source/opt/optimizer.cpp)
+      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./build/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 "$DREDD_EVAL"/utils/get_compile_command_files.py ./build/compile_commands.json ./source/opt .cpp .h --ignore ./source/opt/optimizer.cpp)
 
       pushd build
         "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
