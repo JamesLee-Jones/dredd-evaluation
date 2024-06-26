@@ -20,6 +20,7 @@ def main():
     args = parser.parse_args()
 
     evaluation_programs_file = os.path.abspath(args.evaluation_programs)
+    # TODO(JLJ): Remove the need for this.
     os.chdir(args.evaluation_dir)
 
     projects = parse_evaluation_programs_file(evaluation_programs_file)

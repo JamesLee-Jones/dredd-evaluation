@@ -1,5 +1,9 @@
-mkdir -p third_party
-pushd third_party
+set -e
+set -x
+set -u
+
+mkdir -p "$DREDD_EVAL"/third_party
+pushd "$DREDD_EVAL"/third_party
 
   # Setup Dredd
   if [ ! -d "dredd" ]; then

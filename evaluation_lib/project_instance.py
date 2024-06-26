@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 from pathlib import Path
 
 if TYPE_CHECKING:
@@ -16,8 +16,8 @@ class ProjectInstance(ABC):
     def get_instance_location(self) -> Path:
         return Path(f"{self.project.project_name}/{self.instance_name}")
 
-    def get_execution_command(self) -> str:
-        return self.get_instance_location().__str__() + "/" + self.project.get_execution_command()
+    def get_execution_command(self, filename: Optional[str] = None) -> str:
+        return self.get_instance_location().__str__() + "/" + self.project.get_execution_command(filename)
 
     @abstractmethod
     def check_setup(self):

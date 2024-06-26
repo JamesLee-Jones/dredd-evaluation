@@ -38,7 +38,7 @@ pushd binutils-O0
   pushd objdir
     #-Xclang -disable-O0-optnone
     CC=clang CXX=clang++ CFLAGS="-Wno-error -O0 -fpass-plugin=$libCount" CXXFLAGS=$CFLAGS ../configure --disable-gdb --quiet --disable-shared
-    CC=clang CXX=clang++ CFLAGS="-Wno-error -O0 -fpass-plugin=$libCount" CXXFLAGS=$CFLAGS /usr/bin/time -o ../../binutils-O0-txt bear -- make -j $(nproc) 2>> ../../binutils-O0.txt
+    CC=clang CXX=clang++ CFLAGS="-Wno-error -O0 -fpass-plugin=$libCount" CXXFLAGS=$CFLAGS /usr/bin/time -o ../../binutils-O0.txt bear -- make -j $(nproc) 2>> ../../binutils-O0.txt
     #CC=clang CXX=clang++ CFLAGS='-Wno-error -O0 -fpass-plugin=../../CountIf/build/libCountIf.so' CXXFLAGS=$CFLAGS /usr/bin/time -o ../../binutils-O0.txt bear -- make -j $(nproc) #2>> ../../binutils-O0.txt
     mv compile_commands.json ../compile_commands.json
   popd

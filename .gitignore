@@ -3,6 +3,12 @@ Evaluation
 results-backup
 third_party
 
+__pycache__
+
+Experiments/results
+Experiments/spirv-tools*
+Experiments/binutils*
+Experiments/tint*
 Experiments/basic-blocks-and-control-flow/.[^.]*.dot
 Experiments/basic-blocks-and-control-flow/*.png
 Experiments/basic-blocks-and-control-flow/*.txt

@@ -12,6 +12,9 @@ def main():
     parser.add_argument("--ignore-tests",
                         action="store_true",
                         dest="ignore_tests")
+    parser.add_argument("--ignore",
+                        nargs="+",
+                        type=Path)
     parser.add_argument("base_dir",
                         type=Path)
     parser.add_argument("extensions",
@@ -25,11 +28,14 @@ def main():
 
     for entry in compilation_database:
         file = entry['file']
-        if args.ignore_tests and "test" in file:
+        if args.ignore_tests and "_test" in file:
             continue
 
         if file.startswith(os.path.abspath(args.base_dir)) and file.endswith(tuple(args.extensions)):
             files.append(file)
+
+    for ignore_file in args.ignore:
+        files.remove(os.path.abspath(ignore_file))
 
     print(*files)
 

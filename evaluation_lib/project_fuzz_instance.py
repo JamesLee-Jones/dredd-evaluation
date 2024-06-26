@@ -18,10 +18,9 @@ class ProjectFuzzInstance(ProjectInstance):
         return self.project.output_dir / self.instance_name
 
     def get_fuzz_command(self, fuzzer_name: str, hide_output: bool = False):
-
-        command = f"timeout {self.project.duration} afl-fuzz -i {self.project.input_dir} -o {self.get_output_dir()}"
-        if self.project.extension is not None:
-            command += f" -e {self.project.extension}"
+        command = f"timeout {self.project.fuzz_duration} afl-fuzz -i {self.project.input_dir} -o {self.get_output_dir()}"
+        if self.project.file_extension is not None:
+            command += f" -e {self.project.file_extension}"
 
         command += f" -M {fuzzer_name} -- {self.get_execution_command()}"
 
@@ -29,6 +28,17 @@ class ProjectFuzzInstance(ProjectInstance):
             command += " > /dev/null 2>&1"
 
         return command
+
+    def get_generated_tests(self):
+        tests = []
+        output_dir: Path = self.get_output_dir()
+        for folder in os.listdir(output_dir):
+            fuzzer_output_dir = output_dir / folder
+            if folder.startswith("Fuzzer"):
+                tests += os.listdir(os.path.join(fuzzer_output_dir, "queue"))
+
+        tests.sort()
+        return tests
 
     def fuzz(self, num_processes: int = 1):
         processes = []

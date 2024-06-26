@@ -20,10 +20,10 @@ class ProjectGcovInstance(ProjectCoverageInstance):
             raise EnvironmentError("Check afl-cov is in PATH.")
 
         project_root = self.project.project_name
-        if not os.path.isfile(os.path.join(project_root, "mutant_info_file")):
+        if not os.path.isfile(os.path.join(project_root, "mutation_info_file.json")):
             raise EnvironmentError(f"Check that mutant_info_file is present in {project_root}.")
 
-        if not os.path.isfile(os.path.join(project_root, "mutant_tracking_info_file")):
+        if not os.path.isfile(os.path.join(project_root, "mutant_tracking_info_file.json")):
             raise EnvironmentError(f"Check that mutant_tracking_info_file is present in {project_root}.")
 
         if not os.path.isdir(self.project.output_dir):
@@ -35,7 +35,7 @@ class ProjectGcovInstance(ProjectCoverageInstance):
         for project_fuzz_instance in self.project.fuzz_instances:
             command = (f"afl-cov --clang --cover-corpus "
                        f"-d {project_fuzz_instance.get_output_dir()} "
-                       f"--coverage-cmd \"{self.get_instance_location()}/{self.project.get_execution_command()}\" "
+                       f"--coverage-cmd \"{self.get_execution_command()}\" "
                        f"--code-dir \"{self.get_instance_location()}\"")
 
             if hide_output:

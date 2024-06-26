@@ -1,9 +1,14 @@
-# From https://github.com/mc-imperial/dredd-compiler-testing/blob/main/dredd_test_runners/common/mutation_tree.py
+# Adapted from:
+# https://github.com/mc-imperial/dredd-compiler-testing/blob/main/dredd_test_runners/common/mutation_tree.py
 import functools
+import sys
+import os
 
 from typing import List
-from google.protobuf.json_format import MessageToJson
+from google.protobuf.json_format import MessageToDict
 
+sys.path.insert(0, f'{os.environ["DREDD_EVAL"]}/third_party/dredd/build/src/libdredd/protobufs/')
+import dredd_pb2
 
 
 def get_mutation_ids_for_mutation_group(mutation_group):
@@ -29,7 +34,7 @@ class MutationTreeNode:
 
 
 class MutationTree:
-    def __init__(self, binary_data):
+    def __init__(self, json_data):
 
         def populate(json_node, node_id):
             children = []
