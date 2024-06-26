@@ -34,8 +34,9 @@ def main():
         if file.startswith(os.path.abspath(args.base_dir)) and file.endswith(tuple(args.extensions)):
             files.append(file)
 
-    for ignore_file in args.ignore:
-        files.remove(os.path.abspath(ignore_file))
+    if args.ignore:
+        for ignore_file in args.ignore:
+            files.remove(os.path.abspath(ignore_file))
 
     print(*files)
 
