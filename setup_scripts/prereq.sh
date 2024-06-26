@@ -10,4 +10,7 @@ sudo apt-get install -y lld-16 llvm-16 llvm-16-dev clang-16 || sudo apt-get inst
 
 sudo apt-get install -y gcc-$(gcc --version|head -n1|sed 's/\..*//'|sed 's/.* //')-plugin-dev libstdc++-$(gcc --version|head -n1|sed 's/\..*//'|sed 's/.* //')-dev
 
-pip install -r "$DREDD_EVAL"/requirements.txt
+python3 -m venv "$DREDD_EVAL"/venv
+source "$DREDD_EVAL"/venv/bin/activate
+python3 -m pip install -r "$DREDD_EVAL"/requirements.txt
+

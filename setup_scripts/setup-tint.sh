@@ -35,7 +35,7 @@ pushd "$DREDD_EVAL"/Evaluation
 
     # Build tint to track coverage with gcov
     pushd tint-gcov/out/Debug
-      "$AFL_COV"/afl-cov-build.sh "$DREDD_EVAL"/setup_scripts/compile-tint.sh
+      "$AFL_COV"/afl-cov-build.sh -c "$DREDD_EVAL"/setup_scripts/compile-tint.sh
     popd  # tint-gcov/out/Debug
 
     # Build tint to track mutation coverage with Dredd
