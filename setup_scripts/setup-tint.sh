@@ -2,7 +2,7 @@ set -e
 set -x
 set -u
 
-mkdir -p $DREDD_EVAL/third_party
+mkdir -p "$DREDD_EVAL"/third_party
 if [ ! -d "$DREDD_EVAL/third_party/depot_tools" ]; then
   git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git "$DREDD_EVAL"/third_party/depot_tools
 fi

@@ -2,11 +2,14 @@ set -e
 set -x
 
 # Install prerequisites.
-./prereq.sh
+"$DREDD_EVAL"/setup_scripts/prereq.sh
 
 # Setup clang
 sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-16 100 --slave /usr/bin/clang++ clang++ /usr/bin/clang++-16
 sudo update-alternatives --install /usr/bin/llvm-cov llvm-cov /usr/bin/llvm-cov-16 100
+sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-16 100
+sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang-16 100
+
 
 source ~/.bashrc
 
@@ -32,5 +35,5 @@ echo "AFL_COV: $AFL_COV"
 echo "DREDD: $DREDD"
 
 # Setup test systems
-./setup.sh
+"$DREDD_EVAL"/setup_scripts/setup.sh
 
