@@ -36,7 +36,7 @@ pushd binutils
       "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
     popd
 
-    "$DREDD"/dredd --only-track-mutant-coverage -p ./objdir/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
+    "$DREDD"/dredd --only-track-mutant-coverage -p ./objdir/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json $(python3 $DREDD_EVAL/utils/get_project_source_files.py $DREDD_EVAL/evaluation_setup.yaml binutils)
 
     pushd objdir
       "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
@@ -55,7 +55,7 @@ pushd binutils
       "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
     popd
 
-    "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./objdir/compile_commands.json --mutation-info-file ../mutation_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
+    "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./objdir/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_project_source_files.py $DREDD_EVAL/evaluation_setup.yaml binutils)
 
     pushd objdir
       "$DREDD_EVAL"/setup_scripts/compile-binutils.sh

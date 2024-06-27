@@ -33,7 +33,7 @@
   executable_options: "-d @@"
 
 - project_name: "binutils"
-  source: "binutils/strings.c"
+  source: "./binutils/strings.c"
   fuzz_duration: "6h"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
