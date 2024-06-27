@@ -8,7 +8,7 @@ export CC=clang
 export CXX=clang++
 
 libCount="$DREDD_EVAL/utils/CountIf/build/libCountIf.so"
-results_dir=$DREDD_EVAL/Experiments/results/compile_time
+results_dir=${1:-"$DREDD_EVAL/Experiments/results/compile_time"}
 
 if [ ! -d "$results_dir" ]; then
   mkdir -p "$results_dir"

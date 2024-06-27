@@ -1,4 +1,4 @@
-results_dir=$DREDD_EVAL/Experiments/results/compile_time
+results_dir=${1:-"DREDD_EVAL/Experiments/results/compile_time"}
 
 pushd "$DREDD_EVAL"/Experiments
 
