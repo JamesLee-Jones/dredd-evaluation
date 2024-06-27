@@ -1,6 +1,9 @@
 import argparse
+import sys
+import os
 from pathlib import Path
 
+sys.path.insert(1, f"{os.environ['DREDD_EVAL']}")
 from evaluation_lib.evaluation_program_parser import parse_evaluation_programs_file
 
 def main():
@@ -9,15 +12,15 @@ def main():
                         help="",  # TODO(JLJ): Add help.
                         type=Path)
     parser.add_argument("project",
-                        type=Path)
+                        type=str)
     args = parser.parse_args()
 
-    projects = parse_evaluation_programs_file(args.evaluation_setup)
+    projects = parse_evaluation_programs_file(args.evaluation_setup, skip_initialization_check=True)
 
     result = []
 
     for project in projects:
-        if project.project_name == args.project:
+        if project.project_name.strip() == args.project.strip():
             result.append(project.source)
 
     print(*result)
