@@ -4,7 +4,7 @@ set -x
 
 sudo apt update
 
-sudo apt-get install -y python3-pip python3-full unzip zip cmake clang-16 ninja-build libzstd-dev m4 bear texinfo autopoint gperf lcov libmpc-dev flex build-essential python3-dev automake cmake git flex bison libglib2.0-dev libpixman-1-dev python3-setuptools cargo libgtk-3-dev jq
+sudo apt-get install -y python3-pip python3-full unzip zip cmake clang-16 ninja-build libzstd-dev m4 bear texinfo autopoint gperf lcov libmpc-dev flex build-essential python3-dev automake cmake git flex bison libglib2.0-dev libpixman-1-dev python3-setuptools cargo libgtk-3-dev spirv-tools
 
 sudo apt-get install -y lld-16 llvm-16 llvm-16-dev clang-16 || sudo apt-get install -y lld llvm llvm-dev clang
 
