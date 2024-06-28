@@ -49,4 +49,6 @@ pushd "$DREDD_EVAL"/third_party
     git clone https://github.com/JamesLee-Jones/afl-cov.git
   fi
 
+  "$DREDD_EVAL"/setup_scripts/get-input-files.sh
+
 popd  # third_party

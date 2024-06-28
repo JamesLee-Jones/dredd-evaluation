@@ -3,6 +3,7 @@ Evaluation
 results-backup
 third_party
 
+build
 __pycache__
 
 Experiments/results

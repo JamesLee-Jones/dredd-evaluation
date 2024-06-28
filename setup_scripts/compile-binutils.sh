@@ -14,5 +14,5 @@ fi
 if [ -z "$1" ]; then
   eval "$make_cmd"
 else
-  /usr/bin/time -p -o "$1" eval "$make_cmd 2>> $1"
+  { /usr/bin/time -a -p -o "$1" eval "$make_cmd"; } 2>> "$1"
 fi
