@@ -13,6 +13,7 @@ struct CountIf : PassInfoMixin<CountIf> {
   unsigned int ifCount = 0;
   
   PreservedAnalyses run(Module &M, ModuleAnalysisManager &MAM) {
+    ifCount = 0;
     for (Function &F : M) {
       for (BasicBlock &BB : F) {
         for (Instruction &I : BB) {
@@ -24,8 +25,8 @@ struct CountIf : PassInfoMixin<CountIf> {
         }
       }
     }
-    
-    errs() << M.getSourceFileName() << " contains " << ifCount << " if statements.\n";
+
+    errs() << (M.getSourceFileName().empty() ? "Unnamed module" : M.getSourceFileName()) << " contains " << ifCount << " if statements.\n";
     return PreservedAnalyses::all();
   }
 
@@ -39,7 +40,7 @@ struct CountIf : PassInfoMixin<CountIf> {
 //-----------------------------------------------------------------------------
 // New PM Registration
 //-----------------------------------------------------------------------------
-llvm::PassPluginLibraryInfo getHelloWorldPluginInfo() {
+llvm::PassPluginLibraryInfo getCountIfPluginInfo() {
   return {LLVM_PLUGIN_API_VERSION, "CountIf", LLVM_VERSION_STRING,
           [](PassBuilder &PB) {
             PB.registerOptimizerLastEPCallback(
@@ -51,6 +52,5 @@ llvm::PassPluginLibraryInfo getHelloWorldPluginInfo() {
 
 extern "C" LLVM_ATTRIBUTE_WEAK ::llvm::PassPluginLibraryInfo
 llvmGetPassPluginInfo() {
-  return getHelloWorldPluginInfo();
+  return getCountIfPluginInfo();
 }
-

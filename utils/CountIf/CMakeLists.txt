@@ -11,9 +11,9 @@ set(LT_LLVM_INSTALL_DIR "" CACHE PATH "LLVM installation directory")
 # find_package can locate it)
 list(APPEND CMAKE_PREFIX_PATH "${LT_LLVM_INSTALL_DIR}/lib/cmake/llvm/")
 
-find_package(LLVM 14 REQUIRED CONFIG)
-# if("${LLVM_VERSION_MAJOR}" VERSION_LESS 14)
-#   message(FATAL_ERROR "Found LLVM ${LLVM_VERSION_MAJOR}, but need LLVM 14 or above")
+find_package(LLVM 16 REQUIRED CONFIG)
+# if("${LLVM_VERSION_MAJOR}" VERSION_LESS 16)
+#   message(FATAL_ERROR "Found LLVM ${LLVM_VERSION_MAJOR}, but need LLVM 16 or above")
 # endif()
 
 # HelloWorld includes headers from LLVM - update the include paths accordingly
