@@ -14,3 +14,10 @@ python3 -m venv "$DREDD_EVAL"/venv
 source "$DREDD_EVAL"/venv/bin/activate
 python3 -m pip install -r "$DREDD_EVAL"/requirements.txt
 
+pushd $DREDD_EVAL/utils/CountIf
+  mkdir -p build
+  pushd build
+    cmake ..
+    make
+  popd
+popd
