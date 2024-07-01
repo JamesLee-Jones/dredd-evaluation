@@ -6,7 +6,7 @@ set -u
 results_dir=${1:-"$DREDD_EVAL/Experiments/results/compile_time"}
 
 export CC=clang
-export XX=clang
+export CXX=clang
 
 pushd "$DREDD_EVAL"/Experiments
 
