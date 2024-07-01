@@ -8,6 +8,7 @@ NUM_RUNS=3
 
 pushd "$DREDD_EVAL"/Experiments
   ./setup.sh "$results_dir"
+  ./cleanup.sh
 
   for ((i=1; i<NUM_RUNS; i++)); do
     run_results_dir="$results_dir/run$i"
