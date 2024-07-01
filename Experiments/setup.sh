@@ -51,7 +51,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
         "$DREDD_EVAL/setup_scripts/compile-tint.sh"
       popd
 
-      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c .h)
+      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c .h --ignore ./src/tint/lang/wgsl/reader/parser/parser.cc)
       # TODO(JLJ): Check it is fine to do this and no files are left over elsewhere
       rm -rf out/Debug/*
     popd

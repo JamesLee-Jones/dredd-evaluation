@@ -1,7 +1,7 @@
 #!/bin/bash
 set -u
 set -x
-set -d
+set -e
 
 results_dir=${1:-"$DREDD_EVAL/Experiments/results/"}
 NUM_RUNS=3
