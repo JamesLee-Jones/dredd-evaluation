@@ -78,7 +78,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
         "$DREDD_EVAL/setup_scripts/compile-binutils.sh"
       popd
 
-      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file ../mutation_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
+      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./objdir/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_project_source_files.py $DREDD_EVAL/evaluation_setup.yaml binutils)
       # TODO(JLJ): Check it is fine to do this and no files are left over elsewhere
       rm -rf objdir/*
     popd
