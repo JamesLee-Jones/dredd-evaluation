@@ -65,22 +65,18 @@ for opt_level in "O0" "O1" "O2" "O3"; do
   export CFLAGS="-Wno-error -$opt_level"
   export CONFIG_FLAGS='--disable-gdb --disable-ld --disable-shared --quiet'
 
-  if [ ! -d "binutils-$opt_level" ]; then
-    cp -r "binutils" "binutils-$opt_level"
-  fi
+  cp -r "binutils" "binutils-$opt_level"
 
-  if [ ! -d "binutils-instrumented-$opt_level" ]; then
-    cp -r "binutils" "binutils-instrumented-$opt_level"
-    pushd "binutils-instrumented-$opt_level"
-      pushd objdir
-        "$DREDD_EVAL/setup_scripts/compile-binutils.sh" "$results_dir/binutils-instrumented-$opt_level.txt"
-      popd
-
-      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file ../mutation_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
-      # TODO(JLJ): Check it is fine to do this and no files are left over elsewhere
-      rm -rf objdir/*
+  cp -r "binutils" "binutils-instrumented-$opt_level"
+  pushd "binutils-instrumented-$opt_level"
+    pushd objdir
+      "$DREDD_EVAL/setup_scripts/compile-binutils.sh" "$results_dir/binutils-instrumented-$opt_level.txt"
     popd
-  fi
+
+    "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ../compile_commands.json --mutation-info-file ../mutation_info_file.json  $($DREDD_EVAL/utils/list-source-files.sh $DREDD_EVAL/test-programs binutils | sed -E 's|([^ ]+)|./\1 |g')
+    # TODO(JLJ): Check it is fine to do this and no files are left over elsewhere
+    rm -rf objdir/*
+  popd
 
   unset CFLAGS
   unset CONFIG_FLAGS

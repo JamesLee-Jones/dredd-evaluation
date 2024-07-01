@@ -14,19 +14,18 @@
 #  executable_location: "out/Debug/tint"
 #  executable_options: "@@"
 #  file_extension: ".wgsl"
-#
+
 - project_name: "binutils"
   source: "./binutils/readelf.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "10s"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/readelf"
   executable_options: "-a @@"
-  file_extension: ".elf"
 
 - project_name: "binutils"
   source: "./binutils/objdump.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "10s"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/objdump"
@@ -34,7 +33,7 @@
 
 - project_name: "binutils"
   source: "./binutils/strings.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "10s"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/strings"
@@ -42,7 +41,7 @@
 
 - project_name: "binutils"
   source: "binutils/nm.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "10s"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/nm-new"
@@ -50,14 +49,14 @@
 
 - project_name: "binutils"
   source: "binutils/cxxfilt.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "10s"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/cxxfilt"
 
 - project_name: "binutils"
   source: "binutils/size.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "10s"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/size"

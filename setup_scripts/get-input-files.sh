@@ -12,7 +12,7 @@ cwd=$(pwd)
 
 mkdir -p "$cwd/wgsl-tests"
 find "$cwd/dawn/test/tint" -type f -name "*.wgsl" -exec cp {} "$cwd/wgsl-tests/" \;
-rm -rf "$cwd"/wgsl-tests/*.expected.wgsl
+rm -rf "$cwd"/wgsl-tests/*.*.wgsl
 
 mkdir -p "$cwd/spirv-tests/assembly"
 mkdir -p "$cwd/spirv-tests/binary"

@@ -11,8 +11,14 @@ else
   make_cmd="bear -- make -j $(nproc) CFLAGS=\"$CFLAGS\""
 fi
 
+TIME=${TIME:-"OFF"}
+
 if [ -z "$1" ]; then
   eval "$make_cmd"
 else
-  { /usr/bin/time -a -p -o "$1" eval "$make_cmd"; } 2>> "$1"
+    if [ "$TIME" == "ON" ]; then
+    /usr/bin/time -a -p -o "$1" eval "$make_cmd"
+  else
+    eval "$make_cmd >> $1"
+  fi
 fi
