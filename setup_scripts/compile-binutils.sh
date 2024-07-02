@@ -17,8 +17,8 @@ if [ -z "$1" ]; then
   eval "$make_cmd"
 else
     if [ "$TIME" == "ON" ]; then
-    /usr/bin/time -a -p -o "$1" eval "$make_cmd"
+    /usr/bin/time -a -p -o "$1" bash -c "$make_cmd"
   else
-    eval "$make_cmd >> $1"
+    bash -c "$make_cmd >> $1 2>&1"
   fi
 fi
