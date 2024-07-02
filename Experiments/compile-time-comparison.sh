@@ -33,7 +33,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
 done
 
 for opt_level in "O0" "O1" "O2" "O3"; do
-  export CXX_FLAGS="-Wno-c++20-extensions -fbracket-depth=1024 -$opt_level -fpass-plugin=$libCount"
+  export CXX_FLAGS="-Wno-c++20-extensions -fbracket-depth=1024 -$opt_level"
 
   pushd "tint-$opt_level"/out/Debug
     TIME=ON "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-$opt_level.txt"
@@ -48,7 +48,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
 done
 
 for opt_level in "O0" "O1" "O2" "O3"; do
-  export CFLAGS="-Wno-error -$opt_level -fpass-plugin=$libCount"
+  export CFLAGS="-Wno-error -$opt_level"
   export CONFIG_FLAGS='--disable-gdb --disable-ld --disable-shared --quiet'
 
   pushd "binutils-$opt_level"/objdir

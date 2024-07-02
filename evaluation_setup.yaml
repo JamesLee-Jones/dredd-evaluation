@@ -4,7 +4,7 @@
   input_dir: "spirv-tools/single-testcase"
   output_dir: "results"
   executable_location: "build/tools/spirv-opt"
-  executable_options: '@@ -o "-"'
+  executable_options: '-O @@ -o "-"'
 
 #- project_name: "tint"
 #  source: "./src/tint/"
