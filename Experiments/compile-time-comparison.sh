@@ -8,7 +8,7 @@ export CC=clang
 export CXX=clang++
 
 libCount="$DREDD_EVAL/utils/CountIf/build/libCountIf.so"
-results_dir=${1:-"$DREDD_EVAL/Experiments/results/compile_time"}
+results_dir="${1:-"$DREDD_EVAL/Experiments/results"}/compile_time"
 
 if [ ! -d "$results_dir" ]; then
   mkdir -p "$results_dir"
@@ -52,7 +52,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
   export CONFIG_FLAGS='--disable-gdb --disable-ld --disable-shared --quiet'
 
   pushd "binutils-$opt_level"/objdir
-    TIME=ON "$DREDD_EVAL/setup_scripts/compile-binutils.sh"
+    TIME=ON "$DREDD_EVAL/setup_scripts/compile-binutils.sh" "$results_dir/binutils-$opt_level.txt"
   popd
 
   pushd "binutils-instrumented-$opt_level"/objdir

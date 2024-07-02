@@ -26,7 +26,7 @@ struct CountIf : PassInfoMixin<CountIf> {
       }
     }
 
-    errs() << (M.getSourceFileName().empty() ? "Unnamed module" : M.getSourceFileName()) << ": " << ifCount << " if statements.\n";
+    errs() << "[ifCount] " <<(M.getSourceFileName().empty() ? "Unnamed module" : M.getSourceFileName()) << ": " << ifCount << " if statements.\n";
     return PreservedAnalyses::all();
   }
 

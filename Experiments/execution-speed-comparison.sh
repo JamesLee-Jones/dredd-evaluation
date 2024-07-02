@@ -4,7 +4,7 @@ set -e
 set -u
 set -x
 
-results_dir=${1:-"$DREDD_EVAL/Experiments/results/execution_speed"}
+results_dir="${1:-"$DREDD_EVAL/Experiments/results"}/execution_speed"
 if [ ! -d "$results_dir" ]; then
   mkdir -p "$results_dir"
 fi
