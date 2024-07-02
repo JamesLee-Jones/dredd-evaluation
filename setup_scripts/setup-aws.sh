@@ -1,23 +1,23 @@
 set -e
 set -x
 
-source ~/.bashrc
-
 if [ -z "${DREDD_EVAL}" ]; then
   echo "export DREDD_EVAL=$(pwd)" >> ~/.bashrc
+  export DREDD_EVAL="$(pwd)"
 fi
 
 if [ -z "${AFL_COV}" ]; then
-  echo "export AFL_COV=\$DREDD_EVAL/third_party/afl-cov" >> ~/.bashrc
+  afl_cov="$DREDD_EVAL/third_party/afl-cov"
+  echo "export AFL_COV=$afl_cov" >> ~/.bashrc
   echo "export PATH=\$PATH:\$AFL_COV" >> ~/.bashrc
+  export AFL_COV="$afl_cov"
+  export PATH=$PATH:$AFL_COV
 fi
 
 if [ -z "${DREDD}" ]; then
-  echo "export DREDD=\$DREDD_EVAL/third_party/dredd/third_party/clang+llvm/bin" >> ~/.bashrc
-fi
-
-if [[ -z "${DREDD_EVAL}" || -z "${AFL_COV}" || -z "${DREDD}" ]]; then
-  source ~/.bashrc
+  dredd="$DREDD_EVAL/third_party/dredd/third_party/clang+llvm/bin"
+  echo "export DREDD=$dredd" >> ~/.bashrc
+  export DREDD=$DREDD
 fi
 
 echo "DREDD_EVAL: $DREDD_EVAL"
