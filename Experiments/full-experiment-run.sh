@@ -11,8 +11,8 @@ pushd "$DREDD_EVAL"/Experiments
   ./cleanup.sh
 
   # These are deterministic so only do once to save time.
-  ./if-count-comparison.sh "$run_results_dir"
-  ./binary-size-comparison.sh "$run_results_dir"
+  ./if-count-comparison.sh "$results_dir"
+  ./binary-size-comparison.sh "$results_dir"
   ./cleanup.sh
 
   for ((i=1; i<NUM_RUNS; i++)); do
