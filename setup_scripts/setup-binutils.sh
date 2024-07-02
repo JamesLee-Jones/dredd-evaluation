@@ -4,7 +4,7 @@ set -e
 set -u
 set -x
 
-export CFLAGS='-Wno-error'
+export CFLAGS='-O3 -Wno-error'
 export CONFIG_FLAGS='--disable-gdb --disable-ld --disable-shared --quiet'
 
 pushd "$DREDD_EVAL"/Evaluation

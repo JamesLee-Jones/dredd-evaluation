@@ -9,7 +9,7 @@ fi
 
 export PATH=$DREDD_EVAL/third_party/depot_tools:$PATH
 
-export CXX_FLAGS="-Wno-c++20-extensions -fbracket-depth=1024"
+export CXX_FLAGS="-O3 -Wno-c++20-extensions -fbracket-depth=1024"
 
 pushd "$DREDD_EVAL"/Evaluation
   mkdir -p tint
