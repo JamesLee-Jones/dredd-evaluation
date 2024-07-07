@@ -15,7 +15,7 @@ pushd "$DREDD_EVAL"/Experiments
   ./binary-size-comparison.sh "$results_dir"
   ./cleanup.sh
 
-  for ((i=1; i<NUM_RUNS; i++)); do
+  for ((i=1; i<=NUM_RUNS; i++)); do
     run_results_dir="$results_dir/run$i"
     ./compile-time-comparison.sh "$run_results_dir"
 
