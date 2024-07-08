@@ -1,5 +1,5 @@
 ./binutils-O0/objdir/binutils/readelf: 1470568 bytes
-./binutils-O0/objdir/binutils/objdump: 3725568 bytes
+./binutils-O0/objdir/binutils/objdump: 3729704 bytes
 ./binutils-O0/objdir/binutils/strings: 1988040 bytes
 ./binutils-O0/objdir/binutils/nm-new: 2004176 bytes
 ./binutils-O0/objdir/binutils/cxxfilt: 1978328 bytes

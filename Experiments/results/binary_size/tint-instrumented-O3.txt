@@ -1,1 +1,1 @@
-./tint-instrumented-O3/out/Debug/tint: 265610112 bytes
+./tint-instrumented-O3/out/Debug/tint: 265955560 bytes

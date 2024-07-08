@@ -1,1 +1,1 @@
-./spirv-tools-O1/build/tools/spirv-opt: 60337168 bytes
+./spirv-tools-O1/build/tools/spirv-opt: 60339280 bytes

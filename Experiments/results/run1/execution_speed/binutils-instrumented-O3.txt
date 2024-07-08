@@ -1,24 +1,24 @@
-readelf: 
-real 21.57
-user 3.69
-sys 4.96
+readelf:
+real 16.17
+user 2.85
+sys 4.27
 objdump: 
-real 601.71
-user 179.89
-sys 168.54
+real 445.96
+user 145.94
+sys 143.87
 strings: 
-real 377.01
-user 265.57
-sys 44.52
+real 318.86
+user 231.78
+sys 40.90
 nm: 
-real 96.35
-user 12.80
-sys 11.01
+real 75.27
+user 9.58
+sys 7.96
 size: 
-real 0.03
-user 0.01
-sys 0.02
+real 0.02
+user 0.00
+sys 0.01
 cxxfilt: 
-real 58.40
-user 17.12
-sys 17.84
+real 46.56
+user 13.26
+sys 14.84

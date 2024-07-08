@@ -22,3 +22,27 @@ cxxfilt:
 real 75.77
 user 17.69
 sys 22.56
+readelf: 
+real 25.68
+user 3.19
+sys 4.92
+objdump: 
+real 616.92
+user 146.38
+sys 174.15
+strings: 
+real 222.97
+user 51.14
+sys 39.67
+nm: 
+real 97.04
+user 14.04
+sys 10.66
+size: 
+real 0.02
+user 0.00
+sys 0.01
+cxxfilt: 
+real 57.73
+user 15.10
+sys 17.62
