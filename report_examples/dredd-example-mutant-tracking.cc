@@ -15,14 +15,16 @@ static void __dredd_record_covered_mutants(int local_mutation_id, int num_mutati
   }
 }
 
+#define MUTATION_RETURN(arg) arg
+#define MUTATION_PRELUDE(arg) if (!__dredd_some_mutation_enabled) return arg
 static int __dredd_replace_expr_int(int arg, int local_mutation_id) {
   __dredd_record_covered_mutants(local_mutation_id, 6);
-  return arg;
+  return MUTATION_RETURN(arg);
 }
 
 static int __dredd_replace_binary_operator_Add_arg1_int_arg2_int(int arg1, int arg2, int local_mutation_id) {
   __dredd_record_covered_mutants(local_mutation_id, 6);
-  return arg1 + arg2;
+  return MUTATION_RETURN(arg1 + arg2);
 }
 
 int main() {

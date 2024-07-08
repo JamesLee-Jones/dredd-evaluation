@@ -22,4 +22,10 @@ $DREDD/dredd short-circuit-c.c --mutation-info-file test.json --no-mutation-opts
 cp test.cc dredd-example-mutant-tracking.cc
 $DREDD/dredd dredd-example-mutant-tracking.cc --mutation-info-file test.json --no-mutation-opts --only-track-mutant-coverage
 
+clang -S -emit-llvm control-flow-graph.cc -O0 -Xclang -disable-O0-optnone -o control-flow-graph.ll
+opt -passes=dot-cfg -disable-output control-flow-graph.ll
+dot -Tpdf -ocontrol-flow-graph.pdf .main.dot
+
 rm test.json
+rm .*
+rm *.ll
