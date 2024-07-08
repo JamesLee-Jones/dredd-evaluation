@@ -16,9 +16,6 @@ def main():
                         help="The directory to use as the root for all evaluation. This directory should contain all "
                              "of the executables and source files listed in in the `evaluation_program` file.",
                         type=Path)
-    parser.add_argument("--threads",
-                        default=1,
-                        type=int)
     args = parser.parse_args()
 
     evaluation_programs_file = os.path.abspath(args.evaluation_programs)

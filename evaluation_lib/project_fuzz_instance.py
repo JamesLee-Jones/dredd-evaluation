@@ -33,9 +33,9 @@ class ProjectFuzzInstance(ProjectInstance):
         tests = []
         output_dir: Path = self.get_output_dir()
         for folder in os.listdir(output_dir):
-            fuzzer_output_dir = output_dir / folder
+            fuzzer_output_dir = os.path.abspath(output_dir / folder / "queue")
             if folder.startswith("Fuzzer"):
-                tests += os.listdir(os.path.join(fuzzer_output_dir, "queue"))
+                tests += [f for f in os.listdir(fuzzer_output_dir) if os.path.isfile(str(fuzzer_output_dir)+'/'+f)]
 
         tests.sort()
         return tests
