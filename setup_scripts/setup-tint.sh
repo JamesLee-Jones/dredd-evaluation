@@ -28,7 +28,6 @@ pushd "$DREDD_EVAL"/Evaluation
       cp -r tint tint-instrumented
     fi
 
-
     if [ ! -d "tint-mutant-tracking" ]; then
       cp -r tint tint-mutant-tracking
     fi
@@ -45,7 +44,7 @@ pushd "$DREDD_EVAL"/Evaluation
         "$DREDD_EVAL"/setup_scripts/compile-tint.sh
       popd  # out/Debug
 
-      "$DREDD"/dredd --only-track-mutant-coverage -p ./out/Debug/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json $(python3 "$DREDD_EVAL"/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c .h --ignore ./src/tint/lang/wgsl/reader/parser/parser.cc)
+      "$DREDD"/dredd --only-track-mutant-coverage -p ./out/Debug/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json $(python3 "$DREDD_EVAL"/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c .h)
 
       pushd out/Debug
         "$DREDD_EVAL"/setup_scripts/compile-tint.sh
@@ -68,7 +67,7 @@ pushd "$DREDD_EVAL"/Evaluation
       popd  # out/Debug
 
       # TODO: Update this to use a flag in Dredd.
-      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c .h --ignore ./src/tint/lang/wgsl/reader/parser/parser.cc)
+      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./out/Debug/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_compile_command_files.py --ignore-tests ./out/Debug/compile_commands.json ./src .cc .c .h)
 
       pushd out/Debug
         "$DREDD_EVAL"/setup_scripts/compile-tint.sh
