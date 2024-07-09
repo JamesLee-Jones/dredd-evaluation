@@ -45,6 +45,7 @@ class ProjectFuzzInstance(ProjectInstance):
 
         for i in range(num_processes):
             fuzz_command = self.get_fuzz_command(f"Fuzzer{i}", i > 0)
+            print(fuzz_command)
             process = subprocess.Popen(fuzz_command, shell=True)
             processes.append(process)
 

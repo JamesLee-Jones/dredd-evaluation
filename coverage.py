@@ -26,8 +26,8 @@ def main():
 
     # Do this first to trigger setup checks.
     for project in projects:
-        # project.add_coverage_instance(ProjectGcovInstance)
-        project.add_coverage_instance(ProjectMutantCoverageInstance)
+        project.add_coverage_instance(ProjectGcovInstance)
+        # project.add_coverage_instance(ProjectMutantCoverageInstance)
 
     for project in projects:
         project.calculate_coverage()

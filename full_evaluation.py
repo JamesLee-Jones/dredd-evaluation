@@ -29,11 +29,11 @@ def main():
     # Do this first to trigger setup checks.
     for project in projects:
         project.add_coverage_instance(ProjectGcovInstance)
-        project.add_coverage_instance(ProjectMutantCoverageInstance)
+        # project.add_coverage_instance(ProjectMutantCoverageInstance)
 
     for project in projects:
         project.fuzz(args.threads)
-        project.calculate_coverage()
+        project.calculate_coverage(hide_output=False)
 
         # TODO(JLJ): Add data summarization step
 

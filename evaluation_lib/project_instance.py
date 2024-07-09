@@ -16,9 +16,9 @@ class ProjectInstance(ABC):
     def get_instance_location(self) -> Path:
         return Path(f"{self.project.project_name}/{self.instance_name}")
 
-    def get_execution_command(self, filename: Optional[str] = None) -> List[str]:
+    def get_execution_command(self, filename: Optional[str] = None) -> str:
         result = self.project.get_execution_command(filename)
-        result[0] = "./" + str(self.get_instance_location()) + result[0]
+        result = "./" + str(self.get_instance_location()) + '/' + result
         return result
 
     @abstractmethod

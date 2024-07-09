@@ -31,13 +31,13 @@ class ProcessResult:
         self.stderr: bytes = stderr
 
 
-def run_process_with_timeout(cmd: List[str],
+def run_process_with_timeout(cmd: str,
                              timeout_seconds: int = 60,
                              env: Optional[Dict[AnyStr, AnyStr]] = None,
                              cwd: Path = None) -> Optional[ProcessResult]:
     process = None
     try:
-        process = subprocess.Popen(cmd,
+        process = subprocess.Popen(cmd.split(),
                                    start_new_session=True,
                                    stdout=subprocess.PIPE,
                                    stderr=subprocess.PIPE,

@@ -19,16 +19,18 @@ class Project:
     fuzz_instances: List[project_fuzz_instance.ProjectFuzzInstance] = field(default_factory=list)
     coverage_instances: List[project_coverage_instance.ProjectCoverageInstance] = field(default_factory=list)
 
-    def get_execution_command(self, command_input: Optional[str] = None) -> List[str]:
-        result = [str(self.executable_location)]
+    def get_execution_command(self, command_input: Optional[str] = None) -> str:
+        result = str(self.executable_location)
         if self.executable_options:
             options = self.executable_options
             if "@@" in self.executable_options and command_input:
                 options = self.executable_options.replace("@@", command_input)
 
-            result += options.split()
+            result += " " + options
         elif command_input:
-            result.append(command_input)
+            result += " " + command_input
+
+        result = result.replace('"', r'\"')
 
         return result
 
