@@ -19,7 +19,7 @@ class ProjectFuzzInstance(ProjectInstance):
 
     def get_fuzz_command(self, fuzzer_name: str, hide_output: bool = False):
         command = f"timeout {self.project.fuzz_duration} afl-fuzz -i {self.project.input_dir} -o {self.get_output_dir()}"
-        if self.project.file_extension is not None:
+        if self.project.file_extension:
             command += f" -e {self.project.file_extension}"
 
         command += f" -M {fuzzer_name} -- {self.get_execution_command()}"

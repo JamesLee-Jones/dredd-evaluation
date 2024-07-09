@@ -40,8 +40,8 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
             if 'executable_options' in project_setup:
                 project.executable_options = project_setup['executable_options']
 
-            if 'file_extension' in projects_setup:
-                project.file_extension = projects_setup.file_extension
+            if 'file_extension' in project_setup:
+                project.file_extension = project_setup['file_extension']
 
             project.add_fuzz_instance(project.project_name, skip_initialization_check)
             project.add_fuzz_instance(f"{project.project_name}-instrumented", skip_initialization_check)
