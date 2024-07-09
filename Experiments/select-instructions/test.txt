@@ -1,2 +1,0 @@
-[0;36mafl-llvm-lto++4.10c[0m by Marc "vanHauser" Heuse <mh@mh-sec.de>
-[1;92m[+] [0mInstrumented 2 locations (0 selects) without collisions (0 collisions have been avoided) (non-hardened mode).[0m

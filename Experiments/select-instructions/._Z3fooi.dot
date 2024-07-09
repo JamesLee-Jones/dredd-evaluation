@@ -1,5 +1,0 @@
-digraph "CFG for '_Z3fooi' function" {
-	label="CFG for '_Z3fooi' function";
-
-	Node0x57246858a610 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = alloca i32, align 4\l  store volatile i32 %0, i32* %2, align 4, !tbaa !5\l  %3 = load volatile i32, i32* %2, align 4, !tbaa !5\l  %4 = icmp slt i32 %3, 1\l  %5 = select i1 %4, i32 2, i32 1\l  ret i32 %5\l}"];
-}

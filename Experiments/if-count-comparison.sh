@@ -17,8 +17,8 @@ fi
 pushd "$DREDD_EVAL"/Experiments
 
 for opt_level in "O0" "O1" "O2" "O3"; do
-  export CXX_FLAGS="-Wno-error=c++20-extensions -Wno-error=undef -Wno-error=unused-parameter -Wno-error=tautological-constant-out-of-range-compare -Wno-error=sign-compare -Wno-error=unused-variable -$opt_level -fpass-plugin=$libCount"
-  export CC_FLAGS=$CXX_FLAGS
+  export CXXFLAGS="-Wno-error=c++20-extensions -Wno-error=undef -Wno-error=unused-parameter -Wno-error=tautological-constant-out-of-range-compare -Wno-error=sign-compare -Wno-error=unused-variable -$opt_level -fpass-plugin=$libCount"
+  export CCFLAGS=$CXXFLAGS
 
   pushd "spirv-tools-$opt_level"/build
     "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-$opt_level.txt"
@@ -28,12 +28,12 @@ for opt_level in "O0" "O1" "O2" "O3"; do
       "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-instrumented-$opt_level.txt"
   popd
 
-  unset CXX_FLAGS
-  unset CC_FLAGS
+  unset CXXFLAGS
+  unset CCFLAGS
 done
 
 for opt_level in "O0" "O1" "O2" "O3"; do
-  export CXX_FLAGS="-Wno-c++20-extensions -fbracket-depth=1024 -$opt_level -fpass-plugin=$libCount"
+  export CXXFLAGS="-Wno-c++20-extensions -fbracket-depth=1024 -$opt_level -fpass-plugin=$libCount"
 
   pushd "tint-$opt_level"/out/Debug
     "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-$opt_level.txt"
@@ -44,7 +44,7 @@ for opt_level in "O0" "O1" "O2" "O3"; do
     "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-instrumented-$opt_level.txt"
   popd
 
-  unset CXX_FLAGS
+  unset CXXFLAGS
 done
 
 for opt_level in "O0" "O1" "O2" "O3"; do

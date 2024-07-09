@@ -114,7 +114,7 @@ def main():
         \\hline
         \\multicolumn{2}{|c|}{} & \\multicolumn{8}{c|}{tint}\\\\
         \\cline{3-10}
-        \\multicolumn{2}{|c|}{} & \\multicolumn{2}{c|}{O0} & \\multicolumn{2}{|c|}{O1} & \\multicolumn{2}{c|}{O2} & \\multicolumn{2}{c|}{O3}\\\\
+        \\multicolumn{2}{|c|}{} & \\multicolumn{2}{c|}{O0} & \\multicolumn{2}{c|}{O1} & \\multicolumn{2}{c|}{O2} & \\multicolumn{2}{c|}{O3}\\\\
         \\cline{3-10}
         \\multicolumn{2}{|c|}{} & base & Dredd & base & Dredd & base & Dredd & base & Dredd \\\\
         \\hline""")
