@@ -16,7 +16,7 @@ cd "$DREDD_EVAL"/Evaluation
 "$DREDD_EVAL"/setup_scripts/setup-tint.sh
 
 # Setup spirv-tools for evaluation
-"$DREDD_EVAL"/setup_scripts/setup-tint.sh
+"$DREDD_EVAL"/setup_scripts/setup-spirv-tools.sh
 
 # Setup binutils for evaluation
 "$DREDD_EVAL"/setup_scripts/setup-binutils.sh

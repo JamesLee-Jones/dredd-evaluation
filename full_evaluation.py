@@ -24,15 +24,15 @@ def main():
     # TODO(JLJ): Remove the need for this.
     os.chdir(args.evaluation_dir)
 
-    projects = parse_evaluation_programs_file(evaluation_programs_file)
+    evaluation_setup = parse_evaluation_programs_file(evaluation_programs_file)
 
     # Do this first to trigger setup checks.
-    for project in projects:
+    for project in evaluation_setup.projects:
         project.add_coverage_instance(ProjectGcovInstance)
         # project.add_coverage_instance(ProjectMutantCoverageInstance)
 
-    for project in projects:
-        project.fuzz(args.threads)
+    for project in evaluation_setup.projects:
+        project.fuzz(sanitizers=evaluation_setup.sanitizers, threads=evaluation_setup.processes)
         project.calculate_coverage(hide_output=False)
 
         # TODO(JLJ): Add data summarization step
