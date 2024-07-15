@@ -12,24 +12,20 @@ def main():
     parser.add_argument("evaluation_programs",
                         help="",  # TODO(JLJ): Add help.
                         type=Path)
-    parser.add_argument("evaluation_dir",
-                        help="The directory to use as the root for all evaluation. This directory should contain all "
-                             "of the executables and source files listed in in the `evaluation_program` file.",
-                        type=Path)
     args = parser.parse_args()
 
     evaluation_programs_file = os.path.abspath(args.evaluation_programs)
     # TODO(JLJ): Remove the need for this.
-    os.chdir(args.evaluation_dir)
 
     evaluation_setup = parse_evaluation_programs_file(evaluation_programs_file)
+    os.chdir(evaluation_setup.evaluation_dir)
 
     # Do this first to trigger setup checks.
     for project in evaluation_setup.projects:
         project.add_coverage_instance(ProjectGcovInstance)
         # project.add_coverage_instance(ProjectMutantCoverageInstance)
 
-    for project in projects:
+    for project in evaluation_setup.projects:
         project.calculate_coverage()
 
 
