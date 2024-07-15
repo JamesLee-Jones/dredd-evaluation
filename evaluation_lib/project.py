@@ -7,7 +7,6 @@ from typing import Optional, List
 
 @dataclass
 class Project:
-    # TODO(JLJ): Move this class
     project_name: str
     source: Path
     fuzz_duration: str
@@ -42,10 +41,10 @@ class Project:
     def add_coverage_instance(self, coverage_class):
         self.coverage_instances.append(coverage_class(self))
 
-    def fuzz(self, threads: int = 1):
+    def fuzz(self, sanitizers: bool = True, threads: int = 7):
         assert len(self.fuzz_instances) == 2
         for fuzz_instance in self.fuzz_instances:
-            fuzz_instance.fuzz(threads)
+            fuzz_instance.fuzz(sanitizers=sanitizers, num_processes=threads)
 
     def calculate_coverage(self, hide_output: bool = True):
         for coverage_instance in self.coverage_instances:

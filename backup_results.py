@@ -20,7 +20,7 @@ def main():
                         type=Path)
     args = parser.parse_args()
 
-    programs = parse_evaluation_programs_file(args.evaluation_programs)
+    evaluation_setup = parse_evaluation_programs_file(args.evaluation_programs)
 
     evaluation_dir = os.path.join(os.getcwd(), args.evaluation_dir)
     backup_dir = os.path.join(os.getcwd(), args.backup_dir)
@@ -28,7 +28,7 @@ def main():
     if not os.path.isdir(backup_dir):
         os.mkdir(backup_dir)
 
-    for program, _ in programs:
+    for program, _ in evaluation_setup.projects:
         result_dir = os.path.join(evaluation_dir, program['output_dir'])
 
         # Copy the base results

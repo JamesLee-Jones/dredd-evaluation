@@ -25,6 +25,7 @@ pushd binutils
 
     # Compile with coverage
     pushd binutils-gcov/objdir
+      rm -rf ./*
       "$AFL_COV"/afl-cov-build.sh -c "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
     popd  # binutils-gcov/objdir
   fi
@@ -35,6 +36,7 @@ pushd binutils
     # Compile with coverage
     pushd binutils-mutant-tracking
       pushd objdir
+        rm -rf ./*
         "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
       popd
 
@@ -54,6 +56,7 @@ pushd binutils
 
     pushd binutils-instrumented
       pushd objdir
+        rm -rf ./*
         "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
       popd
 

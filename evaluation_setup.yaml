@@ -1,3 +1,8 @@
+processes: 7
+evaluation_dir: ./Evaluation
+sanitizers: true
+
+projects:
 - project_name: "spirv-tools"
   source: "./source/opt/"
   fuzz_duration: "24h"

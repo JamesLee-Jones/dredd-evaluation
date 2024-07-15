@@ -22,10 +22,10 @@ def main():
     # TODO(JLJ): Remove the need for this.
     os.chdir(args.evaluation_dir)
 
-    projects = parse_evaluation_programs_file(evaluation_programs_file)
+    evaluation_setup = parse_evaluation_programs_file(evaluation_programs_file)
 
     # Do this first to trigger setup checks.
-    for project in projects:
+    for project in evaluation_setup.projects:
         project.add_coverage_instance(ProjectGcovInstance)
         # project.add_coverage_instance(ProjectMutantCoverageInstance)
 

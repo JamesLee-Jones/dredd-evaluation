@@ -29,6 +29,7 @@ pushd "$DREDD_EVAL"/Evaluation
       cp -r tint tint-gcov
       # Build tint to track coverage with gcov
       pushd tint-gcov/out/Debug
+        rm -rf ./*
         "$AFL_COV"/afl-cov-build.sh -c "$DREDD_EVAL"/setup_scripts/compile-tint.sh
       popd  # tint-gcov/out/Debug
     fi
@@ -40,6 +41,7 @@ pushd "$DREDD_EVAL"/Evaluation
       pushd tint-mutant-tracking
         # Build to get compile_commands.json
         pushd out/Debug
+          rm -rf ./*
           "$DREDD_EVAL"/setup_scripts/compile-tint.sh
         popd  # out/Debug
 
@@ -60,6 +62,7 @@ pushd "$DREDD_EVAL"/Evaluation
       pushd tint-instrumented
         # Build to get compile_commands.json
         pushd out/Debug
+          rm -rf ./*
           "$DREDD_EVAL"/setup_scripts/compile-tint.sh
         popd  # out/Debug
 

@@ -23,6 +23,7 @@ pushd "$DREDD_EVAL"/Evaluation
 
       # Build spirv-opt to track coverage with gcov
       pushd spirv-tools-gcov/build
+        rm -rf ./*
         "$AFL_COV"/afl-cov-build.sh -c "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
       popd  # spirv-tools-gcov/build
     fi
@@ -34,6 +35,7 @@ pushd "$DREDD_EVAL"/Evaluation
       pushd spirv-tools-mutant-tracking
         # Build to get compile_commands.json
         pushd build
+          rm -rf ./*
           "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
         popd  # build
 
@@ -53,6 +55,7 @@ pushd "$DREDD_EVAL"/Evaluation
       # Build spirv-opt instrumented with Dredd for fuzzing with AFL
       pushd spirv-tools-instrumented
         pushd build
+          rm -rf ./*
           "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
         popd  # build
 

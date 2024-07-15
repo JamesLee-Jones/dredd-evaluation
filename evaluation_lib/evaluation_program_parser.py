@@ -3,17 +3,27 @@ import yaml
 from pathlib import Path
 from typing import List
 
+from evaluation_lib.evaluation_setup import EvaluationSetup
 from evaluation_lib.project import Project
 
 
-def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool = False) -> List[Project]:
+def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool = False) -> EvaluationSetup:
     # TODO(JLJ): Add doc string.
-    result = []
+    result = EvaluationSetup()
 
     with open(path) as yaml_file:
-        projects_setup = yaml.safe_load(yaml_file)
+        setup = yaml.safe_load(yaml_file)
 
-        for project_setup in projects_setup:
+        if setup['processes']:
+            result.processes = setup['processes']
+
+        if setup['evaluation_dir']:
+            result.processes = setup['evaluation_dir']
+
+        if setup['sanitizers']:
+            result.processes = setup['sanitizers']
+
+        for project_setup in setup['projects']:
 
             # TODO(JLJ): Check yaml contains required params
             if (not ('project_name' in project_setup) or
@@ -46,6 +56,6 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
             project.add_fuzz_instance(project.project_name, skip_initialization_check)
             project.add_fuzz_instance(f"{project.project_name}-instrumented", skip_initialization_check)
 
-            result.append(project)
+            result.projects.append(project)
 
     return result

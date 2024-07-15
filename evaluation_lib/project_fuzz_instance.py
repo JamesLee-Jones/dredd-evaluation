@@ -2,7 +2,7 @@ import glob
 import subprocess
 import os
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
 from evaluation_lib.project_instance import ProjectInstance
 
@@ -17,12 +17,20 @@ class ProjectFuzzInstance(ProjectInstance):
     def get_output_dir(self) -> Path:
         return self.project.output_dir / self.instance_name
 
-    def get_fuzz_command(self, fuzzer_name: str, hide_output: bool = False):
+    def get_execution_command(self, sanitizers: bool, filename: Optional[str] = None) -> str:
+        if not sanitizers:
+            return super().get_execution_command(filename)
+
+        return f"./{self.project.project_name}/{self.instance_name}-sanitizers/" + self.project.get_execution_command(
+            filename)
+
+    def get_fuzz_command(self, fuzzer_name: str, sanitizers: bool, hide_output: bool = False):
         command = f"timeout {self.project.fuzz_duration} afl-fuzz -i {self.project.input_dir} -o {self.get_output_dir()}"
         if self.project.file_extension:
             command += f" -e {self.project.file_extension}"
 
-        command += f" -M {fuzzer_name} -- {self.get_execution_command()}"
+        command += f" -M {fuzzer_name} -- "
+        command += f"{self.get_execution_command(sanitizers)}"
 
         if hide_output:
             command += " > /dev/null 2>&1"
@@ -35,16 +43,16 @@ class ProjectFuzzInstance(ProjectInstance):
         for folder in os.listdir(output_dir):
             fuzzer_output_dir = os.path.abspath(output_dir / folder / "queue")
             if folder.startswith("Fuzzer"):
-                tests += [f for f in os.listdir(fuzzer_output_dir) if os.path.isfile(str(fuzzer_output_dir)+'/'+f)]
+                tests += [f for f in os.listdir(fuzzer_output_dir) if os.path.isfile(str(fuzzer_output_dir) + '/' + f)]
 
         tests.sort()
         return tests
 
-    def fuzz(self, num_processes: int = 1):
+    def fuzz(self, sanitizers: bool = True, num_processes: int = 7):
         processes = []
 
         for i in range(num_processes):
-            fuzz_command = self.get_fuzz_command(f"Fuzzer{i}", i > 0)
+            fuzz_command = self.get_fuzz_command(f"Fuzzer{i}", sanitizers=(sanitizers and i == 1), hide_output=(i > 0))
             print(fuzz_command)
             process = subprocess.Popen(fuzz_command, shell=True)
             processes.append(process)

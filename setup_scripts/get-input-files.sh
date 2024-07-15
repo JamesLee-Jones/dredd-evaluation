@@ -10,18 +10,22 @@ fi
 
 cwd=$(pwd)
 
-mkdir -p "$cwd/wgsl-tests"
-find "$cwd/dawn/test/tint" -type f -name "*.wgsl" -exec cp {} "$cwd/wgsl-tests/" \;
-rm -rf "$cwd"/wgsl-tests/*.*.wgsl
+if [ ! -d "$cwd/wgsl-tests" ]; then
+  mkdir -p "$cwd/wgsl-tests"
+  find "$cwd/dawn/test/tint" -type f -name "*.wgsl" -exec cp {} "$cwd/wgsl-tests/" \;
+  rm -rf "$cwd"/wgsl-tests/*.*.wgsl
+fi
 
-mkdir -p "$cwd/spirv-tests/assembly"
-mkdir -p "$cwd/spirv-tests/binary"
-find "$cwd/dawn/test/tint" -type f -name "*.spvasm" -exec cp {} "$cwd/spirv-tests/assembly/" \;
-rm -rf "$cwd"/spirv-tests/assembly/*.*.spvasm
+if [ ! -d "$cwd/spirv-tests" ]; then
+  mkdir -p "$cwd/spirv-tests/assembly"
+  mkdir -p "$cwd/spirv-tests/binary"
+  find "$cwd/dawn/test/tint" -type f -name "*.spvasm" -exec cp {} "$cwd/spirv-tests/assembly/" \;
+  rm -rf "$cwd"/spirv-tests/assembly/*.*.spvasm
 
-for assembly_file in "$cwd"/spirv-tests/assembly/*; do
-  spirv-as -o "$cwd/spirv-tests/binary/$(basename "${assembly_file%.*}.spv")" "$assembly_file"
-done
+  for assembly_file in "$cwd"/spirv-tests/assembly/*; do
+    spirv-as -o "$cwd/spirv-tests/binary/$(basename "${assembly_file%.*}.spv")" "$assembly_file"
+  done
+fi
 
 rm -rf "$cwd/dawn$"
 
