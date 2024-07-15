@@ -24,12 +24,15 @@ class ProjectFuzzInstance(ProjectInstance):
         return f"./{self.project.project_name}/{self.instance_name}-sanitizers/" + self.project.get_execution_command(
             filename)
 
-    def get_fuzz_command(self, fuzzer_name: str, sanitizers: bool, hide_output: bool = False):
-        command = f"timeout {self.project.fuzz_duration} afl-fuzz -i {self.project.input_dir} -o {self.get_output_dir()}"
+    def get_fuzz_command(self, fuzzer_number: int, sanitizers: bool, hide_output: bool = False):
+        command = f"{'AFL_FINAL_SYNC=1 ' if fuzzer_number == 0 else ''}timeout {self.project.fuzz_duration}"
+
+        command += f" afl-fuzz -i {self.project.input_dir} -o {self.get_output_dir()}"
+
         if self.project.file_extension:
             command += f" -e {self.project.file_extension}"
 
-        command += f" -M {fuzzer_name} -- "
+        command += f" -{'M' if fuzzer_number == 0 else 'S'} Fuzzer{fuzzer_number} -- "
         command += f"{self.get_execution_command(sanitizers)}"
 
         if hide_output:
@@ -52,7 +55,7 @@ class ProjectFuzzInstance(ProjectInstance):
         processes = []
 
         for i in range(num_processes):
-            fuzz_command = self.get_fuzz_command(f"Fuzzer{i}", sanitizers=(sanitizers and i == 1), hide_output=(i > 0))
+            fuzz_command = self.get_fuzz_command(fuzzer_number=i, sanitizers=(sanitizers and i == 1), hide_output=(i > 0))
             print(fuzz_command)
             process = subprocess.Popen(fuzz_command, shell=True)
             processes.append(process)
