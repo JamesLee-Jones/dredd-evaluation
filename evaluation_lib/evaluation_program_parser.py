@@ -1,3 +1,4 @@
+import os
 import re
 import yaml
 from pathlib import Path
@@ -18,10 +19,11 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
             result.processes = setup['processes']
 
         if setup['evaluation_dir']:
-            result.processes = setup['evaluation_dir']
+            result.evaluation_dir = setup['evaluation_dir']
+            os.chdir(result.evaluation_dir)
 
         if setup['sanitizers']:
-            result.processes = setup['sanitizers']
+            result.sanitizers = setup['sanitizers']
 
         for project_setup in setup['projects']:
 

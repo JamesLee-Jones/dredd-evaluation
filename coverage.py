@@ -18,7 +18,6 @@ def main():
     # TODO(JLJ): Remove the need for this.
 
     evaluation_setup = parse_evaluation_programs_file(evaluation_programs_file)
-    os.chdir(evaluation_setup.evaluation_dir)
 
     # Do this first to trigger setup checks.
     for project in evaluation_setup.projects:

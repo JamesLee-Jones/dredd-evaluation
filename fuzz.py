@@ -16,8 +16,6 @@ def main():
     # TODO(JLJ): Remove the need for this.
 
     evaluation_setup = parse_evaluation_programs_file(evaluation_programs_file)
-    os.chdir(evaluation_setup.evaluation_dir)
-
 
     for project in evaluation_setup.projects:
         project.fuzz(sanitizers=evaluation_setup.sanitizers, threads=evaluation_setup.processes)
