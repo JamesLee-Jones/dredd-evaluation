@@ -13,54 +13,86 @@ pushd binutils
   mkdir -p single-testcase
   echo ' ' > single-testcase/root.txt
 
-  "$DREDD_EVAL"/setup_scripts/get-binutils.sh
+  if [ ! -d "./binutils" ]; then
+    "$DREDD_EVAL"/setup_scripts/get-binutils.sh
+  fi
+
+  export CC=clang
+  export CXX=clang++
 
   if [ ! -d "./binutils-gcov" ]; then
     cp -r ./binutils ./binutils-gcov
-  fi
-  if [ ! -d "./binutils-instrumented" ]; then
-    cp -r ./binutils ./binutils-instrumented
-  fi
-  if [ ! -d "./binutils-mutant-tracking" ]; then
-    cp -r ./binutils ./binutils-mutant-tracking
-  fi
-
-  # Compile with coverage
-  pushd binutils-gcov/objdir
-	  "$AFL_COV"/afl-cov-build.sh -c "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
-  popd  # binutils-gcov/objdir
 
     # Compile with coverage
-  pushd binutils-mutant-tracking
-    pushd objdir
-      "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
-    popd
+    pushd binutils-gcov/objdir
+      "$AFL_COV"/afl-cov-build.sh -c "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
+    popd  # binutils-gcov/objdir
+  fi
 
-    "$DREDD"/dredd --only-track-mutant-coverage -p ./objdir/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json $(python3 $DREDD_EVAL/utils/get_project_source_files.py $DREDD_EVAL/evaluation_setup.yaml binutils)
+  if [ ! -d "./binutils-mutant-tracking" ]; then
+    cp -r ./binutils ./binutils-mutant-tracking
 
-    pushd objdir
-      "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
-    popd  # objdir
-  popd  # binutils-mutant-tracking
+    # Compile with coverage
+    pushd binutils-mutant-tracking
+      pushd objdir
+        "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
+      popd
+
+      "$DREDD"/dredd --only-track-mutant-coverage -p ./objdir/compile_commands.json --mutation-info-file ../mutant_tracking_info_file.json $(python3 $DREDD_EVAL/utils/get_project_source_files.py $DREDD_EVAL/evaluation_setup.yaml binutils)
+
+      pushd objdir
+        "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
+      popd  # objdir
+    popd  # binutils-mutant-tracking
+  fi
+
 
   source "$DREDD_EVAL"/utils/set-afl-build-vars.sh
+
+  if [ ! -d "./binutils-instrumented" ]; then
+    cp -r ./binutils ./binutils-instrumented
+
+    pushd binutils-instrumented
+      pushd objdir
+        "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
+      popd
+
+      "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./objdir/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_project_source_files.py $DREDD_EVAL/evaluation_setup.yaml binutils)
+
+      pushd objdir
+        "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
+      popd  # objdir
+    popd  # binutils-instrumented
+  fi
 
   # Compile the base version for fuzzing
   pushd binutils/objdir
     "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
   popd
 
-  pushd binutils-instrumented
-    pushd objdir
+
+  export AFL_USE_UBSAN=1
+  export AFL_USE_ASAN=1
+
+  if [ ! -d "./binutils-sanitizers" ]; then
+    cp -r ./binutils ./binutils-sanitizers
+
+    # Compile the base version for fuzzing
+    pushd binutils-sanitizers/objdir
+      rm -rf ./*
       "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
     popd
+  fi
 
-    "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./objdir/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_project_source_files.py $DREDD_EVAL/evaluation_setup.yaml binutils)
 
-    pushd objdir
+  if [ ! -d "./binutils-instrumented-sanitizers" ]; then
+    cp -r ./binutils-instrumented ./binutils-instrumented-sanitizers
+
+    pushd binutils-instrumented-sanitizers/objdir
+      rm -rf ./*
       "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
-    popd  # objdir
-  popd  # binutils-instrumented
+    popd  # binutils-instrumented-sanitizers/objdir
+  fi
 
 popd  # binutils
 popd  # $DREDD_EVAL/Evaluation
