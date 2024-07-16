@@ -1,0 +1,1 @@
+The fuzz targets in this directory are taken from https://github.com/google/oss-fuzz/tree/master/projects/binutils.
