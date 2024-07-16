@@ -38,7 +38,7 @@ def main():
         for ignore_file in args.ignore:
             files.remove(os.path.abspath(ignore_file))
 
-    print(*files)
+    print(*set(files))
 
 
 if __name__ == "__main__":
