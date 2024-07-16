@@ -10,14 +10,14 @@ fi
 
 TIME=${TIME:-"OFF"}
 
-cmake -GNinja -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_EXPORT_COMPILE_COMMANDS=$COMPILE_COMMANDS ..
+cmake -GNinja -DSPIRV_BUILD_FUZZER=ON -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_EXPORT_COMPILE_COMMANDS=$COMPILE_COMMANDS ..
 
 if [ -z "$1" ]; then
   ninja spirv-opt
 else
   if [ "$TIME" == "ON" ]; then
-    /usr/bin/time -a -p -o "$1" ninja spirv-opt
+    /usr/bin/time -a -p -o "$1" ninja
   else
-    ninja spirv-opt >> "$1"
+    ninja >> "$1"
   fi
 fi
