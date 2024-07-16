@@ -12,8 +12,6 @@ export PATH=$PATH:$depot_tools_dir
 if [ ! -d "$location" ]; then
   git clone https://dawn.googlesource.com/tint "$location"
   pushd "$location"
-    git apply "$DREDD_EVAL"/setup_scripts/tint.patch
-
     if [ ! -e ".gclient" ]; then
       # Bootstrap the gclient configuration
       cp standalone.gclient .gclient

@@ -5,7 +5,7 @@ set -u
 set -x
 
 export CFLAGS='-O3 -Wno-error'
-export CONFIG_FLAGS='--disable-gdb --disable-ld --disable-shared --quiet'
+export CONFIG_FLAGS='--disable-gdb --disable-gdb-server --disable-gdbsupport --disable-libdecnumber --disable-readline --disable-sim --disable-libbacktrace --disable-gas --disable-ld --disable-shared --quiet --enable-targets=all'
 
 pushd "$DREDD_EVAL"/Evaluation
 mkdir -p binutils
