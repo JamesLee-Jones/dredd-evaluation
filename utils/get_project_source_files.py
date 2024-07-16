@@ -15,15 +15,15 @@ def main():
                         type=str)
     args = parser.parse_args()
 
-    projects = parse_evaluation_programs_file(args.evaluation_setup, skip_initialization_check=True)
+    evaluation_setup = parse_evaluation_programs_file(args.evaluation_setup, skip_initialization_check=True)
 
     result = []
 
-    for project in projects:
+    for project in evaluation_setup.projects:
         if project.project_name.strip() == args.project.strip():
             result.append(project.source)
 
-    print(*result)
+    print(*set(result))
 
 
 if __name__ == '__main__':
