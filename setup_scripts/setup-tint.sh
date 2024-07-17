@@ -80,7 +80,6 @@ pushd "$DREDD_EVAL"/Evaluation
       "$DREDD_EVAL"/setup_scripts/compile-tint.sh
     popd  # tint/out/Debug
 
-    export AFL_USE_UBSAN=1
     export AFL_USE_ASAN=1
 
     if [ ! -d "tint-sanitizers" ]; then

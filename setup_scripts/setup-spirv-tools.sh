@@ -73,7 +73,6 @@ pushd "$DREDD_EVAL"/Evaluation
     popd  # spirv-tools/build
 
 
-    export AFL_USE_UBSAN=1
     export AFL_USE_ASAN=1
 
     if [ ! -d "spirv-tools-sanitizers" ]; then
