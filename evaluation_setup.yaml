@@ -8,7 +8,7 @@ projects:
   fuzz_duration: "24h"
   input_dir: "spirv-tools/single-testcase"
   output_dir: "results"
-  executable_location: "build/test/spvtools_opt_performance_fuzzer"
+  executable_location: "build/test/fuzzers/spvtools_opt_performance_fuzzer"
 
 - project_name: "tint"
   source: "./src/tint/"
@@ -48,20 +48,3 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/strings"
   executable_options: "@@"
-
-- project_name: "binutils"
-  source: "binutils/size.c"
-  fuzz_duration: "3h"
-  input_dir: "binutils/single-testcase"
-  output_dir: "results/binutils"
-  executable_location: "objdir/binutils/size"
-  executable_options: "@@"
-
-- project_name: "binutils"
-  source: "binutils/cxxfilt.c"
-  fuzz_duration: "3h"
-  input_dir: "binutils/single-testcase"
-  output_dir: "results/binutils"
-  executable_location: "objdir/binutils/cxxfilt"
-
-
