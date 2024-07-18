@@ -5,21 +5,21 @@ sanitizers: true
 projects:
 - project_name: "spirv-tools"
   source: "./source/opt/"
-  fuzz_duration: "24h"
+  fuzz_duration: "12h"
   input_dir: "spirv-tools/single-testcase"
   output_dir: "results"
   executable_location: "build/test/fuzzers/spvtools_opt_performance_fuzzer"
 
 - project_name: "tint"
   source: "./src/tint/"
-  fuzz_duration: "24h"
+  fuzz_duration: "12h"
   input_dir: "tint/single-testcase"
   output_dir: "results"
   executable_location: "out/Debug/tint_wgsl_fuzzer"
 
 - project_name: "binutils"
   source: "./binutils/readelf.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "3h"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/readelf"
@@ -27,7 +27,7 @@ projects:
 
 - project_name: "binutils"
   source: "./binutils/objdump.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "3h"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/objdump"
@@ -35,7 +35,7 @@ projects:
 
 - project_name: "binutils"
   source: "binutils/nm.c"
-  fuzz_duration: "6h"
+  fuzz_duration: "3h"
   input_dir: "binutils/single-testcase"
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/nm-new"
