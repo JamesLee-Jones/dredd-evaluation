@@ -9,6 +9,8 @@ projects:
   input_dir: "spirv-tools/single-testcase"
   output_dir: "results"
   executable_location: "build/test/fuzzers/spvtools_opt_performance_fuzzer"
+  coverage_executable_location: "build/tools/spirv-opt"
+  coverage_executable_options: '-O @@ -o -'
 
 - project_name: "tint"
   source: "./src/tint/"
@@ -16,6 +18,8 @@ projects:
   input_dir: "tint/single-testcase"
   output_dir: "results"
   executable_location: "out/Debug/tint_wgsl_fuzzer"
+  coverage_executable_location: "out/Debug/tint"
+  coverage_executable_options: '@@'
 
 - project_name: "binutils"
   source: "./binutils/readelf.c"

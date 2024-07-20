@@ -42,15 +42,23 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
                 raise Exception(f"The duration '{project_setup['fuzz_duration']}' is not correctly formatted. "
                                 f"It must be digits followed by an h (hour), m (minute) or s (second) specifier.")
 
+            coverage_executable_location = project_setup['coverage_executable_location'] if 'coverage_executable_location' in project_setup else project_setup['executable_location']
+            coverage_executable_options = project_setup['coverage_executable_options'] if 'coverage_executable_location' in project_setup else project_setup['executable_location']
             project = Project(project_setup['project_name'],
                               project_setup['source'],
                               project_setup['fuzz_duration'],
                               Path(project_setup['input_dir']),
                               Path(project_setup['output_dir']),
-                              Path(project_setup['executable_location']))
+                              Path(project_setup['executable_location']),
+                              Path(coverage_executable_location))
+
+            if 'coverage_executable_options' in project_setup:
+                project.coverage_executable_options = project_setup['coverage_executable_options']
 
             if 'executable_options' in project_setup:
                 project.executable_options = project_setup['executable_options']
+                if not project.coverage_executable_options:
+                    project.coverage_executable_options = project.executable_options
 
             if 'file_extension' in project_setup:
                 project.file_extension = project_setup['file_extension']

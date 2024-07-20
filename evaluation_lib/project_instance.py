@@ -6,6 +6,11 @@ if TYPE_CHECKING:
     from evaluation_lib.project import Project
 
 
+def change_execution_command_location(command: str, location: Path) -> str:
+    result = "./" + str(location) + '/' + command
+    return result
+
+
 class ProjectInstance(ABC):
     def __init__(self, instance_name: str, project: 'Project', skip_initialization_check: bool = False) -> None:
         self.instance_name: str = instance_name
@@ -17,9 +22,12 @@ class ProjectInstance(ABC):
         return Path(f"{self.project.project_name}/{self.instance_name}")
 
     def get_execution_command(self, filename: Optional[str] = None) -> str:
-        result = self.project.get_execution_command(filename)
-        result = "./" + str(self.get_instance_location()) + '/' + result
-        return result
+        return change_execution_command_location(self.project.get_execution_command(filename),
+                                                 self.get_instance_location())
+
+    def get_coverage_execution_command(self, filename: Optional[str] = None) -> str:
+        return change_execution_command_location(self.project.get_coverage_execution_command(filename),
+                                                 self.get_instance_location())
 
     @abstractmethod
     def check_setup(self):

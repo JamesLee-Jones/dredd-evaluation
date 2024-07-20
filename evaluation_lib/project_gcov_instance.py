@@ -35,7 +35,7 @@ class ProjectGcovInstance(ProjectCoverageInstance):
         for project_fuzz_instance in self.project.fuzz_instances:
             command = (f"afl-cov --clang --cover-corpus "
                        f"-d {project_fuzz_instance.get_output_dir()} "
-                       f"--coverage-cmd \"{self.get_execution_command()}\" "
+                       f"--coverage-cmd \"{self.get_coverage_execution_command()}\" "
                        f"--code-dir \"{self.get_instance_location()}\"")
 
             if hide_output:
