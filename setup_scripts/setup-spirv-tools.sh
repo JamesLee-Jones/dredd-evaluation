@@ -2,7 +2,7 @@ set -e
 set -x
 set -u
 
-export CXXFLAGS="-O3 -Wno-error=c++20-extensions -Wno-error=undef -Wno-error=unused-parameter -Wno-error=tautological-constant-out-of-range-compare -Wno-error=sign-compare -Wno-error=unused-variable"
+export CXXFLAGS="-O3 -Wno-error=c++20-extensions -Wno-error=undef -Wno-error=unused-parameter -Wno-error=tautological-constant-out-of-range-compare -Wno-error=sign-compare -Wno-error=unused-variable -Wno-error=bool-operation -Wno-error=float-conversion"
 
 pushd "$DREDD_EVAL"/Evaluation
   mkdir -p spirv-tools

@@ -50,6 +50,7 @@ pushd binutils
 
 
   source "$DREDD_EVAL"/utils/set-afl-build-vars.sh
+  export CFLAGS="$CFLAGS -fsanitize=fuzzer"
 
   if [ ! -d "./binutils-instrumented" ]; then
     cp -r ./binutils ./binutils-instrumented
@@ -61,6 +62,7 @@ pushd binutils
       popd
 
       "$DREDD"/dredd --semantics-preserving-coverage-instrumentation -p ./objdir/compile_commands.json --mutation-info-file ../mutation_info_file.json $(python3 $DREDD_EVAL/utils/get_project_source_files.py $DREDD_EVAL/evaluation_setup.yaml binutils)
+      git apply "$DREDD_EVAL/setup_scripts/binutils.patch"
 
       pushd objdir
         "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
@@ -70,6 +72,7 @@ pushd binutils
 
   # Compile the base version for fuzzing
   pushd binutils/objdir
+     git apply "$DREDD_EVAL/setup_scripts/binutils.patch"
     "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
   popd
 

@@ -5,10 +5,12 @@ set -x
 
 ../configure $CONFIG_FLAGS CFLAGS="$CFLAGS"
 
+NPROC=${NPROC:-"$(nproc)"}
+
 if [ -e "compile_commands.json" ]; then
-  make_cmd="make -j $(nproc) CFLAGS=\"$CFLAGS\""
+  make_cmd="make -j $(NPROC) CFLAGS=\"$CFLAGS\""
 else
-  make_cmd="bear -- make -j $(nproc) CFLAGS=\"$CFLAGS\""
+  make_cmd="bear -- make -j $(NPROC) CFLAGS=\"$CFLAGS\""
 fi
 
 TIME=${TIME:-"OFF"}

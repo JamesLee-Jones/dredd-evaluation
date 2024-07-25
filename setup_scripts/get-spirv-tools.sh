@@ -7,6 +7,7 @@ if [ ! -d "$location" ]; then
   pushd "$location"
     # Check out sources for dependencies, at versions known to work together,
     # as listed in the DEPS file.
+    git checkout v2024.3
     python3 utils/git-sync-deps
     mkdir build
   popd  # $location
