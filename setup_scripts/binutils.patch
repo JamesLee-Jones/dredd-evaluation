@@ -241,7 +241,7 @@ index 5e4ad6ea6ad..67e39da555e 100644
    int err;
  
 diff --git a/binutils/strings.c b/binutils/strings.c
-index ec02e1d5fce..41290d5308b 100644
+index ec02e1d5fce..8ca20ee6242 100644
 --- a/binutils/strings.c
 +++ b/binutils/strings.c
 @@ -196,8 +196,8 @@ set_string_min (const char * arg)
@@ -255,10 +255,12 @@ index ec02e1d5fce..41290d5308b 100644
  {
    int optc;
    int exit_status = 0;
-@@ -1361,3 +1361,24 @@ usage (FILE *stream, int status)
+@@ -1361,3 +1361,26 @@ usage (FILE *stream, int status)
      fprintf (stream, _("Report bugs to %s\n"), REPORT_BUGS_TO);
    exit (status);
  }
++
++static bool strings_object_file (const char *file);
 +
 +int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size);
 +int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
