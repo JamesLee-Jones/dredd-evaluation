@@ -11,7 +11,8 @@ namespace {
 
 struct CountIf : PassInfoMixin<CountIf> {
   unsigned int ifCount = 0;
-  
+  unsigned int selectCount = 0;
+
   PreservedAnalyses run(Module &M, ModuleAnalysisManager &MAM) {
     ifCount = 0;
     for (Function &F : M) {
@@ -22,11 +23,15 @@ struct CountIf : PassInfoMixin<CountIf> {
               ifCount++;
             }
           }
+          if (auto *Select = dyn_cast<SelectInst>(&I)) {
+            selectCount++;
+          }
         }
       }
     }
 
-    errs() << "[ifCount] " <<(M.getSourceFileName().empty() ? "Unnamed module" : M.getSourceFileName()) << ": " << ifCount << " if statements.\n";
+    errs() << "[ifCount] " <<(M.getSourceFileName().empty() ? "Unnamed module" : M.getSourceFileName()) << ":" << ifCount << "\n";
+    errs() << "[selectCount] " <<(M.getSourceFileName().empty() ? "Unnamed module" : M.getSourceFileName()) << ":" << selectCount << "\n";
     return PreservedAnalyses::all();
   }
 
