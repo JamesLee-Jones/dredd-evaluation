@@ -15,7 +15,7 @@ def main():
                         type=str)
     args = parser.parse_args()
 
-    evaluation_setup = parse_evaluation_programs_file(args.evaluation_setup, skip_initialization_check=True)
+    evaluation_setup = parse_evaluation_programs_file(args.evaluation_setup, skip_initialization_check=True, chdir=False)
 
     result = []
 

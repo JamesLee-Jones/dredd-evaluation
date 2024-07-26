@@ -8,7 +8,7 @@ from evaluation_lib.evaluation_setup import EvaluationSetup
 from evaluation_lib.project import Project
 
 
-def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool = False) -> EvaluationSetup:
+def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool = False, chdir: bool = True) -> EvaluationSetup:
     # TODO(JLJ): Add doc string.
     result = EvaluationSetup()
 
@@ -20,7 +20,8 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
 
         if setup['evaluation_dir']:
             result.evaluation_dir = setup['evaluation_dir']
-            os.chdir(result.evaluation_dir)
+            if chdir:
+                os.chdir(result.evaluation_dir)
 
         if setup['sanitizers']:
             result.sanitizers = setup['sanitizers']
