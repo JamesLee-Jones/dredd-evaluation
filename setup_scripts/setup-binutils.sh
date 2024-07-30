@@ -71,9 +71,11 @@ pushd binutils
   fi
 
   # Compile the base version for fuzzing
-  pushd binutils/objdir
-     git apply -C1 "$DREDD_EVAL/setup_scripts/binutils.patch"
-    "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
+  pushd binutils
+    git apply -C1 "$DREDD_EVAL/setup_scripts/binutils.patch"
+    pushd objdir
+      "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
+    popd
   popd
 
 
