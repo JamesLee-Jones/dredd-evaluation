@@ -29,7 +29,7 @@ class Project:
     output_dir: Path
     executable_location: Path
     coverage_executable_location: Path
-    sanitizers: bool
+    sanitizers: bool = True
     executable_options: Optional[str] = None
     coverage_executable_options: Optional[str] = None
     file_extension: Optional[str] = None

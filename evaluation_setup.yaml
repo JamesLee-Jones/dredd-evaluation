@@ -1,6 +1,5 @@
 processes: 7
 evaluation_dir: "./Evaluation"
-sanitizers: true
 
 projects:
 - project_name: "spirv-tools"

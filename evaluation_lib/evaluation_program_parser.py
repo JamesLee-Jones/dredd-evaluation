@@ -23,9 +23,6 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
             if chdir:
                 os.chdir(result.evaluation_dir)
 
-        if setup['sanitizers']:
-            result.sanitizers = setup['sanitizers']
-
         for project_setup in setup['projects']:
 
             # TODO(JLJ): Check yaml contains required params
@@ -55,8 +52,6 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
 
             if 'sanitizers' in project_setup:
                 project.sanitizers = project_setup['sanitizers']
-            else:
-                project.sanitizers = True
 
             if 'coverage_executable_options' in project_setup:
                 project.coverage_executable_options = project_setup['coverage_executable_options']

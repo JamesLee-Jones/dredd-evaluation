@@ -77,7 +77,6 @@ pushd binutils
   popd
 
 
-  export AFL_USE_UBSAN=1
   export AFL_USE_ASAN=1
 
   if [ ! -d "./binutils-sanitizers" ]; then
