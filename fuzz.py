@@ -18,7 +18,7 @@ def main():
     evaluation_setup = parse_evaluation_programs_file(evaluation_programs_file)
 
     for project in evaluation_setup.projects:
-        project.fuzz(sanitizers=evaluation_setup.sanitizers, threads=evaluation_setup.processes)
+        project.fuzz(threads=evaluation_setup.processes)
 
 
 if __name__ == "__main__":

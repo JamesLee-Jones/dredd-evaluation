@@ -53,6 +53,11 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
                               Path(project_setup['executable_location']),
                               Path(coverage_executable_location))
 
+            if 'sanitizers' in project_setup:
+                project.sanitizers = project_setup['sanitizers']
+            else:
+                project.sanitizers = True
+
             if 'coverage_executable_options' in project_setup:
                 project.coverage_executable_options = project_setup['coverage_executable_options']
 

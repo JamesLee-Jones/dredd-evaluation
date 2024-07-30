@@ -11,6 +11,7 @@ projects:
   executable_location: "build/test/fuzzers/spvtools_opt_performance_fuzzer"
   coverage_executable_location: "build/tools/spirv-opt"
   coverage_executable_options: '-O @@ -o -'
+  sanitizers: true
 
 - project_name: "tint"
   source: "./src/tint/"
@@ -20,6 +21,7 @@ projects:
   executable_location: "out/Debug/tint_wgsl_fuzzer"
   coverage_executable_location: "out/Debug/tint"
   coverage_executable_options: '@@'
+  sanitizers: true
 
 - project_name: "binutils"
   source: "./binutils/readelf.c"
@@ -28,6 +30,7 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/readelf"
   executable_options: "-a @@"
+  sanitizers: false
 
 - project_name: "binutils"
   source: "./binutils/objdump.c"
@@ -36,6 +39,7 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/objdump"
   executable_options: "-d @@"
+  sanitizers: false
 
 - project_name: "binutils"
   source: "binutils/nm.c"
@@ -44,6 +48,7 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/nm-new"
   executable_options: "-C @@"
+  sanitizers: false
 
 - project_name: "binutils"
   source: "./binutils/strings.c"
@@ -52,3 +57,4 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/strings"
   executable_options: "@@"
+  sanitizers: false

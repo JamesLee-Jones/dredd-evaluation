@@ -29,6 +29,7 @@ class Project:
     output_dir: Path
     executable_location: Path
     coverage_executable_location: Path
+    sanitizers: bool
     executable_options: Optional[str] = None
     coverage_executable_options: Optional[str] = None
     file_extension: Optional[str] = None
@@ -49,10 +50,10 @@ class Project:
     def add_coverage_instance(self, coverage_class):
         self.coverage_instances.append(coverage_class(self))
 
-    def fuzz(self, sanitizers: bool = True, threads: int = 7):
+    def fuzz(self, threads: int = 7):
         assert len(self.fuzz_instances) == 2
         for fuzz_instance in self.fuzz_instances:
-            fuzz_instance.fuzz(sanitizers=sanitizers, num_processes=threads)
+            fuzz_instance.fuzz(sanitizers=self.sanitizers, num_processes=threads)
 
     def calculate_coverage(self, hide_output: bool = True):
         for coverage_instance in self.coverage_instances:
