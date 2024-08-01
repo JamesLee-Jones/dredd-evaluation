@@ -9,15 +9,20 @@ if [ -e "compile_commands.json" ]; then
 fi
 
 TIME=${TIME:-"OFF"}
+COMPILE_FUZZER=${COMPILE_FUZZER:-"ON"}
+TARGETS="spirv-opt"
+if [ "$COMPILE_FUZZER" == "ON" ]; then
+  TARGETS="$TARGETS spvtools_opt_performance_fuzzer"
+fi
 
-cmake -GNinja -DSPIRV_BUILD_FUZZER=ON -DSPIRV_BUILD_LIBFUZZER_TARGETS=ON -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_EXPORT_COMPILE_COMMANDS=$COMPILE_COMMANDS ..
+cmake -GNinja -DSPIRV_BUILD_FUZZER="$COMPILE_FUZZER" -DSPIRV_BUILD_LIBFUZZER_TARGETS=ON -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_EXPORT_COMPILE_COMMANDS=$COMPILE_COMMANDS ..
 
 if [ -z "$1" ]; then
-  ninja spirv-opt spvtools_opt_performance_fuzzer
+  ninja $TARGETS
 else
   if [ "$TIME" == "ON" ]; then
-    /usr/bin/time -a -p -o "$1" ninja spirv-opt spvtools_opt_performance_fuzzer
+    /usr/bin/time -a -p -o "$1" ninja $TARGETS
   else
-    ninja spirv-opt spvtools_opt_performance_fuzzer >> "$1"
+    ninja $TARGETS >> "$1"
   fi
 fi

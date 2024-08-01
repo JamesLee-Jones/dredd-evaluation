@@ -21,11 +21,11 @@ for opt_level in "O0" "O1" "O2" "O3"; do
   export CCFLAGS=$CXXFLAGS
 
   pushd "spirv-tools-$opt_level"/build
-    "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-$opt_level.txt"
+    COMPILE_FUZZER=OFF "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-$opt_level.txt"
   popd
 
   pushd "spirv-tools-instrumented-$opt_level"/build
-      "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-instrumented-$opt_level.txt"
+      COMPILE_FUZZER=OFF "$DREDD_EVAL/setup_scripts/compile-spirv-tools.sh" "$results_dir/spirv-tools-instrumented-$opt_level.txt"
   popd
 
   unset CXXFLAGS
@@ -36,12 +36,12 @@ for opt_level in "O0" "O1" "O2" "O3"; do
   export CXXFLAGS="-Wno-c++20-extensions -fbracket-depth=1024 -$opt_level -fpass-plugin=$libCount"
 
   pushd "tint-$opt_level"/out/Debug
-    "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-$opt_level.txt"
+    COMPILE_FUZZER=OFF "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-$opt_level.txt"
   popd
 
 
   pushd "tint-instrumented-$opt_level"/out/Debug
-    "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-instrumented-$opt_level.txt"
+    COMPILE_FUZZER=OFF "$DREDD_EVAL/setup_scripts/compile-tint.sh" "$results_dir/tint-instrumented-$opt_level.txt"
   popd
 
   unset CXXFLAGS

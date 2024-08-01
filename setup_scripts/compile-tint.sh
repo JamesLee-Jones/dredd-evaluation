@@ -9,14 +9,19 @@ if [ -e "compile_commands.json" ]; then
 fi
 
 TIME=${TIME:-"OFF"}
+COMPILE_FUZZER=${COMPILE_FUZZER:-"ON"}
+TARGETS="tint"
+if [ "$COMPILE_FUZZER" == "ON" ]; then
+  TARGETS="$TARGETS tint_wgsl_fuzzer"
+fi
 
-cmake -GNinja -DTINT_BUILD_FUZZERS=ON -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_EXPORT_COMPILE_COMMANDS=$COMPILE_COMMANDS ../..
+cmake -GNinja -DTINT_BUILD_FUZZERS="$COMPILE_FUZZER" -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_EXPORT_COMPILE_COMMANDS=$COMPILE_COMMANDS ../..
 if [ -z "$1" ]; then
-  ninja tint tint_wgsl_fuzzer
+  ninja $TARGETS
 else
     if [ "$TIME" == "ON" ]; then
-    /usr/bin/time -a -p -o "$1" ninja tint tint_wgsl_fuzzer
+    /usr/bin/time -a -p -o "$1" ninja $TARGETS
   else
-    ninja tint tint_wgsl_fuzzer >> "$1"
+    ninja $TARGETS >> "$1"
   fi
 fi
