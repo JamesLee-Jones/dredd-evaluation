@@ -17,7 +17,7 @@ fi
 pushd "$DREDD_EVAL"/Experiments
 
 for opt_level in "O0" "O1" "O2" "O3"; do
-  export CXXFLAGS="-Wno-error=c++20-extensions -Wno-error=undef -Wno-error=unused-parameter -Wno-error=tautological-constant-out-of-range-compare -Wno-error=sign-compare -Wno-error=unused-variable -$opt_level"
+  export CXXFLAGS="-Wno-error=c++20-extensions -Wno-error=undef -Wno-error=unused-parameter -Wno-error=tautological-constant-out-of-range-compare -Wno-error=sign-compare -Wno-error=unused-variable -Wno-error=bool-operation -Wno-error=float-conversion -$opt_level"
   export CFLAGS=$CXXFLAGS
 
   pushd "spirv-tools-$opt_level"/build
