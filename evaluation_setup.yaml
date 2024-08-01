@@ -29,7 +29,7 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/readelf"
   executable_options: "-a @@"
-  sanitizers: false
+  sanitizers: true
 
 - project_name: "binutils"
   source: "./binutils/objdump.c"
@@ -38,7 +38,7 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/objdump"
   executable_options: "-d @@"
-  sanitizers: false
+  sanitizers: true
 
 - project_name: "binutils"
   source: "binutils/nm.c"
@@ -47,7 +47,7 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/nm-new"
   executable_options: "-C @@"
-  sanitizers: false
+  sanitizers: true
 
 - project_name: "binutils"
   source: "./binutils/strings.c"
@@ -56,4 +56,4 @@ projects:
   output_dir: "results/binutils"
   executable_location: "objdir/binutils/strings"
   executable_options: "@@"
-  sanitizers: false
+  sanitizers: true
