@@ -30,8 +30,9 @@ pushd "$DREDD_EVAL"/Evaluation
       # Build tint to track coverage with gcov
       pushd tint-gcov/out/Debug
         rm -rf ./*
-        COVERAGE=ON "$DREDD_EVAL"/setup_scripts/compile-tint.sh
+         CXXFLAGS="--coverage -O0" LDFLAGS="--coverage" "$DREDD_EVAL"/setup_scripts/compile-tint.sh
       popd  # tint-gcov/out/Debug
+      rm -rf tint-gcov/third_party/dxc/test/tools/llvm-cov
     fi
 
     if [ ! -d "tint-mutant-tracking" ]; then

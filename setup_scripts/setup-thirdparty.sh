@@ -48,6 +48,17 @@ pushd "$DREDD_EVAL"/third_party
     git clone https://github.com/JamesLee-Jones/afl-cov.git
   fi
 
+  if [ ! -d "lcov-1.14" ]; then
+    wget "https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.14.tar.gz"
+    tar -xzf "lcov-1.14.tar.gz"
+    rm "lcov-1.14.tar.gz"
+    pushd lcov-1.14
+      sudo make install
+    popd
+    sudo cp /usr/bin/lcov /usr/bin/lcov-2
+    sudo cp /usr/local/bin/lcov /usr/bin/lcov
+  fi
+
   "$DREDD_EVAL"/setup_scripts/get-input-files.sh
 
 popd  # third_party
