@@ -26,7 +26,7 @@ pushd binutils
     # Compile with coverage
     pushd binutils-gcov/objdir
       rm -rf ./*
-      "$AFL_COV"/afl-cov-build.sh -c "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
+      CFLAGS="--coverage -O0" LDFLAGS="--coverage" "$DREDD_EVAL"/setup_scripts/compile-binutils.sh
     popd  # binutils-gcov/objdir
   fi
 

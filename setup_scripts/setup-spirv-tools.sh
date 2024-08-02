@@ -24,7 +24,7 @@ pushd "$DREDD_EVAL"/Evaluation
       # Build spirv-opt to track coverage with gcov
       pushd spirv-tools-gcov/build
         rm -rf ./*
-        "$AFL_COV"/afl-cov-build.sh -c "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
+        CXXFLAGS="--coverage -O0" LDFLAGS="--coverage" "$DREDD_EVAL"/setup_scripts/compile-spirv-tools.sh
       popd  # spirv-tools-gcov/build
     fi
 
