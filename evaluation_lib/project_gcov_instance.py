@@ -34,6 +34,7 @@ class ProjectGcovInstance(ProjectCoverageInstance):
     def calculate_coverage(self, hide_output: bool = True):
         for project_fuzz_instance in self.project.fuzz_instances:
             command = (f"afl-cov --clang --cover-corpus "
+                       f"--enable-branch-coverage "
                        f"-d {project_fuzz_instance.get_output_dir()} "
                        f"--coverage-cmd \"{self.get_coverage_execution_command()}\" "
                        f"--code-dir \"{self.get_instance_location()}\"")
