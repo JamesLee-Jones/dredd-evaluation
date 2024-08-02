@@ -56,7 +56,11 @@ pushd "$DREDD_EVAL"/third_party
       sudo make install
     popd
     sudo cp /usr/bin/lcov /usr/bin/lcov-2
+    sudo cp /usr/bin/geninfo /usr/bin/geninfo-2
+    sudo cp /usr/bin/genhtml /usr/bin/genhtml-2
     sudo cp /usr/local/bin/lcov /usr/bin/lcov
+    sudo cp /usr/local/bin/geninfo /usr/bin/geninfo
+    sudo cp /usr/local/bin/genhtml /usr/bin/genhtml
   fi
 
   "$DREDD_EVAL"/setup_scripts/get-input-files.sh

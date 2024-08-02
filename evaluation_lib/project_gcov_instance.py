@@ -1,8 +1,20 @@
+import glob
 import os
 import subprocess
+from pathlib import Path
 
 from evaluation_lib.project import Project
 from evaluation_lib.project_coverage_instance import ProjectCoverageInstance
+
+
+def delete_coverage_files(directory: Path):
+    gcda_files = glob.glob(os.path.join(directory, '**', '*.gcda'), recursive=True)
+
+    for file_path in gcda_files:
+        try:
+            os.remove(file_path)
+        except OSError as e:
+            print(f"Error deleting {file_path}: {e}")
 
 
 class ProjectGcovInstance(ProjectCoverageInstance):
@@ -43,5 +55,6 @@ class ProjectGcovInstance(ProjectCoverageInstance):
                 command += " > /dev/null 2>&1"
 
             print(command)
+            delete_coverage_files(self.get_instance_location())
             process = subprocess.Popen(command, shell=True)
             process.wait()
