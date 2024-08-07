@@ -17,7 +17,7 @@ pushd "$DREDD_EVAL"/Evaluation
     fi
 
     if [ ! -d "input-corpus" ]; then
-      cp -r "$DREDD_EVAL/setup_scripts/spirv-input-corpus " ./input-corpus
+      cp -r "$DREDD_EVAL/setup_scripts/spirv-input-corpus" ./input-corpus
     fi
 
     export CC=clang

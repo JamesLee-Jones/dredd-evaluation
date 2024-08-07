@@ -82,7 +82,7 @@ pushd "$DREDD_EVAL"/Evaluation
     popd  # tint/out/Debug
 
     if [ ! -d "input-corpus" ]; then
-      cp -r "$DREDD_EVAL/setup_scripts/tint-input-corpus " ./input-corpus
+      cp -r "$DREDD_EVAL/setup_scripts/tint-input-corpus" ./input-corpus
     fi
 
 
