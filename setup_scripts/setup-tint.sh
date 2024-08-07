@@ -82,10 +82,7 @@ pushd "$DREDD_EVAL"/Evaluation
     popd  # tint/out/Debug
 
     if [ ! -d "input-corpus" ]; then
-      cp -r "$DREDD_EVAL/third_party/wgsl-tests" ./input-corpus-unminimized
-      mkdir input-corpus
-      afl-cmin -i ./input-corpus-unminimized -o ./input-corpus -- ./tint/out/Debug/tint_wgsl_fuzzer @@
-      rm -r ./input-corpus-unminimized
+      cp -r "$DREDD_EVAL/setup_scripts/tint-input-corpus " ./input-corpus
     fi
 
 

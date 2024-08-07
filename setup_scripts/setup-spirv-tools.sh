@@ -17,11 +17,7 @@ pushd "$DREDD_EVAL"/Evaluation
     fi
 
     if [ ! -d "input-corpus" ]; then
-      cp -r ./spirv-tools/test/fuzzers/corpora/spv ./input-corpus-unminimized
-      cp "$DREDD_EVAL"/third_party/spirv-tests/binary/* ./input-corpus-unminimized
-      mkdir input-corpus
-      afl-cmin -i ./input-corpus-unminimized -o ./input-corpus -- ./spirv-tools/build/test/fuzzers/spvtools_opt_performance_fuzzer @@
-      rm -r ./input-corpus-unminimized
+      cp -r "$DREDD_EVAL/setup_scripts/spirv-input-corpus " ./input-corpus
     fi
 
     export CC=clang
