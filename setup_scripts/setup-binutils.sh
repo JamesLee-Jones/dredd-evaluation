@@ -13,6 +13,13 @@ pushd binutils
   mkdir -p single-testcase
   echo ' ' > single-testcase/root.txt
 
+  if [ ! -d "input-corpus" ]; then
+    cp "$DREDD_EVAL"/third_party/binary-samples/oss-fuzz-binutils/general_seeds.zip ./input-corpus.zip
+    mkdir input-corpus
+    unzip ./input-corpus.zip -d input-corpus
+    rm ./input-corpus.zip
+  fi
+
   if [ ! -d "./binutils" ]; then
     "$DREDD_EVAL"/setup_scripts/get-binutils.sh
   fi

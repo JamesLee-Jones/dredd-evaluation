@@ -11,8 +11,13 @@ pushd "$DREDD_EVAL"/Evaluation
     mkdir -p single-testcase
     echo " " > single-testcase/test
 
+
     if [ ! -d "./spirv-tools" ]; then
       "$DREDD_EVAL"/setup_scripts/get-spirv-tools.sh
+    fi
+
+    if [ ! -d "input-corpus" ]; then
+      cp -r ./spirv-tools/test/fuzzers/corpa/spv ./input-corpus
     fi
 
     export CC=clang

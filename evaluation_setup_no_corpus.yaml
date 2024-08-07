@@ -6,7 +6,7 @@ projects:
   source: "./source/opt/"
   fuzz_duration: "12h"
   input_dir: "spirv-tools/single-testcase"
-  output_dir: "results"
+  output_dir: "results/no-corpus"
   executable_location: "build/test/fuzzers/spvtools_opt_performance_fuzzer"
   coverage_executable_location: "build/tools/spirv-opt"
   coverage_executable_options: '-O @@ -o -'
@@ -16,7 +16,7 @@ projects:
   source: "./src/tint/"
   fuzz_duration: "12h"
   input_dir: "tint/single-testcase"
-  output_dir: "results"
+  output_dir: "results/no-corpus"
   executable_location: "out/Debug/tint_wgsl_fuzzer"
   coverage_executable_location: "out/Debug/tint"
   coverage_executable_options: '@@'
@@ -26,7 +26,7 @@ projects:
   source: "./binutils/readelf.c"
   fuzz_duration: "3h"
   input_dir: "binutils/single-testcase"
-  output_dir: "results/readelf"
+  output_dir: "results/no-corpus/readelf"
   executable_location: "objdir/binutils/readelf"
   executable_options: "-a @@"
   sanitizers: true
@@ -35,7 +35,7 @@ projects:
   source: "./binutils/objdump.c"
   fuzz_duration: "3h"
   input_dir: "binutils/single-testcase"
-  output_dir: "results/objdump"
+  output_dir: "results/no-corpus/objdump"
   executable_location: "objdir/binutils/objdump"
   executable_options: "-d @@"
   sanitizers: true
@@ -44,7 +44,7 @@ projects:
   source: "binutils/nm.c"
   fuzz_duration: "3h"
   input_dir: "binutils/single-testcase"
-  output_dir: "results/nm"
+  output_dir: "results/no-corpus/nm"
   executable_location: "objdir/binutils/nm-new"
   executable_options: "-C @@"
   sanitizers: true
@@ -53,7 +53,7 @@ projects:
   source: "./binutils/strings.c"
   fuzz_duration: "3h"
   input_dir: "binutils/single-testcase"
-  output_dir: "results/strings"
+  output_dir: "results/no-corpus/strings"
   executable_location: "objdir/binutils/strings"
   executable_options: "@@"
   sanitizers: true

@@ -48,6 +48,10 @@ pushd "$DREDD_EVAL"/third_party
     git clone https://github.com/JamesLee-Jones/afl-cov.git
   fi
 
+  if [ ! -d "binary-samples" ]; then
+    git clone --depth=1 https://github.com/DavidKorczynski/binary-samples binary-samples
+  fi
+
   if [ ! -d "lcov-1.14" ]; then
     wget "https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.14.tar.gz"
     tar -xzf "lcov-1.14.tar.gz"

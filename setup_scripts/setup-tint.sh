@@ -81,6 +81,14 @@ pushd "$DREDD_EVAL"/Evaluation
       "$DREDD_EVAL"/setup_scripts/compile-tint.sh
     popd  # tint/out/Debug
 
+    if [ ! -d "input-corpus" ]; then
+      cp -r "$DREDD_EVAL/third_party/wgsl-tests" ./input-corpus-unminimized
+      mkdir input-corpus
+      afl-cmin -i ./input-corpus-unminimized -o ./input-corpus -- ./tint/out/Debug/tint_wgsl_fuzzer @@
+      rm -r ./input-corpus-unminimized
+    fi
+
+
     export AFL_USE_ASAN=1
 
     if [ ! -d "tint-sanitizers" ]; then
