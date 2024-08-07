@@ -17,7 +17,7 @@ pushd "$DREDD_EVAL"/Evaluation
     fi
 
     if [ ! -d "input-corpus" ]; then
-      cp -r ./spirv-tools/test/fuzzers/corpa/spv ./input-corpus
+      cp -r ./spirv-tools/test/fuzzers/corpora/spv ./input-corpus
     fi
 
     export CC=clang
