@@ -36,7 +36,8 @@ class ProjectFuzzInstance(ProjectInstance):
         if self.project.file_extension:
             command += f"-e {self.project.file_extension} "
         if self.project.fuzz_execs:
-            command += f"-E {self.project.fuzz_execs} "
+            # ASAN introduces ~2x slowdown so half the number of execs.
+            command += f"-E {self.project.fuzz_execs if not sanitizers else int(self.project.fuzz_execs/2)} "
 
         command += f"-{'M' if fuzzer_number == 0 else 'S'} Fuzzer{fuzzer_number} -- "
         command += f"{self.get_execution_command(sanitizers)}"
