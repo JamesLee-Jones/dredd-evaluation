@@ -28,17 +28,13 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
             # TODO(JLJ): Check yaml contains required params
             if (not ('project_name' in project_setup) or
                     not ('source' in project_setup) or
-                    not ('fuzz_duration' in project_setup ^ 'fuzz_execs' in project_setup) or
+                    not (('fuzz_duration' in project_setup) ^ ('fuzz_execs' in project_setup)) or
                     not ('input_dir' in project_setup) or
                     not ('output_dir' in project_setup) or
                     not ('executable_location' in project_setup)):
                 raise ValueError("The input yaml file is invalid. It must contain 'project_name', 'source', "
                                  "'fuzz_duration' or 'fuzz_execs', 'input_dir', 'output_dir', 'executable_location'")
 
-            # Check duration is of the correct form.
-            if not re.fullmatch(r'^\d+[hms]$', project_setup['fuzz_duration']):
-                raise Exception(f"The duration '{project_setup['fuzz_duration']}' is not correctly formatted. "
-                                f"It must be digits followed by an h (hour), m (minute) or s (second) specifier.")
 
             coverage_executable_location = project_setup['coverage_executable_location'] if 'coverage_executable_location' in project_setup else project_setup['executable_location']
             project = Project(project_setup['project_name'],
@@ -49,6 +45,11 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
                               Path(coverage_executable_location))
 
             if 'fuzz_duration' in project_setup:
+                # Check duration is of the correct form.
+                if not re.fullmatch(r'^\d+[hms]$', project_setup['fuzz_duration']):
+                    raise Exception(f"The duration '{project_setup['fuzz_duration']}' is not correctly formatted. "
+                                    f"It must be digits followed by an h (hour), m (minute) or s (second) specifier.")
+
                 project.fuzz_duration = project_setup['fuzz_duration']
             elif 'fuzz_execs' in project_setup:
                 project.fuzz_execs = project_setup['fuzz_execs']
