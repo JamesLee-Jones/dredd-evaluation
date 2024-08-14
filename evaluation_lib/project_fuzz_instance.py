@@ -25,14 +25,20 @@ class ProjectFuzzInstance(ProjectInstance):
             filename)
 
     def get_fuzz_command(self, fuzzer_number: int, sanitizers: bool, hide_output: bool = False):
-        command = f"{'AFL_FINAL_SYNC=1 ' if fuzzer_number == 0 else ''}timeout {self.project.fuzz_duration}"
+        command = ""
+        if fuzzer_number == 0:
+            command += f"AFL_FINAL_SYNC=1 "
+        if self.project.fuzz_duration:
+            command += f"timeout {self.project.fuzz_duration} "
 
-        command += f" afl-fuzz -i {self.project.input_dir} -o {self.get_output_dir()}"
+        command += f"afl-fuzz -i {self.project.input_dir} -o {self.get_output_dir()} "
 
         if self.project.file_extension:
-            command += f" -e {self.project.file_extension}"
+            command += f"-e {self.project.file_extension} "
+        if self.project.fuzz_execs:
+            command += f"-E {self.project.fuzz_execs} "
 
-        command += f" -{'M' if fuzzer_number == 0 else 'S'} Fuzzer{fuzzer_number} -- "
+        command += f"-{'M' if fuzzer_number == 0 else 'S'} Fuzzer{fuzzer_number} -- "
         command += f"{self.get_execution_command(sanitizers)}"
 
         if hide_output:

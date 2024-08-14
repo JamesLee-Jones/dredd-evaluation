@@ -24,11 +24,12 @@ def get_execution_command_helper(executable_location: Path, options: Optional[st
 class Project:
     project_name: str
     source: Path
-    fuzz_duration: str
     input_dir: Path
     output_dir: Path
     executable_location: Path
     coverage_executable_location: Path
+    fuzz_duration: Optional[str] = None
+    fuzz_execs: Optional[int] = None
     sanitizers: bool = True
     executable_options: Optional[str] = None
     coverage_executable_options: Optional[str] = None

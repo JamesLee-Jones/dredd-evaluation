@@ -1,0 +1,59 @@
+processes: 7
+evaluation_dir: "./Evaluation"
+
+projects:
+- project_name: "spirv-tools"
+  source: "./source/opt/"
+  fuzz_execs: 5000000
+  input_dir: "spirv-tools/input-corpus"
+  output_dir: "results/execs/corpus"
+  executable_location: "build/test/fuzzers/spvtools_opt_performance_fuzzer"
+  coverage_executable_location: "build/tools/spirv-opt"
+  coverage_executable_options: '-O @@ -o -'
+  sanitizers: true
+
+- project_name: "tint"
+  source: "./src/tint/"
+  fuzz_execs: 1000000
+  input_dir: "tint/input-corpus"
+  output_dir: "results/execs/corpus"
+  executable_location: "out/Debug/tint_wgsl_fuzzer"
+  coverage_executable_location: "out/Debug/tint"
+  coverage_executable_options: '@@'
+  sanitizers: true
+
+- project_name: "binutils"
+  fuzz_execs: 10000000
+  source: "./binutils/readelf.c"
+  input_dir: "binutils/input-corpus"
+  output_dir: "results/execs/corpus/readelf"
+  executable_location: "objdir/binutils/readelf"
+  executable_options: "-a @@"
+  sanitizers: true
+
+- project_name: "binutils"
+  source: "./binutils/objdump.c"
+  fuzz_execs: 2500000
+  input_dir: "binutils/input-corpus"
+  output_dir: "results/execs/corpus/objdump"
+  executable_location: "objdir/binutils/objdump"
+  executable_options: "-d @@"
+  sanitizers: true
+
+- project_name: "binutils"
+  source: "binutils/nm.c"
+  fuzz_execs: 2500000
+  input_dir: "binutils/input-corpus"
+  output_dir: "results/execs/corpus/nm"
+  executable_location: "objdir/binutils/nm-new"
+  executable_options: "-C @@"
+  sanitizers: true
+
+- project_name: "binutils"
+  source: "./binutils/strings.c"
+  fuzz_execs: 5000000
+  input_dir: "binutils/input-corpus"
+  output_dir: "results/execs/corpus/strings"
+  executable_location: "objdir/binutils/strings"
+  executable_options: "@@"
+  sanitizers: true
