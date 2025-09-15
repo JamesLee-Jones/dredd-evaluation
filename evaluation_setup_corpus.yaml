@@ -18,6 +18,7 @@ projects:
   input_dir: "tint/input-corpus"
   output_dir: "results/corpus"
   executable_location: "out/Debug/tint_wgsl_fuzzer"
+  file_extension: ".wgsl"
   coverage_executable_location: "out/Debug/tint"
   coverage_executable_options: '@@'
   sanitizers: true

@@ -83,6 +83,9 @@ pushd "$DREDD_EVAL"/Evaluation
 
     if [ ! -d "input-corpus" ]; then
       cp -r "$DREDD_EVAL/setup_scripts/tint-input-corpus" ./input-corpus
+      pushd input-corpud
+        rm 948.wgsl 949.wgsl particles.wgsl 1113.wgsl skinned-shadowed-pbr-fragment.wgsl 1121.wgsl
+      popd
     fi
 
 

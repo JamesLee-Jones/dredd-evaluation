@@ -65,7 +65,7 @@ def parse_evaluation_programs_file(path: Path, skip_initialization_check: bool =
                 if not project.coverage_executable_options:
                     project.coverage_executable_options = project.executable_options
 
-            if 'file_extension' in project_setup:
+             if 'file_extension' in project_setup:
                 project.file_extension = project_setup['file_extension']
 
             project.add_fuzz_instance(project.project_name, skip_initialization_check)

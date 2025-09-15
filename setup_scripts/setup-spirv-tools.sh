@@ -18,6 +18,9 @@ pushd "$DREDD_EVAL"/Evaluation
 
     if [ ! -d "input-corpus" ]; then
       cp -r "$DREDD_EVAL/setup_scripts/spirv-input-corpus" ./input-corpus
+      pushd input-corpus
+        rm SpvParserMemoryTest_EmitStatement_AccessChain_Struct_DifferOnlyMemberName.spv
+      popd
     fi
 
     export CC=clang

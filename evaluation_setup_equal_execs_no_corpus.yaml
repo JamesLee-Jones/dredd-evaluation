@@ -4,7 +4,7 @@ evaluation_dir: "./Evaluation"
 projects:
 - project_name: "spirv-tools"
   source: "./source/opt/"
-  fuzz_execs: 5000000
+  fuzz_execs: 300000000
   input_dir: "spirv-tools/single-testcase"
   output_dir: "results/execs/no-corpus"
   executable_location: "build/test/fuzzers/spvtools_opt_performance_fuzzer"
@@ -14,10 +14,11 @@ projects:
 
 - project_name: "tint"
   source: "./src/tint/"
-  fuzz_execs: 1000000
+  fuzz_execs: 12000000
   input_dir: "tint/single-testcase"
   output_dir: "results/execs/no-corpus"
   executable_location: "out/Debug/tint_wgsl_fuzzer"
+  file_extension: ".wgsl"
   coverage_executable_location: "out/Debug/tint"
   coverage_executable_options: '@@'
   sanitizers: true
